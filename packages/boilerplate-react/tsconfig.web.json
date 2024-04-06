@@ -1,0 +1,33 @@
+{
+  "include": [
+    "src/features/**/*",
+    "src/renderer/env.d.ts",
+    "src/renderer/**/*",
+    "src/renderer/**/*.tsx",
+    "src/preload/**/*.ts",
+    "src/renderer/_preload.d.ts"
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "skipLibCheck": true,
+    "target": "esnext",
+    "module": "ESNext",
+    "sourceMap": false,
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "paths": {
+      "renderer/*": ["src/renderer/*"],
+      "shared/*": ["src/features/*"]
+    }
+  }
+}

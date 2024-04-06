@@ -1,0 +1,31 @@
+{
+  "include": ["src/features/**/*", "src/main/**/*", "src/preload/**/*", "electron.vite.config.*", "./tsconfig.json"],
+  "exclude": ["node_modules/**/*"],
+  "compilerOptions": {
+    "composite": true,
+    "types": ["node", "electron-vite/node"],
+    "baseUrl": "./",
+    "target": "esnext",
+    "module": "NodeNext",
+    "sourceMap": false,
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "resolvePackageJsonImports": true,
+    "paths": {
+      "renderer/*": ["src/renderer/*"],
+      "main/*": ["src/main/*"],
+      "preload/*": ["src/preload/*"],
+      "shared/*": ["src/features/*"]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: oblique 0deg 10deg;
+  src: url('/fonts/inter.var.woff2') format('woff2');
+}
+
+* {
+  font-feature-settings: 'case' 1, 'tnum' 1, 'ss01' 1, 'ss02' 1, 'salt' 1;
+}

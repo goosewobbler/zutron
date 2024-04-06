@@ -1,0 +1,9 @@
+tsconfig.json
+tsconfig.*.json
+LICENSE.md
+package-lock.json
+node_modules
+dist
+out
+*.log*
+.turbo
