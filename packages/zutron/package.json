@@ -1,0 +1,57 @@
+{
+  "name": "zutron",
+  "version": "0.0.1",
+  "author": "goosewobbler",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "prebuild": "rm -rf ./dist",
+    "build": "tsc -b -v && cpy --flat 'src/*.ts' 'dist'",
+    "postbuild": "node dist/setupPackage.js",
+    "release": "pnpm build && cd dist && pnpm publish"
+  },
+  "exports": {
+    ".": [
+      {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "require": "./dist/index.js"
+      },
+      "./dist/index.js"
+    ],
+    "./main": [
+      {
+        "import": "./dist/main.js",
+        "types": "./dist/main.d.ts",
+        "require": "./dist/main.js"
+      },
+      "./dist/main.js"
+    ],
+    "./preload": [
+      {
+        "import": "./dist/preload.js",
+        "types": "./dist/preload.d.ts",
+        "require": "./dist/preload.js"
+      },
+      "./dist/preload.js"
+    ]
+  },
+  "sideEffects": false,
+  "peerDependencies": {
+    "electron": ">=12",
+    "zustand": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "electron": {
+      "optional": false
+    },
+    "zustand": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "cpy-cli": "^5.0.0",
+    "typescript": "^5.4.3"
+  }
+}
