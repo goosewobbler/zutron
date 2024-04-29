@@ -1,16 +1,29 @@
 {
   "name": "zutron",
   "version": "0.0.3",
-  "author": "goosewobbler",
+  "description": "A streamlined state management library for Electron applications using Zustand.",
+  "author": "Sam Maister <goosewobbler@protonmail.com>",
+  "homepage": "https://github.com/goosewobbler/zutron",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf ./dist",
     "prebuild": "pnpm clean && mkdir -p dist",
     "build": "tsc && rollup --config rollup.config.js && cpy 'src/*.ts' 'dist'",
     "release": "pnpm build && cd dist && pnpm publish"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goosewobbler/zutron.git"
+  },
+  "keywords": [
+    "zustand",
+    "electron",
+    "state-management"
+  ],
   "exports": {
     ".": [
       {
@@ -37,7 +50,6 @@
       "./dist/preload.cjs"
     ]
   },
-  "sideEffects": false,
   "peerDependencies": {
     "electron": ">=12",
     "zustand": ">=4.0.0"
