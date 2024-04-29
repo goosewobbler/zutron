@@ -116,8 +116,8 @@ The dispatch helper supports some different ways of structuring your store. By d
 If you keep your store actions / handlers separate from the store then you will need to pass them in as an option:
 
 ```ts
-import { handlers as counterHandlers } from 'features/counter/index.js';
-import { handlers as uiHandlers } from 'features/ui/index.js';
+import { handlers as counterHandlers } from '../../features/counter/index.js';
+import { handlers as uiHandlers } from '../../features/ui/index.js';
 
 const actionHandlers = (store: AppStore, initialState: AppState) => ({
   ...counterHandlers(store),
@@ -131,8 +131,8 @@ dispatch = createDispatch(store, { handlers: actionHandlers(store, initialState)
 Alternatively if you are using Redux-style reducers you will need to pass the root reducer in as an option:
 
 ```ts
-import { reducer as counterReducer } from 'features/counter/index.js';
-import { reducer as uiReducer } from 'features/ui/index.js';
+import { reducer as counterReducer } from '../../features/counter/index.js';
+import { reducer as uiReducer } from '../../features/ui/index.js';
 
 const rootReducer = (state, action) => {
   switch (action.type) {
