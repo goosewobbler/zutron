@@ -1,6 +1,58 @@
 {
-  "workspaces": [
-    "packages/*"
-  ],
-  "packageManager": "pnpm@8.15.5+sha256.4b4efa12490e5055d59b9b9fc9438b7d581a6b7af3b5675eb5c5f447cee1a589"
+  "name": "zutron",
+  "version": "0.0.2",
+  "author": "goosewobbler",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "prebuild": "pnpm clean && mkdir -p dist",
+    "build": "tsc && rollup --config rollup.config.js && cpy 'src/*.ts' 'dist'",
+    "release": "pnpm build && cd dist && pnpm publish"
+  },
+  "exports": {
+    ".": [
+      {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "require": "./dist/index.cjs"
+      },
+      "./dist/index.cjs"
+    ],
+    "./main": [
+      {
+        "import": "./dist/main.js",
+        "types": "./dist/main.d.ts",
+        "require": "./dist/main.cjs"
+      },
+      "./dist/main.cjs"
+    ],
+    "./preload": [
+      {
+        "import": "./dist/preload.js",
+        "types": "./dist/preload.d.ts",
+        "require": "./dist/preload.js"
+      },
+      "./dist/preload.cjs"
+    ]
+  },
+  "sideEffects": false,
+  "peerDependencies": {
+    "electron": ">=12",
+    "zustand": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "electron": {
+      "optional": false
+    },
+    "zustand": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "cpy-cli": "^5.0.0",
+    "rollup": "^4.17.0",
+    "typescript": "^5.4.5"
+  }
 }
