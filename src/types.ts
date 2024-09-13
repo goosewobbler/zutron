@@ -1,4 +1,4 @@
-import { StoreApi } from 'zustand';
+import type { StoreApi } from 'zustand';
 
 export type Thunk<S> = (dispatch: Dispatch<S>, store: StoreApi<Partial<S>>) => void;
 export type Action = { type: string; payload: unknown };

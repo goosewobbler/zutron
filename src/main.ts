@@ -1,7 +1,7 @@
 import type { BrowserWindow, IpcMain, IpcMainEvent } from 'electron';
 import type { StoreApi } from 'zustand';
 
-import { Action, AnyState, Handler, MainZustandBridgeOpts, Thunk } from './types.js';
+import type { Action, AnyState, Handler, MainZustandBridgeOpts, Thunk } from './types.js';
 
 export type MainZustandBridge = <State extends AnyState, Store extends StoreApi<State>>(
   ipcMain: IpcMain,
