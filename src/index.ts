@@ -1,6 +1,6 @@
-import { StoreApi, UseBoundStore, create } from 'zustand';
+import { create, type StoreApi, type UseBoundStore } from 'zustand';
 
-import { AnyState, Dispatch, Handlers } from './types.js';
+import type { AnyState, Dispatch, Handlers } from './types.js';
 
 let store: UseBoundStore<StoreApi<Partial<unknown>>>;
 
