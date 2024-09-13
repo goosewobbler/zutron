@@ -12,7 +12,7 @@
   "scripts": {
     "clean": "rm -rf ./dist",
     "prebuild": "pnpm clean && mkdir -p dist",
-    "build": "tsc && rollup --config rollup.config.js && cpy 'src/*.ts' 'dist'",
+    "build": "tsx ./scripts/build.ts",
     "release": "pnpm build && cd dist && pnpm publish"
   },
   "repository": {
@@ -27,25 +27,40 @@
   "exports": {
     ".": [
       {
-        "import": "./dist/index.js",
-        "types": "./dist/index.d.ts",
-        "require": "./dist/index.cjs"
+        "import": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.js"
+        },
+        "require": {
+          "types": "./dist/index.d.cts",
+          "default": "./dist/index.cjs"
+        }
       },
       "./dist/index.cjs"
     ],
     "./main": [
       {
-        "import": "./dist/main.js",
-        "types": "./dist/main.d.ts",
-        "require": "./dist/main.cjs"
+        "import": {
+          "types": "./dist/main.d.ts",
+          "default": "./dist/main.js"
+        },
+        "require": {
+          "types": "./dist/main.d.cts",
+          "default": "./dist/main.cjs"
+        }
       },
       "./dist/main.cjs"
     ],
     "./preload": [
       {
-        "import": "./dist/preload.js",
-        "types": "./dist/preload.d.ts",
-        "require": "./dist/preload.js"
+        "import": {
+          "types": "./dist/preload.d.ts",
+          "default": "./dist/preload.js"
+        },
+        "require": {
+          "types": "./dist/preload.d.cts",
+          "default": "./dist/preload.cjs"
+        }
       },
       "./dist/preload.cjs"
     ]
@@ -63,8 +78,10 @@
     }
   },
   "devDependencies": {
-    "cpy-cli": "^5.0.0",
-    "rollup": "^4.17.0",
-    "typescript": "^5.4.5"
-  }
+    "rollup": "^4.21.3",
+    "shelljs": "^0.8.5",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  },
+  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
 }
