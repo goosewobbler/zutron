@@ -1,152 +1,48 @@
-> streamlined electron state management
+# <img src="./resources/build/icon.png" height="96" style="vertical-align:-1em;margin-right:15px" />Zutron
 
-### Why Zutron
+_streamlined electron state management_
 
-Zustand is a great unopinionated state management library but (as with other state libraries such as Redux) it is recommended that a single store is used. For Electron apps this is an awkward problem as you need access to the store in both the main and renderer processes.
+<a href="https://www.npmjs.com/package/zutron" alt="NPM Version">
+  <img src="https://img.shields.io/npm/v/zutron" /></a>
+<a href="https://www.npmjs.com/package/zutron" alt="NPM Downloads">
+  <img src="https://img.shields.io/npm/dw/zutron" /></a>
 
-Zutron enables a single store workflow, effectively simplifying the use of Zustand in Electron apps and abstracting away the required IPC and dispatch management.
+### Why
 
-### How it works
+> tldr: I want to use Zustand with Electron, seamlessly
 
-Zutron actually uses two zustand stores, one on each process, but the sync only happens one way, from main => renderer. Actions from the renderer process are dispatched across IPC to the main process store, which handles them and updates state accordingly. The renderer store then receives these state updates over IPC and updates itself accordingly. In the main process, the same event handlers as used by the IPC bridge can be called directly.
+[Zustand](https://github.com/pmndrs/zustand) is a great unopinionated state management library. As with other state libraries such as Redux, it is recommended that a single store is used.
 
-In the renderer process Zutron uses hooks to access the store and state, whilst in the main process the store is accessed directly and via a custom dispatch function.
+For Electron apps this is an awkward problem as you need access to the store in both the main and renderer processes.
+
+Zutron enables a single store workflow with Zustand in Electron apps, effectively simplifying the use of Zustand in this context by abstracting away the necessary IPC and dispatch management.
+
+### How It Works
+
+Zutron actually uses two stores, one on each process, with a one way sync from the main process to the renderer.
+
+Actions from the renderer process are dispatched across IPC to the main process store, which handles them and updates state accordingly. The renderer store then receives these state updates over IPC and updates itself accordingly.
+
+#### Accessing The Store
+
+- Renderer process
+  - Store access is via the `useStore` hook
+  - Events & thunks can be dispatched via the `useDispatch` hook
+- Main process
+  - The store and its handlers can be accessed directly
+  - Events & thunks can be dispatched via a custom helper
 
 ### Getting Started
 
-Install Zutron and peer dependencies:
+See the [docs](./docs/getting-started.md).
 
-```bash
-npm i zutron zustand
-```
+There are minimal example applications featuring three different usage patterns:
 
-Or use your dependency manager of choice, e.g. `pnpm`, `yarn`.
+- [Redux-style reducers](./apps/example-reducers)
+- [Separate handlers](./apps/example-separate-handlers)
+- [Store-based handlers](./apps/example-store-handlers)
 
-The following instructions assume you are using TypeScript. First, create your Zustand store using `zustand/vanilla` in the main process:
-
-```ts
-import { createStore } from 'zustand/vanilla';
-
-store = createStore<AppState>()(() => initialState);
-```
-
-Then initialise the bridge in the main process. The bridge needs your store, ipcMain and an array of BrowserWindow objects for your app, so for a single window application:
-
-```ts
-import { ipcMain, type BrowserWindow } from 'electron';
-import { mainZustandBridge } from 'zutron/main';
-
-// create mainWindow
-
-const { unsubscribe } = mainZustandBridge(ipcMain, store, [mainWindow]);
-
-app.on('quit', unsubscribe);
-```
-
-Next initialise the bridge in the preload script. Here the bridge needs the State type and the ipcRenderer. The bridge initialiser will return a set of handlers which should be exposed to the renderer process via the `contextBridge` module.
-
-```ts
-import { ipcRenderer, contextBridge } from 'electron';
-import { preloadZustandBridge } from 'zutron/preload';
-
-import type { State } from '../features/index.js';
-
-export const { handlers } = preloadZustandBridge<State>(ipcRenderer);
-
-contextBridge.exposeInMainWorld('zutron', handlers);
-```
-
-Finally, in the renderer process you will need to create some hooks:
-
-`/renderer/hooks/useStore.ts`
-
-```ts
-import { createUseStore } from 'zutron';
-import { State } from '../../features/index.js';
-
-export const useStore = createUseStore<State>(window.zutron);
-```
-
-`/renderer/hooks/useDispatch.ts`
-
-```ts
-export const useDispatch = () => window.zutron.dispatch;
-```
-
-#### Accessing the Store in the Renderer Process
-
-In the renderer process you should now be able to access the store via the `useStore` hook:
-
-```ts
-const counter = useStore((x) => x.counter);
-```
-
-You can use the `useDispatch` hook to dispatch actions and thunks to the store:
-
-```ts
-const dispatch = useDispatch();
-const onIncrement = () => dispatch('COUNTER:INCREMENT');
-```
-
-If you are using a thunk the dispatch function and the store are passed in:
-
-```ts
-const dispatch = useDispatch();
-const onIncrement = () =>
-  dispatch((dispatch, store) => {
-    // do something based on the store
-    dispatch('COUNTER:INCREMENT');
-  });
-```
-
-#### Accessing the Store in the Main Process
-
-In the main process you can access the store object directly. You can also use the dispatch helper in a similar way to the renderer hook:
-
-```ts
-import { createDispatch } from 'zutron/main';
-
-dispatch = createDispatch(store);
-
-dispatch('COUNTER:INCREMENT');
-```
-
-The dispatch helper supports some different ways of structuring your store. By default it assumes your store actions / handlers are located on the store.
-
-If you keep your store actions / handlers separate from the store then you will need to pass them in as an option:
-
-```ts
-import { handlers as counterHandlers } from '../../features/counter/index.js';
-import { handlers as uiHandlers } from '../../features/ui/index.js';
-
-const actionHandlers = (store: AppStore, initialState: AppState) => ({
-  ...counterHandlers(store),
-  ...uiHandlers(store),
-  'STORE:RESET': () => store.setState(initialState, true),
-});
-
-dispatch = createDispatch(store, { handlers: actionHandlers(store, initialState) });
-```
-
-Alternatively if you are using Redux-style reducers you will need to pass the root reducer in as an option:
-
-```ts
-import { reducer as counterReducer } from '../../features/counter/index.js';
-import { reducer as uiReducer } from '../../features/ui/index.js';
-
-const rootReducer = (state, action) => {
-  switch (action.type) {
-    case types.counter:
-      return counterReducer(state.counter, action);
-    case types.ui:
-      return uiReducer(state.ui, action);
-  }
-};
-
-dispatch = createDispatch(store, { reducer: rootReducer });
-```
-
-### Inspiration
+### Inspiration / Prior Art
 
 This project would not exist without Reduxtron, shout out to vitordino for creating it!
 
@@ -154,9 +50,9 @@ This project would not exist without Reduxtron, shout out to vitordino for creat
 
   - Redux store in the main process, optionally synced to Zustand in the renderer
   - Zutron is based on Reduxtron
-  - Uses Redux - not an option if you want to simplify state management
+  - Great for Redux users, not an option if you want to leverage all the benefits of Zustand
 
 - [klarna/electron-redux](https://github.com/klarna/electron-redux)
   - Bi-directional sync between one Redux store in the main process, and another in the renderer
   - No longer maintained
-  - I [forked it](https://github.com/goosewobbler/electron-redux) to make it work with [electron versions >= 14](https://github.com/klarna/electron-redux/issues/317), however I won't be spending any more time on the fork.
+  - I created [a fork](https://github.com/goosewobbler/electron-redux) to enable support for [electron >= 14](https://github.com/klarna/electron-redux/issues/317), however I won't be spending any more time on this approach
