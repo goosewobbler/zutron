@@ -1,7 +1,7 @@
 import type { BrowserWindow, IpcMain, IpcMainEvent } from 'electron';
 import type { StoreApi } from 'zustand';
 
-import type { Action, AnyState, Handler, MainZustandBridgeOpts, Thunk } from './types.js';
+import type { Action, AnyState, Handler, MainZustandBridgeOpts, Thunk } from './index.js';
 
 export type MainZustandBridge = <State extends AnyState, Store extends StoreApi<State>>(
   ipcMain: IpcMain,
@@ -25,7 +25,8 @@ export const createDispatch =
     } else if (typeof options?.reducer === 'function') {
       // reducer case - action is passed to the reducer
       const reducer = options.reducer;
-      store.setState((state) => reducer(state, action as Action));
+      const reducerAction = { type: actionType, payload: actionPayload };
+      store.setState((state) => reducer(state, reducerAction));
     } else {
       // default case - handlers attached to store
       const handler = store[actionType as keyof typeof store] as Handler;

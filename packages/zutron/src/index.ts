@@ -1,11 +1,12 @@
 import { create, type StoreApi, type UseBoundStore } from 'zustand';
 
-import type { AnyState, Dispatch, Handlers } from './types.js';
+import type { AnyState, Dispatch, Handlers } from './index.js' with { 'resolution-mode': 'import' };
+import { Thunk } from './types.js';
 
-let store: UseBoundStore<StoreApi<Partial<unknown>>>;
+let store: UseBoundStore<StoreApi<unknown>>;
 
 export const createUseStore = <S extends AnyState>(bridge: Handlers<S>) => {
-  store = create<Partial<S>>((setState: StoreApi<Partial<S>>['setState']) => {
+  store = create<Partial<S>>((setState: StoreApi<S>['setState']) => {
     // subscribe to changes
     bridge.subscribe((state) => setState(state));
     // get initial state
@@ -15,7 +16,7 @@ export const createUseStore = <S extends AnyState>(bridge: Handlers<S>) => {
     return {};
   });
 
-  return store as UseBoundStore<StoreApi<Partial<S>>>;
+  return store as UseBoundStore<StoreApi<S>>;
 };
 
 export const createUseDispatch =
@@ -23,7 +24,8 @@ export const createUseDispatch =
   (action, payload?: unknown) => {
     if (typeof action === 'function') {
       // passed a function / thunk - so we execute the action, pass dispatch & store into it
-      return action(bridge.dispatch, store);
+      const thunk = action as Thunk<unknown>;
+      return thunk(bridge.dispatch, store);
     }
 
     // passed action type and payload separately
@@ -35,4 +37,4 @@ export const createUseDispatch =
     return bridge.dispatch(action);
   };
 
-export * from './types.js';
+export type * from './types.js';
