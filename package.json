@@ -1,14 +1,8 @@
 {
-  "name": "zutron",
-  "version": "0.0.5",
-  "description": "A streamlined state management library for Electron applications using Zustand.",
-  "author": "Sam Maister <goosewobbler@protonmail.com>",
-  "homepage": "https://github.com/goosewobbler/zutron",
-  "license": "MIT",
+  "name": "zutron-monorepo",
+  "version": "0.1.0",
+  "private": true,
   "type": "module",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf ./dist",
     "prebuild": "pnpm clean && mkdir -p dist",
@@ -24,64 +18,9 @@
     "electron",
     "state-management"
   ],
-  "exports": {
-    ".": [
-      {
-        "import": {
-          "types": "./dist/index.d.ts",
-          "default": "./dist/index.js"
-        },
-        "require": {
-          "types": "./dist/index.d.cts",
-          "default": "./dist/index.cjs"
-        }
-      },
-      "./dist/index.cjs"
-    ],
-    "./main": [
-      {
-        "import": {
-          "types": "./dist/main.d.ts",
-          "default": "./dist/main.js"
-        },
-        "require": {
-          "types": "./dist/main.d.cts",
-          "default": "./dist/main.cjs"
-        }
-      },
-      "./dist/main.cjs"
-    ],
-    "./preload": [
-      {
-        "import": {
-          "types": "./dist/preload.d.ts",
-          "default": "./dist/preload.js"
-        },
-        "require": {
-          "types": "./dist/preload.d.cts",
-          "default": "./dist/preload.cjs"
-        }
-      },
-      "./dist/preload.cjs"
-    ]
-  },
-  "peerDependencies": {
-    "electron": ">=12",
-    "zustand": ">=4.0.0"
-  },
-  "peerDependenciesMeta": {
-    "electron": {
-      "optional": false
-    },
-    "zustand": {
-      "optional": false
-    }
-  },
   "devDependencies": {
-    "rollup": "^4.21.3",
     "shelljs": "^0.8.5",
-    "tsx": "^4.19.1",
-    "typescript": "^5.6.2"
+    "tsx": "^4.19.1"
   },
   "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
 }

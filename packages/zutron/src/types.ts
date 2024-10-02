@@ -1,9 +1,13 @@
 import type { StoreApi } from 'zustand';
 
-export type Thunk<S> = (dispatch: Dispatch<S>, store: StoreApi<Partial<S>>) => void;
-export type Action = { type: string; payload: unknown };
+export type Thunk<S> = (dispatch: Dispatch<S>, store: StoreApi<S>) => void;
+// export type Action = { type: string; payload: unknown };
+export type Action<T extends string = string> = {
+  type: T;
+  payload: unknown;
+};
 export type AnyState = Record<string, unknown>;
-export type Reducer<S extends AnyState> = (state: Partial<S>, args: Record<string, unknown>) => Partial<S>;
+export type Reducer<S extends AnyState> = (state: S, args: Action) => S;
 export type Handler = (arg: any) => void;
 export type MainZustandBridgeOpts<S extends AnyState> = {
   handlers?: Record<string, Handler>;
@@ -21,7 +25,7 @@ interface BaseHandler<S> {
 }
 
 export interface Handlers<S extends AnyState> extends BaseHandler<S> {
-  getState(): Promise<Partial<S>>;
+  getState(): Promise<S>;
   subscribe(callback: (newState: S) => void): () => void;
 }
 

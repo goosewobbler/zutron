@@ -1,13 +1,11 @@
 {
-  "include": ["src/**/*.ts"],
+  "include": ["packages/zutron/src/**/*.ts"],
   "exclude": ["node_modules/**/*"],
   "compilerOptions": {
     "declaration": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
     "moduleResolution": "Bundler",
     "strict": true,
     "module": "ESNext",
-    "target": "ESNext",
-  },
+    "target": "ESNext"
+  }
 }

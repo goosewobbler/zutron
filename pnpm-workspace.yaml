@@ -1,0 +1,5 @@
+packages:
+  - 'apps/example-reducers'
+  - 'apps/example-separate-handlers'
+  - 'apps/example-store-handlers'
+  - 'packages/zutron'
