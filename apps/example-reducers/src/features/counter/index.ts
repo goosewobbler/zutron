@@ -1,7 +1,3 @@
-// import type { Store } from '../index.js';
-
-// import { State } from '../index.js';
-
 interface UnknownAction extends Action {
   [extraProps: string]: unknown;
 }
@@ -25,11 +21,3 @@ export const counterReducer: Reducer<number> = (state, action) => {
       return state;
   }
 };
-
-// export const increment = (setState: Store['setState']) => setState((state) => ({ counter: state.counter + 1 }));
-// export const decrement = (setState: Store['setState']) => setState((state) => ({ counter: state.counter - 1 }));
-
-// export const handlers = (store: Store) => ({
-//   'COUNTER:INCREMENT': () => store.setState((state) => ({ counter: state.counter + 1 })),
-//   'COUNTER:DECREMENT': () => store.setState((state) => ({ counter: state.counter - 1 })),
-// });
