@@ -18,7 +18,9 @@ shell.exec('tsc');
 shell.exec('rollup --config rollup.config.js');
 
 // ensure dist dir exists
-shell.mkdir('dist');
+if (!fs.existsSync('dist')) {
+  shell.mkdir('dist');
+}
 
 // create CTS versions of the typedefs for CJS
 for (const fileName of srcFiles) {
