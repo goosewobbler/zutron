@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./resources/zutron-readme-hero-dark.png"/>
   <source media="(prefers-color-scheme: light)" srcset="./resources/zutron-readme-hero-light.png"/>
-  <img alt="reduxtron hero image" src="./resources/zutron-readme-hero-dark.png"/>
+  <img alt="reduxtron hero image" src="./resources/zutron-readme-hero-light.png"/>
 </picture>
 
 _streamlined electron state management_
