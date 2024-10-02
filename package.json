@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "clean": "rm -rf ./dist",
+    "clean": "pnpx shx rm -rf ./dist",
     "prebuild": "pnpm clean && mkdir -p dist",
     "build": "tsx ./scripts/build.ts",
     "release": "pnpm build && cd dist && pnpm publish"
