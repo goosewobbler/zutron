@@ -9,6 +9,7 @@ export const createUseStore = <S extends AnyState>(bridge: Handlers<S>) => {
   store = create<Partial<S>>((setState: StoreApi<S>['setState']) => {
     // subscribe to changes
     bridge.subscribe((state) => setState(state));
+
     // get initial state
     bridge.getState().then(setState);
 
