@@ -6,7 +6,7 @@ type Action<T extends string = string> = {
 };
 export type Reducer<S = any, A extends Action<string> = UnknownAction, PreloadedState = S> = (
   state: S | PreloadedState,
-  action: A
+  action: A,
 ) => S;
 
 export type CounterAction = { type: 'COUNTER:INCREMENT' } | { type: 'COUNTER:DECREMENT' };

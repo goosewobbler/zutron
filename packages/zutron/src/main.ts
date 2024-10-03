@@ -7,7 +7,7 @@ export type MainZustandBridge = <State extends AnyState, Store extends StoreApi<
   ipcMain: IpcMain,
   store: Store,
   windows: BrowserWindow[],
-  options?: MainZustandBridgeOpts<State>
+  options?: MainZustandBridgeOpts<State>,
 ) => { unsubscribe: () => void };
 
 function sanitizeState(state: AnyState) {
@@ -63,7 +63,7 @@ export const mainZustandBridge: MainZustandBridge = (ipcMain, store, windows, op
     });
   });
   ipcMain.on('dispatch', (_event: IpcMainEvent, action: string | Action, payload?: unknown) =>
-    dispatch(action, payload)
+    dispatch(action, payload),
   );
   ipcMain.handle('getState', () => {
     const state = store.getState();
