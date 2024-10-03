@@ -4,10 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "clean": "pnpx shx rm -rf ./dist",
-    "prebuild": "pnpm clean && mkdir -p dist",
-    "build": "tsx ./scripts/build.ts",
-    "release": "pnpm build && cd dist && pnpm publish"
+    "format": "prettier -w .",
+    "format:check": "prettier -c ."
   },
   "repository": {
     "type": "git",
@@ -19,6 +17,7 @@
     "state-management"
   ],
   "devDependencies": {
+    "prettier": "^3.3.3",
     "shelljs": "^0.8.5",
     "tsx": "^4.19.1"
   },
