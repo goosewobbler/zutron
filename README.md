@@ -40,7 +40,7 @@ Actions from the renderer process are dispatched across IPC to the main process 
 
 See the [docs](./docs/getting-started.md).
 
-There are minimal example applications featuring three different usage patterns:
+There are minimal example applications featuring three different Zustand usage patterns:
 
 - [Redux-style reducers](./apps/example-reducers)
 - [Separate handlers](./apps/example-separate-handlers)
