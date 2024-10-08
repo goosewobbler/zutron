@@ -14,8 +14,9 @@
     "clean:dist": "pnpm dlx shx rm -rf ./dist ./docs && pnpm dlx shx mkdir -p ./dist",
     "prebuild": "pnpm clean:dist",
     "build": "tsx ./scripts/build.ts",
-    "release": "pnpm build && cd dist && pnpm publish",
-    "test": "vitest"
+    "release": "pnpm pack && pnpm publish",
+    "test:unit": "vitest --coverage --watch=false",
+    "test:dev": "vitest --coverage"
   },
   "repository": {
     "type": "git",
