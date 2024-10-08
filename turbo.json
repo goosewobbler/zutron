@@ -16,7 +16,7 @@
       "cache": false
     },
     "release": {
-      "dependsOn": ["build", "test:unit"]
+      "dependsOn": ["zutron#build", "zutron#test:unit"]
     },
     "test:unit": {}
   }
