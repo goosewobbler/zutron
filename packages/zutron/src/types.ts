@@ -1,7 +1,7 @@
 import type { StoreApi } from 'zustand';
 
-export type Thunk<S> = (dispatch: Dispatch<S>, store: StoreApi<S>) => void;
-// export type Action = { type: string; payload: unknown };
+export type Thunk<S> = (getState: StoreApi<S>['getState'], dispatch: Dispatch<S>) => void;
+
 export type Action<T extends string = string> = {
   type: T;
   payload: unknown;

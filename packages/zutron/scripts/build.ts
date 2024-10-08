@@ -14,7 +14,7 @@ const docsDir = path.join(__dirname, '..', '..', '..', 'docs');
 const docsFiles = fs.readdirSync(docsDir);
 
 // compile and bundle
-shell.exec('tsc');
+shell.exec('tsc --project tsconfig.json');
 shell.exec('rollup --config rollup.config.js');
 
 // ensure dist dir exists

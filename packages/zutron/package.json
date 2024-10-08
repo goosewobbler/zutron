@@ -1,6 +1,6 @@
 {
   "name": "zutron",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A streamlined state management library for Electron applications using Zustand.",
   "author": "Sam Maister <goosewobbler@protonmail.com>",
   "homepage": "https://github.com/goosewobbler/zutron",
@@ -14,7 +14,9 @@
     "clean:dist": "pnpm dlx shx rm -rf ./dist ./docs && pnpm dlx shx mkdir -p ./dist",
     "prebuild": "pnpm clean:dist",
     "build": "tsx ./scripts/build.ts",
-    "release": "pnpm build && cd dist && pnpm publish"
+    "release": "pnpm pack && pnpm publish",
+    "test:unit": "vitest --coverage --watch=false",
+    "test:dev": "vitest --coverage"
   },
   "repository": {
     "type": "git",
@@ -79,11 +81,17 @@
     }
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
     "@types/shelljs": "0.8.15",
+    "@vitest/coverage-v8": "2.1.2",
+    "jsdom": "^25.0.1",
+    "react": "^18.3.1",
     "rollup": "^4.24.0",
     "shelljs": "^0.8.5",
     "tsx": "^4.19.1",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.2"
   },
   "files": [
     "dist/*",

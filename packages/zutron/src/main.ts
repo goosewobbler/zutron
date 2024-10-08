@@ -1,5 +1,5 @@
 import type { BrowserWindow, IpcMain, IpcMainEvent } from 'electron';
-import { type StoreApi } from 'zustand';
+import type { StoreApi } from 'zustand';
 
 import type { Action, AnyState, Handler, MainZustandBridgeOpts, Thunk } from './index.js';
 
@@ -55,12 +55,12 @@ export const createDispatch =
 export const mainZustandBridge: MainZustandBridge = (ipcMain, store, windows, options) => {
   const dispatch = createDispatch(store, options);
   ipcMain.on('subscribe', async (state: unknown) => {
-    windows.forEach((window) => {
+    for (const window of windows) {
       if (window?.isDestroyed()) {
-        return;
+        break;
       }
       window?.webContents?.send('subscribe', sanitizeState(state as AnyState));
-    });
+    }
   });
   ipcMain.on('dispatch', (_event: IpcMainEvent, action: string | Action, payload?: unknown) =>
     dispatch(action, payload),

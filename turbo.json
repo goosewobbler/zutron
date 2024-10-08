@@ -1,0 +1,23 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "//#format:check": {
+      "inputs": ["**/*.{yml,json,md,ts,tsx,js"]
+    },
+    "build": {
+      "dependsOn": ["clean:dist"],
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "clean:dist": {
+      "cache": false
+    },
+    "release": {
+      "dependsOn": ["build", "test:unit"]
+    },
+    "test:unit": {}
+  }
+}

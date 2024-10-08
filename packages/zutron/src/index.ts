@@ -1,32 +1,58 @@
-import { create, type StoreApi, type UseBoundStore } from 'zustand';
+import { useStore, type StoreApi } from 'zustand';
+import { createStore as createZustandStore } from 'zustand/vanilla';
 
-import type { AnyState, Dispatch, Handlers } from './index.js' with { 'resolution-mode': 'import' };
-import { Thunk } from './types.js';
+import type { AnyState, Handlers } from './index.js';
+import type { Action, Thunk } from './types.js';
 
-let store: UseBoundStore<StoreApi<unknown>>;
+type ExtractState<S> = S extends {
+  getState: () => infer T;
+}
+  ? T
+  : never;
 
-export const createUseStore = <S extends AnyState>(bridge: Handlers<S>) => {
-  store = create<Partial<S>>((setState: StoreApi<S>['setState']) => {
+type ReadonlyStoreApi<T> = Pick<StoreApi<T>, 'getState' | 'getInitialState' | 'subscribe'>;
+
+let store: StoreApi<AnyState>;
+
+export const createStore = <S extends AnyState>(bridge: Handlers<S>): StoreApi<S> => {
+  store = createZustandStore<Partial<S>>((setState: StoreApi<S>['setState']) => {
     // subscribe to changes
     bridge.subscribe((state) => setState(state));
 
     // get initial state
-    bridge.getState().then(setState);
+    bridge.getState().then((state) => setState(state));
 
     // no state keys - they will all come from main
     return {};
   });
 
-  return store as UseBoundStore<StoreApi<S>>;
+  return store as StoreApi<S>;
 };
 
-export const createUseDispatch =
-  <S extends AnyState>(bridge: Handlers<S>): Dispatch<S> =>
-  (action, payload?: unknown) => {
+type UseBoundStore<S extends ReadonlyStoreApi<unknown>> = {
+  (): ExtractState<S>;
+  <U>(selector: (state: ExtractState<S>) => U): U;
+} & S;
+
+export const createUseStore = <S extends AnyState>(bridge: Handlers<S>): UseBoundStore<StoreApi<S>> => {
+  const vanillaStore = createStore<S>(bridge);
+  const useBoundStore = (selector: (state: S) => unknown) => useStore(vanillaStore, selector);
+
+  Object.assign(useBoundStore, vanillaStore);
+
+  // return store hook
+  return useBoundStore as UseBoundStore<StoreApi<S>>;
+};
+
+type DispatchFunc<S> = (action: Thunk<S> | Action | string, payload?: unknown) => unknown;
+
+export const useDispatch =
+  <S extends AnyState>(bridge: Handlers<S>): DispatchFunc<S> =>
+  (action: Thunk<S> | Action | string, payload?: unknown): unknown => {
     if (typeof action === 'function') {
-      // passed a function / thunk - so we execute the action, pass dispatch & store into it
-      const thunk = action as Thunk<unknown>;
-      return thunk(bridge.dispatch, store);
+      // passed a function / thunk - so we execute the action, pass dispatch & store getState into it
+      const typedStore = store as StoreApi<S>;
+      return action(typedStore.getState, bridge.dispatch);
     }
 
     // passed action type and payload separately

@@ -42,7 +42,7 @@ export const { handlers } = preloadZustandBridge<State>(ipcRenderer);
 contextBridge.exposeInMainWorld('zutron', handlers);
 ```
 
-Finally, in the renderer process you will need to create some hooks:
+Finally, in the renderer process you will need to create the useStore hook:
 
 `/renderer/hooks/useStore.ts`
 
@@ -51,12 +51,6 @@ import { createUseStore } from 'zutron';
 import { State } from '../../features/index.js';
 
 export const useStore = createUseStore<State>(window.zutron);
-```
-
-`/renderer/hooks/useDispatch.ts`
-
-```ts
-export const useDispatch = () => window.zutron.dispatch;
 ```
 
 ### Accessing the Store in the Renderer Process
@@ -70,16 +64,16 @@ const counter = useStore((x) => x.counter);
 You can use the `useDispatch` hook to dispatch actions and thunks to the store:
 
 ```ts
-const dispatch = useDispatch();
+const dispatch = useDispatch(window.zutron);
 const onIncrement = () => dispatch('COUNTER:INCREMENT');
 ```
 
 If you are using a thunk the dispatch function and the store are passed in:
 
 ```ts
-const dispatch = useDispatch();
+const dispatch = useDispatch(window.zutron);
 const onIncrement = () =>
-  dispatch((dispatch, store) => {
+  dispatch((getState, dispatch) => {
     // do something based on the store
     dispatch('COUNTER:INCREMENT');
   });
