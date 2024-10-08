@@ -1,16 +1,21 @@
+import { useDispatch } from 'zutron';
+
 import { useStore } from './hooks/useStore.js';
-import { useDispatch } from './hooks/useDispatch.js';
 import type { State } from '../features/index.js';
 
 export const App = () => {
   const counter = useStore((x: State) => x.counter);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(window.electron);
 
   return (
     <main>
-      <button onClick={() => dispatch('COUNTER:DECREMENT')}>decrement</button>
+      <button type="button" onClick={() => dispatch('COUNTER:DECREMENT')}>
+        decrement
+      </button>
       <pre>{counter ?? 'loading...'}</pre>
-      <button onClick={() => dispatch('COUNTER:INCREMENT')}>increment</button>
+      <button type="button" onClick={() => dispatch('COUNTER:INCREMENT')}>
+        increment
+      </button>
     </main>
   );
 };
