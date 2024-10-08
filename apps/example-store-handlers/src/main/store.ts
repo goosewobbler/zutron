@@ -1,4 +1,5 @@
 import { createStore } from 'zustand/vanilla';
+
 import { actionHandlers } from '../features/index.js';
 
 export type State = { counter: number };
