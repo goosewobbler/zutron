@@ -1,11 +1,10 @@
-import { type Reducer } from 'zutron';
+import type { Reducer } from 'zutron';
+
 import { counterReducer } from './counter/index.js';
 
-export const rootReducer: Reducer<State> = (state: State, action: Action) => {
-  return {
-    counter: counterReducer(state.counter, action),
-  };
-};
+export const rootReducer: Reducer<State> = (state: State, action: Action) => ({
+  counter: counterReducer(state.counter, action),
+});
 
 type Action<T extends string = string> = {
   type: T;
