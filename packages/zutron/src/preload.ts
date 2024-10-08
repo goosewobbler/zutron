@@ -1,6 +1,6 @@
 import type { IpcRenderer } from 'electron';
 
-import type { AnyState, PreloadZustandBridgeReturn } from './index.js' with { 'resolution-mode': 'import' };
+import type { AnyState, PreloadZustandBridgeReturn } from './index.js';
 
 export const preloadZustandBridge = <S extends AnyState>(ipcRenderer: IpcRenderer): PreloadZustandBridgeReturn<S> => ({
   handlers: {
