@@ -1,6 +1,6 @@
 const sharedConfig = {
   plugins: [],
-  external: ['electron', 'zustand'],
+  external: ['electron', 'zustand', 'zustand/vanilla'],
 };
 
 export default [
