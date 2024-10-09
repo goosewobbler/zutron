@@ -96,6 +96,8 @@
   "files": [
     "dist/*",
     "docs/*",
+    "main/*",
+    "preload/*",
     "README.md"
   ]
 }

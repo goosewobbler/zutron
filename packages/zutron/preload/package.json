@@ -1,0 +1,4 @@
+{
+  "main": "../dist/preload.cjs",
+  "types": "../dist/preload.d.cts"
+}
