@@ -16,7 +16,8 @@
     "build": "tsx ./scripts/build.ts",
     "release": "pnpm pack && pnpm publish",
     "test:unit": "vitest --coverage --watch=false",
-    "test:dev": "vitest --coverage"
+    "test:dev": "vitest --coverage",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
