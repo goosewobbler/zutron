@@ -1,4 +1,4 @@
-import { type Store } from '..';
+import type { Store } from '../index.js';
 
 export const handlers = (setState: Store['setState']) => ({
   'COUNTER:INCREMENT': () => setState((state) => ({ counter: state.counter + 1 })),
