@@ -7,11 +7,12 @@ export type Action<T extends string = string> = {
   payload: unknown;
 };
 export type AnyState = Record<string, unknown>;
-export type Reducer<S extends AnyState> = (state: S, args: Action) => S;
-export type Handler = (arg: any) => void;
+export type Reducer<S> = (state: S, args: Action) => S;
+export type RootReducer<S extends AnyState> = (state: S, args: Action) => S;
+export type Handler = (...arg: unknown[]) => void;
 export type MainZustandBridgeOpts<S extends AnyState> = {
   handlers?: Record<string, Handler>;
-  reducer?: Reducer<S>;
+  reducer?: RootReducer<S>;
 };
 
 export type Dispatch<S> = {
