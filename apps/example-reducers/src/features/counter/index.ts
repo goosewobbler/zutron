@@ -1,13 +1,4 @@
-interface UnknownAction extends Action {
-  [extraProps: string]: unknown;
-}
-type Action<T extends string = string> = {
-  type: T;
-};
-export type Reducer<S = any, A extends Action<string> = UnknownAction, PreloadedState = S> = (
-  state: S | PreloadedState,
-  action: A,
-) => S;
+import type { Reducer } from 'zutron';
 
 export type CounterAction = { type: 'COUNTER:INCREMENT' } | { type: 'COUNTER:DECREMENT' };
 
