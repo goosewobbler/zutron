@@ -2,7 +2,7 @@ import { type BrowserWindow, Menu, Tray, app, nativeImage } from 'electron';
 import { createDispatch } from 'zutron/main';
 import trayIconFile from '../../../../../resources/trayIcon.png';
 
-import { actionHandlers, Handlers, type State, type Store } from '../../features/index.js';
+import type { Handlers, State, Store } from '../../features/index.js';
 
 const trayIcon = nativeImage.createFromDataURL(trayIconFile).resize({
   width: 18,
