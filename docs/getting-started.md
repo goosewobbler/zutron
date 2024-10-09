@@ -29,7 +29,7 @@ const { unsubscribe } = mainZustandBridge(ipcMain, store, [mainWindow]);
 app.on('quit', unsubscribe);
 ```
 
-Next initialise the bridge in the preload script. Here the bridge needs the State type and the ipcRenderer. The bridge initialiser will return a set of handlers which should be exposed to the renderer process via the `contextBridge` module.
+Next, initialise the bridge in the preload script. Here the bridge needs the State type and the ipcRenderer. The bridge initialiser will return a set of handlers which should be exposed to the renderer process via the `contextBridge` module.
 
 ```ts
 import { ipcRenderer, contextBridge } from 'electron';
