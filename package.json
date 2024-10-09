@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "format": "prettier -w .",
-    "format:check": "prettier -c ."
+    "format:check": "prettier -c .",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
