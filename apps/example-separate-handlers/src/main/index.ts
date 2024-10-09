@@ -16,8 +16,9 @@ const windowOptions: BrowserWindowConstructorOptions = {
   width: 256,
   height: 256,
   webPreferences: {
+    contextIsolation: true,
     scrollBounce: true,
-    sandbox: false,
+    sandbox: true,
     nodeIntegration: false,
     preload: path.join(__dirname, '..', 'preload', 'index.cjs'),
   },
