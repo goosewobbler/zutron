@@ -5,6 +5,7 @@
     "//#format:check": {
       "inputs": ["**/*.{yml,json,md,ts,tsx,js"]
     },
+    "//#ci": {},
     "build": {
       "dependsOn": ["clean:dist"],
       "cache": false
@@ -18,6 +19,9 @@
     "release": {
       "dependsOn": ["zutron#build", "zutron#test:unit"]
     },
-    "test:unit": {}
+    "test:unit": {},
+    "test": {
+      "dependsOn": ["zutron#build", "zutron#test:unit"]
+    }
   }
 }

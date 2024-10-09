@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "ci": "turbo run test",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "prepare": "husky"
