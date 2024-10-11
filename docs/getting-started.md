@@ -35,9 +35,9 @@ Next, initialise the bridge in the preload script. Here the bridge needs the Sta
 import { ipcRenderer, contextBridge } from 'electron';
 import { preloadZustandBridge } from 'zutron/preload';
 
-import type { State } from '../features/index.js';
+import type { AppState } from '../features/index.js';
 
-export const { handlers } = preloadZustandBridge<State>(ipcRenderer);
+export const { handlers } = preloadZustandBridge<AppState>(ipcRenderer);
 
 contextBridge.exposeInMainWorld('zutron', handlers);
 ```
@@ -48,9 +48,9 @@ Finally, in the renderer process you will need to create the useStore hook:
 
 ```ts
 import { createUseStore } from 'zutron';
-import { State } from '../../features/index.js';
+import { AppState } from '../../features/index.js';
 
-export const useStore = createUseStore<State>(window.zutron);
+export const useStore = createUseStore<AppState>(window.zutron);
 ```
 
 ### Accessing the Store in the Renderer Process
@@ -68,20 +68,22 @@ const dispatch = useDispatch(window.zutron);
 const onIncrement = () => dispatch('COUNTER:INCREMENT');
 ```
 
-If you are using a thunk the dispatch function and the store are passed in:
+If you are using a thunk, the dispatch function and the store are passed in:
 
 ```ts
+const onIncrementThunk = (getState, dispatch) => {
+  // do something based on the store
+  dispatch('COUNTER:INCREMENT');
+};
 const dispatch = useDispatch(window.zutron);
-const onIncrement = () =>
-  dispatch((getState, dispatch) => {
-    // do something based on the store
-    dispatch('COUNTER:INCREMENT');
-  });
+const onIncrement = () => dispatch(onIncrementThunk);
 ```
 
 ### Accessing the Store in the Main Process
 
-In the main process you can access the store object directly. You can also use the dispatch helper in a similar way to the renderer hook:
+In the main process you can access the store object directly, any updates will be propagated to the renderer process.
+
+The main process dispatch helper can be used to dispatch actions and thunks, in a similar way to the `useDispatch` hook in the renderer process:
 
 ```ts
 import { createDispatch } from 'zutron/main';
@@ -91,9 +93,9 @@ dispatch = createDispatch(store);
 dispatch('COUNTER:INCREMENT');
 ```
 
-The dispatch helper supports some different ways of structuring your store. By default it assumes your store actions / handlers are located on the store.
+By default the main process dispatch helper assumes your store handler functions are located on the store object.
 
-If you keep your store actions / handlers separate from the store then you will need to pass them in as an option:
+If you keep your store handler functions separate from the store then you will need to pass them in as an option:
 
 ```ts
 import { handlers as counterHandlers } from '../../features/counter/index.js';
