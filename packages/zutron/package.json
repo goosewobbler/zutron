@@ -84,8 +84,8 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
-    "@types/shelljs": "0.8.15",
-    "@vitest/coverage-v8": "2.1.2",
+    "@types/shelljs": "^0.8.15",
+    "@vitest/coverage-v8": "^2.1.2",
     "jsdom": "^25.0.1",
     "react": "^18.3.1",
     "rollup": "^4.24.0",
