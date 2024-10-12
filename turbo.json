@@ -22,6 +22,15 @@
     "test:unit": {},
     "test": {
       "dependsOn": ["zutron#build", "zutron#test:unit"]
+    },
+    "test:e2e:reducers": {
+      "dependsOn": ["zutron-example-reducers#build"]
+    },
+    "test:e2e:separate-handlers": {
+      "dependsOn": ["zutron-example-separate-handlers#build"]
+    },
+    "test:e2e:store-handlers": {
+      "dependsOn": ["zutron-example-store-handlers#build"]
     }
   }
 }

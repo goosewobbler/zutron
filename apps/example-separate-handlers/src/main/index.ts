@@ -2,6 +2,7 @@ import path from 'node:path';
 
 import { BrowserWindow, type BrowserWindowConstructorOptions, app, ipcMain } from 'electron';
 import { mainZustandBridge } from 'zutron/main';
+import 'wdio-electron-service/main';
 
 import { actionHandlers } from '../features/index.js';
 import { initialState, store } from './store.js';
@@ -65,7 +66,12 @@ app
 
     initMainWindow();
     const handlers = actionHandlers(store, initialState);
+
+    // Initialize the system tray
     tray.init(store, mainWindow, handlers);
+
+    // Set the badge count to the current counter value
+    store.subscribe((state) => app.setBadgeCount(state.counter ?? 0));
 
     const { unsubscribe } = mainZustandBridge(ipcMain, store, [mainWindow], {
       handlers,

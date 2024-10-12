@@ -1,14 +1,13 @@
 import path from 'node:path';
-// import url from 'node:url';
-
 import { BrowserWindow, type BrowserWindowConstructorOptions, app, ipcMain } from 'electron';
+
 import { mainZustandBridge } from 'zutron/main';
+import 'wdio-electron-service/main';
 
 import { rootReducer } from '../features/index.js';
 import { store } from './store.js';
 import { tray } from './tray/index.js';
 
-// const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const icon = path.join(__dirname, '..', '..', 'resources', 'images', 'icon.png');
 
 const windowOptions: BrowserWindowConstructorOptions = {
@@ -66,7 +65,12 @@ app
     });
 
     initMainWindow();
+
+    // Initialize the system tray
     tray.init(store, mainWindow);
+
+    // Set the badge count to the current counter value
+    store.subscribe((state) => app.setBadgeCount(state.counter ?? 0));
 
     const { unsubscribe } = mainZustandBridge(ipcMain, store, [mainWindow], {
       reducer: rootReducer,
