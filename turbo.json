@@ -31,6 +31,12 @@
     },
     "test:e2e:store-handlers": {
       "dependsOn": ["zutron-example-store-handlers#build"]
+    },
+    "zutron-example-separate-handlers#build": {
+      "dependsOn": ["zutron-example-reducers#build"]
+    },
+    "zutron-example-store-handlers#build": {
+      "dependsOn": ["zutron-example-separate-handlers#build"]
     }
   }
 }
