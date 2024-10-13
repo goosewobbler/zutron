@@ -6,10 +6,10 @@
   "scripts": {
     "clean": "pnpm dlx shx rm -rf ./js ./node_modules pnpm-lock.yaml ./wdio-logs* ./out",
     "logs": "pnpm dlx shx cat ./wdio-logs*/*.log",
-    "test": "turbo run test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers --concurrency=1",
-    "test:e2e:reducers": "cross-env EXAMPLE_DIR=example-reducers pnpm run exec",
-    "test:e2e:separate-handlers": "cross-env EXAMPLE_DIR=example-separate-handlers pnpm run exec",
-    "test:e2e:store-handlers": "cross-env EXAMPLE_DIR=example-store-handlers pnpm run exec",
+    "test": "turbo run test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers",
+    "test:e2e:reducers": "cross-env APP_DIR=example-reducers pnpm run exec",
+    "test:e2e:separate-handlers": "cross-env APP_DIR=example-separate-handlers pnpm run exec",
+    "test:e2e:store-handlers": "cross-env APP_DIR=example-store-handlers pnpm run exec",
     "exec": "xvfb-maybe wdio run ./wdio.conf.ts"
   },
   "dependencies": {
@@ -26,7 +26,6 @@
     "xvfb-maybe": "^0.2.1"
   },
   "devDependencies": {
-    "@testing-library/user-event": "^14.5.2",
     "@types/mocha": "^10.0.9",
     "@types/node": "^22.7.5",
     "electron": "^32.2.0",

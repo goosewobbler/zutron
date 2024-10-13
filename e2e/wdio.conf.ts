@@ -6,7 +6,7 @@ import type { NormalizedPackageJson } from 'read-package-up';
 
 import { getAppBuildInfo, getBinaryPath, getElectronVersion } from '@wdio/electron-utils';
 
-const exampleDir = process.env.EXAMPLE_DIR as string;
+const exampleDir = process.env.APP_DIR as string;
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const packageJsonPath = path.join(__dirname, '..', 'apps', exampleDir, 'package.json');
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, { encoding: 'utf-8' })) as NormalizedPackageJson;
