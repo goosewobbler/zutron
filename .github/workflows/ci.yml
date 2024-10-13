@@ -50,3 +50,12 @@ jobs:
         run: |
           pnpm run ci
         shell: bash
+      - name: 🐛 Show logs
+        if: failure()
+        run: |
+          pnpm run ci:e2e:logs
+      - name: 🐛 Debug Build
+        uses: stateful/vscode-server-action@v1.1.0
+        if: failure()
+        with:
+          timeout: '180000'

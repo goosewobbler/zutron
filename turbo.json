@@ -16,6 +16,7 @@
     "clean:dist": {
       "cache": false
     },
+    "logs": {},
     "release": {
       "dependsOn": ["zutron#build", "zutron#test:unit"]
     },
