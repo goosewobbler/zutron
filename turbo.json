@@ -44,11 +44,14 @@
         "test:e2e:separate-handlers"
       ]
     },
+    "zutron-example-reducers#build": {
+      "dependsOn": ["zutron#build"]
+    },
     "zutron-example-separate-handlers#build": {
-      "dependsOn": ["zutron-example-reducers#build"]
+      "dependsOn": ["zutron#build", "zutron-example-reducers#build"]
     },
     "zutron-example-store-handlers#build": {
-      "dependsOn": ["zutron-example-separate-handlers#build"]
+      "dependsOn": ["zutron#build", "zutron-example-separate-handlers#build"]
     }
   }
 }
