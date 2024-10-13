@@ -3,11 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "ci": "turbo run test",
-    "ci-linux": "turbo run test --concurrency=1",
+    "ci": "turbo run test:unit test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers",
+    "ci-linux": "turbo run test:unit test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers --concurrency=1",
     "ci:e2e:logs": "turbo run logs",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
+    "graph:e2e": "tsx ./scripts/create-task-graph.ts ./e2e-graph.png test:unit test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers",
     "prepare": "husky"
   },
   "repository": {
