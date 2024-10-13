@@ -6,7 +6,6 @@
   "scripts": {
     "clean": "pnpm dlx shx rm -rf ./js ./node_modules pnpm-lock.yaml ./wdio-logs* ./out",
     "logs": "pnpm dlx shx cat ./wdio-logs*/*.log",
-    "test": "turbo run test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers",
     "test:e2e:reducers": "cross-env APP_DIR=example-reducers pnpm run exec",
     "test:e2e:separate-handlers": "cross-env APP_DIR=example-separate-handlers pnpm run exec",
     "test:e2e:store-handlers": "cross-env APP_DIR=example-store-handlers pnpm run exec",
