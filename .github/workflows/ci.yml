@@ -48,7 +48,12 @@ jobs:
         shell: bash
       - name: Run Tests
         run: |
-          pnpm run ci
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            # Run tasks in serial on Ubuntu to avoid Xvfb issues
+            pnpm run ci-linux
+          else
+            pnpm run ci
+          fi
         shell: bash
       - name: 🐛 Show logs
         if: failure()

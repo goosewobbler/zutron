@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "ci": "turbo run test",
+    "ci-linux": "turbo run test --concurrency=1",
     "ci:e2e:logs": "turbo run logs",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
