@@ -1,7 +1,9 @@
 {
   "appId": "com.electron.app",
   "productName": "zutron-example-store-handlers",
-  "directories": { "buildResources": "../../resources/build" },
+  "directories": {
+    "buildResources": "../../resources/build"
+  },
   "files": [
     "!**/.vscode/*",
     "!src/*",
@@ -10,7 +12,10 @@
     "!{.env,.env.*,.npmrc,pnpm-lock.yaml}",
     "!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}"
   ],
-  "win": { "executableName": "zutron-example-store-handlers" },
+  "asar": true,
+  "win": {
+    "executableName": "zutron-example-store-handlers"
+  },
   "nsis": {
     "artifactName": "${name}-${version}-setup.${ext}",
     "shortcutName": "${productName}",
@@ -19,17 +24,22 @@
   },
   "mac": {
     "entitlementsInherit": "build/entitlements.mac.plist",
-    "extendInfo": [
-      { "NSCameraUsageDescription": "Application requests access to the device's camera." },
-      { "NSMicrophoneUsageDescription": "Application requests access to the device's microphone." },
-      { "NSDocumentsFolderUsageDescription": "Application requests access to the user's Documents folder." },
-      { "NSDownloadsFolderUsageDescription": "Application requests access to the user's Downloads folder." }
-    ],
     "notarize": false
   },
-  "dmg": { "artifactName": "${name}-${version}.${ext}" },
-  "linux": { "target": ["deb"], "maintainer": "electronjs.org", "category": "Utility" },
-  "appImage": { "artifactName": "${name}-${version}.${ext}" },
+  "dmg": {
+    "artifactName": "${name}-${version}.${ext}"
+  },
+  "linux": {
+    "executableName": "zutron-example-store-handlers",
+    "target": ["AppImage"],
+    "category": "Utility"
+  },
+  "appImage": {
+    "artifactName": "${name}-${version}.${ext}"
+  },
   "npmRebuild": false,
-  "publish": { "provider": "generic", "url": "https://example.com/auto-updates" }
+  "publish": {
+    "provider": "generic",
+    "url": "https://example.com/auto-updates"
+  }
 }
