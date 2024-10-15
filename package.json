@@ -2,6 +2,8 @@
   "name": "zutron-monorepo",
   "private": true,
   "type": "module",
+  "homepage": "https://github.com/goosewobbler/zutron",
+  "license": "MIT",
   "scripts": {
     "ci": "turbo run test:unit test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers",
     "ci-linux": "turbo run test:unit test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers --concurrency=1",
