@@ -12,7 +12,6 @@ describe('createDispatch', () => {
       setState: vi.fn(),
       subscribe: vi.fn(),
       getInitialState: vi.fn(),
-      destroy: vi.fn(),
     };
   });
 
