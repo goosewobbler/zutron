@@ -6,9 +6,9 @@ import type { NormalizedPackageJson } from 'read-package-up';
 
 import { getAppBuildInfo, getBinaryPath, getElectronVersion } from '@wdio/electron-utils';
 
-const exampleDir = process.env.APP_DIR as string;
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-const packageJsonPath = path.join(__dirname, '..', 'apps', exampleDir, 'package.json');
+const appDir = process.env.APP_DIR as string;
+const packageJsonPath = path.join(__dirname, '..', 'apps', appDir, 'package.json');
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, { encoding: 'utf-8' })) as NormalizedPackageJson;
 const pkg = { packageJson, path: packageJsonPath };
 const electronVersion = getElectronVersion(pkg);
@@ -25,6 +25,7 @@ export const config = {
       'browserName': 'electron',
       'wdio:electronServiceOptions': {
         appBinaryPath,
+        appArgs: ['--no-sandbox'],
         restoreMocks: true,
       },
     },
@@ -34,7 +35,7 @@ export const config = {
   connectionRetryTimeout: 30000,
   logLevel: 'debug',
   runner: 'local',
-  outputDir: `wdio-logs-${exampleDir}`,
+  outputDir: `wdio-logs-${appDir}`,
   specs: ['./test/*.spec.ts'],
   tsConfigPath: path.join(__dirname, 'tsconfig.json'),
   framework: 'mocha',
