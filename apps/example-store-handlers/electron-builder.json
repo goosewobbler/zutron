@@ -1,35 +1,19 @@
 {
-  "appId": "com.electron.app",
+  "appId": "com.zutron-example-store-handlers.app",
+  "asar": true,
+  "copyright": "goosewobbler",
   "productName": "zutron-example-store-handlers",
-  "directories": { "buildResources": "../../resources/build" },
-  "files": [
-    "!**/.vscode/*",
-    "!src/*",
-    "!electron.vite.config.{js,ts,mjs,cjs}",
-    "!{dev-app-update.yml,README.md}",
-    "!{.env,.env.*,.npmrc,pnpm-lock.yaml}",
-    "!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}"
-  ],
-  "win": { "executableName": "zutron-example-store-handlers" },
-  "nsis": {
-    "artifactName": "${name}-${version}-setup.${ext}",
-    "shortcutName": "${productName}",
-    "uninstallDisplayName": "${productName}",
-    "createDesktopShortcut": "always"
+  "directories": {
+    "buildResources": "../../resources/build"
+  },
+  "files": ["./out/**/*"],
+  "linux": {
+    "executableName": "zutron-example-store-handlers",
+    "category": "Utility",
+    "target": ["AppImage"]
   },
   "mac": {
     "entitlementsInherit": "build/entitlements.mac.plist",
-    "extendInfo": [
-      { "NSCameraUsageDescription": "Application requests access to the device's camera." },
-      { "NSMicrophoneUsageDescription": "Application requests access to the device's microphone." },
-      { "NSDocumentsFolderUsageDescription": "Application requests access to the user's Documents folder." },
-      { "NSDownloadsFolderUsageDescription": "Application requests access to the user's Downloads folder." }
-    ],
     "notarize": false
-  },
-  "dmg": { "artifactName": "${name}-${version}.${ext}" },
-  "linux": { "target": ["AppImage", "snap", "deb"], "maintainer": "electronjs.org", "category": "Utility" },
-  "appImage": { "artifactName": "${name}-${version}.${ext}" },
-  "npmRebuild": false,
-  "publish": { "provider": "generic", "url": "https://example.com/auto-updates" }
+  }
 }

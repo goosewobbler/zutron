@@ -2,4 +2,5 @@ packages:
   - 'apps/example-reducers'
   - 'apps/example-separate-handlers'
   - 'apps/example-store-handlers'
+  - 'e2e'
   - 'packages/zutron'

@@ -16,12 +16,42 @@
     "clean:dist": {
       "cache": false
     },
+    "logs": {},
     "release": {
       "dependsOn": ["zutron#build", "zutron#test:unit"]
     },
     "test:unit": {},
-    "test": {
-      "dependsOn": ["zutron#build", "zutron#test:unit"]
+    "test:e2e:reducers": {
+      "dependsOn": [
+        "zutron-example-reducers#build",
+        "zutron-example-separate-handlers#build",
+        "zutron-example-store-handlers#build"
+      ]
+    },
+    "test:e2e:separate-handlers": {
+      "dependsOn": [
+        "zutron-example-reducers#build",
+        "zutron-example-separate-handlers#build",
+        "zutron-example-store-handlers#build",
+        "test:e2e:reducers"
+      ]
+    },
+    "test:e2e:store-handlers": {
+      "dependsOn": [
+        "zutron-example-reducers#build",
+        "zutron-example-separate-handlers#build",
+        "zutron-example-store-handlers#build",
+        "test:e2e:separate-handlers"
+      ]
+    },
+    "zutron-example-reducers#build": {
+      "dependsOn": ["zutron#build"]
+    },
+    "zutron-example-separate-handlers#build": {
+      "dependsOn": ["zutron#build", "zutron-example-reducers#build"]
+    },
+    "zutron-example-store-handlers#build": {
+      "dependsOn": ["zutron#build", "zutron-example-separate-handlers#build"]
     }
   }
 }

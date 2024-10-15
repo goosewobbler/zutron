@@ -48,5 +48,19 @@ jobs:
         shell: bash
       - name: Run Tests
         run: |
-          pnpm run ci
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            # Run tasks in serial on Ubuntu to avoid Xvfb issues
+            pnpm run ci-linux
+          else
+            pnpm run ci
+          fi
         shell: bash
+      - name: 🐛 Show logs
+        if: failure()
+        run: |
+          pnpm run ci:e2e:logs
+      - name: 🐛 Debug Build
+        uses: stateful/vscode-server-action@v1.1.0
+        if: failure()
+        with:
+          timeout: '180000'
