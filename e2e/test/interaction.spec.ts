@@ -32,56 +32,60 @@ describe('application loading', () => {
       expect(await screen.getByText('0')).toBeDefined();
     });
 
-    it('should increment the badgeCount', async () => {
-      let badgeCount: number;
-      const incrementButton = await screen.getByText('increment');
+    // Setting badge count is supported on macOS and Linux
+    // However, Linux support is limited to Unity, which is not the default desktop environment for Ubuntu
+    if (process.platform === 'darwin') {
+      it('should increment the badgeCount', async () => {
+        let badgeCount: number;
+        const incrementButton = await screen.getByText('increment');
 
-      await incrementButton.click();
-      badgeCount = await browser.electron.execute((electron) => {
-        return electron.app.getBadgeCount();
+        await incrementButton.click();
+        badgeCount = await browser.electron.execute((electron) => {
+          return electron.app.getBadgeCount();
+        });
+
+        expect(badgeCount).toBe(1);
+
+        await incrementButton.click();
+        badgeCount = await browser.electron.execute((electron) => {
+          return electron.app.getBadgeCount();
+        });
+
+        expect(badgeCount).toBe(2);
+
+        await incrementButton.click();
+        badgeCount = await browser.electron.execute((electron) => {
+          return electron.app.getBadgeCount();
+        });
+
+        expect(badgeCount).toBe(3);
       });
 
-      expect(badgeCount).toBe(1);
+      it('should decrement the badgeCount', async () => {
+        let badgeCount: number;
+        const decrementButton = await screen.getByText('decrement');
 
-      await incrementButton.click();
-      badgeCount = await browser.electron.execute((electron) => {
-        return electron.app.getBadgeCount();
+        await decrementButton.click();
+        badgeCount = await browser.electron.execute((electron) => {
+          return electron.app.getBadgeCount();
+        });
+
+        expect(badgeCount).toBe(2);
+
+        await decrementButton.click();
+        badgeCount = await browser.electron.execute((electron) => {
+          return electron.app.getBadgeCount();
+        });
+
+        expect(badgeCount).toBe(1);
+
+        await decrementButton.click();
+        badgeCount = await browser.electron.execute((electron) => {
+          return electron.app.getBadgeCount();
+        });
+
+        expect(badgeCount).toBe(0);
       });
-
-      expect(badgeCount).toBe(2);
-
-      await incrementButton.click();
-      badgeCount = await browser.electron.execute((electron) => {
-        return electron.app.getBadgeCount();
-      });
-
-      expect(badgeCount).toBe(3);
-    });
-
-    it('should decrement the badgeCount', async () => {
-      let badgeCount: number;
-      const decrementButton = await screen.getByText('decrement');
-
-      await decrementButton.click();
-      badgeCount = await browser.electron.execute((electron) => {
-        return electron.app.getBadgeCount();
-      });
-
-      expect(badgeCount).toBe(2);
-
-      await decrementButton.click();
-      badgeCount = await browser.electron.execute((electron) => {
-        return electron.app.getBadgeCount();
-      });
-
-      expect(badgeCount).toBe(1);
-
-      await decrementButton.click();
-      badgeCount = await browser.electron.execute((electron) => {
-        return electron.app.getBadgeCount();
-      });
-
-      expect(badgeCount).toBe(0);
-    });
+    }
   });
 });
