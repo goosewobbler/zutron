@@ -1,45 +1,19 @@
 {
-  "appId": "com.electron.app",
+  "appId": "com.zutron-example-reducers.app",
+  "asar": true,
+  "copyright": "goosewobbler",
   "productName": "zutron-example-reducers",
   "directories": {
     "buildResources": "../../resources/build"
   },
-  "files": [
-    "!**/.vscode/*",
-    "!src/*",
-    "!electron.vite.config.{js,ts,mjs,cjs}",
-    "!{dev-app-update.yml,README.md}",
-    "!{.env,.env.*,.npmrc,pnpm-lock.yaml}",
-    "!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}"
-  ],
-  "asar": true,
-  "win": {
-    "executableName": "zutron-example-reducers"
-  },
-  "nsis": {
-    "artifactName": "${name}-${version}-setup.${ext}",
-    "shortcutName": "${productName}",
-    "uninstallDisplayName": "${productName}",
-    "createDesktopShortcut": "always"
+  "files": ["./out/**/*"],
+  "linux": {
+    "executableName": "zutron-example-reducers",
+    "category": "Utility",
+    "target": ["AppImage"]
   },
   "mac": {
     "entitlementsInherit": "build/entitlements.mac.plist",
     "notarize": false
-  },
-  "dmg": {
-    "artifactName": "${name}-${version}.${ext}"
-  },
-  "linux": {
-    "executableName": "zutron-example-reducers",
-    "target": ["AppImage"],
-    "category": "Utility"
-  },
-  "appImage": {
-    "artifactName": "${name}-${version}.${ext}"
-  },
-  "npmRebuild": false,
-  "publish": {
-    "provider": "generic",
-    "url": "https://example.com/auto-updates"
   }
 }
