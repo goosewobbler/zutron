@@ -16,7 +16,6 @@ export const store = createStore<State>()((setState) => ({
 type Subscribe = (listener: (state: State, prevState: State) => void) => () => void;
 
 export type Store = {
-  destroy: () => void;
   getState: () => State;
   getInitialState: () => State;
   setState: (stateSetter: (state: State) => State) => void;
