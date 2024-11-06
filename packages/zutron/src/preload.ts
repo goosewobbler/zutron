@@ -1,8 +1,8 @@
-import type { IpcRenderer } from 'electron';
+import { ipcRenderer } from 'electron';
 
 import type { AnyState, PreloadZustandBridgeReturn } from './index.js';
 
-export const preloadZustandBridge = <S extends AnyState>(ipcRenderer: IpcRenderer): PreloadZustandBridgeReturn<S> => ({
+export const preloadZustandBridge = <S extends AnyState>(): PreloadZustandBridgeReturn<S> => ({
   handlers: {
     dispatch: (...args) => ipcRenderer.send('dispatch', ...args),
     getState: () => ipcRenderer.invoke('getState'),
