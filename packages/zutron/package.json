@@ -71,7 +71,7 @@
   },
   "peerDependencies": {
     "electron": ">=12",
-    "zustand": ">=5.0.0"
+    "zustand": ">=4.0.0"
   },
   "peerDependenciesMeta": {
     "electron": {
