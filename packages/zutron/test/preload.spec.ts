@@ -1,4 +1,4 @@
-import { vi, expect, describe, it, type Mock, beforeEach } from 'vitest';
+import { vi, expect, describe, it, beforeEach } from 'vitest';
 import { createIpcRendererMock } from './helpers.js';
 
 const mockIpcRenderer = createIpcRendererMock();
