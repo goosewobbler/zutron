@@ -1,10 +1,9 @@
-import type { BrowserWindow, IpcMain, IpcMainEvent } from 'electron';
+import { type BrowserWindow, ipcMain, type IpcMainEvent } from 'electron';
 import type { StoreApi } from 'zustand';
 
 import type { Action, AnyState, Handler, MainZustandBridgeOpts, Thunk } from './index.js';
 
 export type MainZustandBridge = <State extends AnyState, Store extends StoreApi<State>>(
-  ipcMain: IpcMain,
   store: Store,
   windows: BrowserWindow[],
   options?: MainZustandBridgeOpts<State>,
@@ -52,7 +51,7 @@ export const createDispatch =
     }
   };
 
-export const mainZustandBridge: MainZustandBridge = (ipcMain, store, windows, options) => {
+export const mainZustandBridge: MainZustandBridge = (store, windows, options) => {
   const dispatch = createDispatch(store, options);
   ipcMain.on('subscribe', async (state: unknown) => {
     for (const window of windows) {

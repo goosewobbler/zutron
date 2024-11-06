@@ -1,13 +1,27 @@
-import { beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
-import { mainZustandBridge, createDispatch } from '../src/main';
+import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
 import type { StoreApi } from 'zustand';
 import type { AnyState } from '../src/index.js';
 
+const mockIpcMain = {
+  emit: vi.fn(),
+  handle: vi.fn(),
+  on: vi.fn(),
+};
+
+vi.mock('electron', () => ({
+  ipcMain: mockIpcMain,
+  default: {
+    ipcMain: mockIpcMain,
+  },
+}));
+
+let { mainZustandBridge, createDispatch } = await import('../src/main.js');
+
 describe('createDispatch', () => {
-  let store: Record<string, Mock>;
+  let mockStore: Record<string, Mock>;
 
   beforeEach(() => {
-    store = {
+    mockStore = {
       getState: vi.fn(),
       setState: vi.fn(),
       subscribe: vi.fn(),
@@ -20,11 +34,11 @@ describe('createDispatch', () => {
 
     beforeEach(() => {
       testState.testAction = vi.fn();
-      store.getState.mockReturnValue(testState);
+      mockStore.getState.mockReturnValue(testState);
     });
 
     it('should call a handler with the expected payload - string action', () => {
-      const dispatch = createDispatch(store as unknown as StoreApi<AnyState>);
+      const dispatch = createDispatch(mockStore as unknown as StoreApi<AnyState>);
 
       dispatch('testAction', { test: 'payload' });
 
@@ -32,7 +46,7 @@ describe('createDispatch', () => {
     });
 
     it('should call a handler with the expected payload - object action', () => {
-      const dispatch = createDispatch(store as unknown as StoreApi<AnyState>);
+      const dispatch = createDispatch(mockStore as unknown as StoreApi<AnyState>);
 
       dispatch({ type: 'testAction', payload: { test: 'payload' } });
 
@@ -48,7 +62,7 @@ describe('createDispatch', () => {
     });
 
     it('should call a handler with the expected payload - string action', () => {
-      const dispatch = createDispatch(store as unknown as StoreApi<AnyState>, { handlers: testHandlers });
+      const dispatch = createDispatch(mockStore as unknown as StoreApi<AnyState>, { handlers: testHandlers });
 
       dispatch('testAction', { test: 'payload' });
 
@@ -56,7 +70,7 @@ describe('createDispatch', () => {
     });
 
     it('should call a handler with the expected payload - object action', () => {
-      const dispatch = createDispatch(store as unknown as StoreApi<AnyState>, { handlers: testHandlers });
+      const dispatch = createDispatch(mockStore as unknown as StoreApi<AnyState>, { handlers: testHandlers });
 
       dispatch({ type: 'testAction', payload: { test: 'payload' } });
 
@@ -77,13 +91,13 @@ describe('createDispatch', () => {
         return existingState;
       });
 
-      const dispatch = createDispatch(store as unknown as StoreApi<AnyState>, { reducer: testReducer });
+      const dispatch = createDispatch(mockStore as unknown as StoreApi<AnyState>, { reducer: testReducer });
 
       dispatch({ type: 'testAction', payload: 'testPayload' });
 
-      expect(store.setState).toHaveBeenCalledWith(expect.any(Function));
+      expect(mockStore.setState).toHaveBeenCalledWith(expect.any(Function));
 
-      const newTestState = store.setState.mock.calls[0][0](testState);
+      const newTestState = mockStore.setState.mock.calls[0][0](testState);
 
       expect(newTestState).toStrictEqual({ test: 'state', updated: 'state' });
     });
@@ -91,30 +105,32 @@ describe('createDispatch', () => {
 });
 
 describe('mainZustandBridge', () => {
-  const options: { handlers?: Record<string, Mock> } = {};
-  let mockIpcMain: Record<string, Mock>;
+  let options: { handlers?: Record<string, Mock> };
   let mockStore: Record<string, Mock>;
   let mockWindows: Record<string, Mock | { send: Mock }>[];
 
   beforeEach(() => {
-    mockIpcMain = {
-      on: vi.fn(),
-      handle: vi.fn(),
-      emit: vi.fn(),
-    };
     mockStore = {
       getState: vi.fn(),
       setState: vi.fn(),
       subscribe: vi.fn(),
     };
     mockWindows = [{ isDestroyed: vi.fn().mockReturnValue(false), webContents: { send: vi.fn() } }];
+    options = {};
+  });
+
+  afterEach(() => {
+    mockIpcMain.on.mockClear();
+    mockIpcMain.handle.mockClear();
+    mockIpcMain.emit.mockClear();
+    mockStore.getState.mockClear();
+    mockStore.subscribe.mockClear();
   });
 
   it('should pass dispatch messages through to the store', () => {
     options.handlers = { test: vi.fn() };
 
     mainZustandBridge(
-      mockIpcMain as unknown as Electron.CrossProcessExports.IpcMain,
       mockStore as unknown as StoreApi<AnyState>,
       mockWindows as unknown as Electron.BrowserWindow[],
       options,
@@ -128,16 +144,15 @@ describe('mainZustandBridge', () => {
   });
 
   it('should handle getState calls and return the sanitized state', async () => {
-    mockStore.getState.mockReturnValue({ test: 'state', testHandler: vi.fn() });
+    mockStore.getState.mockImplementation(() => ({ test: 'state', testHandler: vi.fn() }));
 
     mainZustandBridge(
-      mockIpcMain as unknown as Electron.CrossProcessExports.IpcMain,
       mockStore as unknown as StoreApi<AnyState>,
       mockWindows as unknown as Electron.BrowserWindow[],
       options,
     );
     expect(mockIpcMain.handle).toHaveBeenCalledWith('getState', expect.any(Function));
-    const getStateHandler = mockIpcMain.handle.mock.calls[0][1];
+    const getStateHandler = mockIpcMain.handle.mock.calls[0][1] as () => AnyState;
 
     const state = getStateHandler();
 
@@ -148,12 +163,7 @@ describe('mainZustandBridge', () => {
   it('should handle subscribe calls and send sanitized state to the window', async () => {
     const browserWindows = mockWindows as unknown as Electron.BrowserWindow[];
 
-    mainZustandBridge(
-      mockIpcMain as unknown as Electron.CrossProcessExports.IpcMain,
-      mockStore as unknown as StoreApi<AnyState>,
-      browserWindows,
-      options,
-    );
+    mainZustandBridge(mockStore as unknown as StoreApi<AnyState>, browserWindows, options);
     expect(mockIpcMain.on).toHaveBeenCalledWith('subscribe', expect.any(Function));
     const subscribeHandler = mockIpcMain.on.mock.calls[0][1];
 
@@ -169,12 +179,7 @@ describe('mainZustandBridge', () => {
     ];
     const browserWindows = mockWindows as unknown as Electron.BrowserWindow[];
 
-    mainZustandBridge(
-      mockIpcMain as unknown as Electron.CrossProcessExports.IpcMain,
-      mockStore as unknown as StoreApi<AnyState>,
-      browserWindows,
-      options,
-    );
+    mainZustandBridge(mockStore as unknown as StoreApi<AnyState>, browserWindows, options);
     expect(mockIpcMain.on).toHaveBeenCalledWith('subscribe', expect.any(Function));
     const subscribeHandler = mockIpcMain.on.mock.calls[0][1];
 
@@ -191,12 +196,7 @@ describe('mainZustandBridge', () => {
     ];
     const browserWindows = mockWindows as unknown as Electron.BrowserWindow[];
 
-    mainZustandBridge(
-      mockIpcMain as unknown as Electron.CrossProcessExports.IpcMain,
-      mockStore as unknown as StoreApi<AnyState>,
-      browserWindows,
-      options,
-    );
+    mainZustandBridge(mockStore as unknown as StoreApi<AnyState>, browserWindows, options);
     expect(mockIpcMain.on).toHaveBeenCalledWith('subscribe', expect.any(Function));
     const subscribeHandler = mockIpcMain.on.mock.calls[0][1];
 
@@ -210,12 +210,7 @@ describe('mainZustandBridge', () => {
     const browserWindows = mockWindows as unknown as Electron.BrowserWindow[];
     mockStore.subscribe.mockImplementation(() => vi.fn());
 
-    const bridge = mainZustandBridge(
-      mockIpcMain as unknown as Electron.CrossProcessExports.IpcMain,
-      mockStore as unknown as StoreApi<AnyState>,
-      browserWindows,
-      options,
-    );
+    const bridge = mainZustandBridge(mockStore as unknown as StoreApi<AnyState>, browserWindows, options);
 
     expect(bridge.unsubscribe).toStrictEqual(expect.any(Function));
     expect(mockStore.subscribe).toHaveBeenCalledWith(expect.any(Function));
