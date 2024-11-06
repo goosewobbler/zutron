@@ -1,11 +1,20 @@
 import { vi, expect, describe, it, type Mock, beforeEach } from 'vitest';
-import { preloadZustandBridge } from '../src/preload.js';
 import { createIpcRendererMock } from './helpers.js';
+
+const mockIpcRenderer = createIpcRendererMock();
+
+vi.mock('electron', () => ({
+  ipcRenderer: mockIpcRenderer,
+  default: {
+    ipcRenderer: mockIpcRenderer,
+  },
+}));
+
+let { preloadZustandBridge } = await import('../src/preload.js');
 
 describe('preloadZustandBridge', () => {
   it('should return the expected handlers', () => {
-    const ipcRenderer = createIpcRendererMock();
-    const bridge = preloadZustandBridge(ipcRenderer);
+    const bridge = preloadZustandBridge();
 
     expect(bridge.handlers).toBeDefined();
     expect(bridge.handlers.dispatch).toStrictEqual(expect.any(Function));
@@ -14,19 +23,17 @@ describe('preloadZustandBridge', () => {
   });
 
   describe('handlers', () => {
-    let ipcRenderer: Record<string, Mock>;
     let bridge: ReturnType<typeof preloadZustandBridge>;
 
     beforeEach(() => {
-      ipcRenderer = createIpcRendererMock();
-      bridge = preloadZustandBridge(ipcRenderer as unknown as Electron.IpcRenderer);
+      bridge = preloadZustandBridge();
     });
 
     describe('dispatch', () => {
       it('should call ipcRenderer.send', () => {
         bridge.handlers.dispatch('action', { payload: 'data' });
 
-        expect(ipcRenderer.send).toHaveBeenCalledWith('dispatch', 'action', { payload: 'data' });
+        expect(mockIpcRenderer.send).toHaveBeenCalledWith('dispatch', 'action', { payload: 'data' });
       });
     });
 
@@ -34,7 +41,7 @@ describe('preloadZustandBridge', () => {
       it('should call ipcRenderer.invoke', () => {
         bridge.handlers.getState();
 
-        expect(ipcRenderer.invoke).toHaveBeenCalledWith('getState');
+        expect(mockIpcRenderer.invoke).toHaveBeenCalledWith('getState');
       });
     });
 
@@ -44,8 +51,8 @@ describe('preloadZustandBridge', () => {
 
         bridge.handlers.subscribe(callback);
 
-        expect(ipcRenderer.on).toHaveBeenCalledWith('subscribe', expect.any(Function));
-        ipcRenderer.on.mock.calls[0][1]('state', 'testState');
+        expect(mockIpcRenderer.on).toHaveBeenCalledWith('subscribe', expect.any(Function));
+        mockIpcRenderer.on.mock.calls[0][1]('state', 'testState');
         expect(callback).toHaveBeenCalledWith('testState');
       });
 
@@ -55,8 +62,8 @@ describe('preloadZustandBridge', () => {
         const unsubscribe = bridge.handlers.subscribe(callback);
         unsubscribe();
 
-        expect(ipcRenderer.off).toHaveBeenCalledWith('subscribe', expect.any(Function));
-        ipcRenderer.off.mock.calls[0][1]('state', 'testState');
+        expect(mockIpcRenderer.off).toHaveBeenCalledWith('subscribe', expect.any(Function));
+        mockIpcRenderer.off.mock.calls[0][1]('state', 'testState');
         expect(callback).toHaveBeenCalledWith('testState');
       });
     });
