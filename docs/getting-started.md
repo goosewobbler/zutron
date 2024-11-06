@@ -8,7 +8,11 @@ npm i zutron zustand
 
 Or use your dependency manager of choice, e.g. `pnpm`, `yarn`.
 
-The following instructions assume you are using TypeScript. First, create your Zustand store using `zustand/vanilla` in the main process:
+The following instructions assume you are using TypeScript.
+
+#### Create Store
+
+First, create your Zustand store using `zustand/vanilla` in the main process:
 
 ```ts
 import { createStore } from 'zustand/vanilla';
@@ -16,31 +20,36 @@ import { createStore } from 'zustand/vanilla';
 store = createStore<AppState>()(() => initialState);
 ```
 
-Then initialise the bridge in the main process. The bridge needs your store, ipcMain and an array of BrowserWindow objects for your app, so for a single window application:
+#### Initialize Bridge in Main process
+
+In the main process, the bridge needs your store and an array of BrowserWindow objects for your app, so for a single window application:
 
 ```ts
-import { ipcMain, type BrowserWindow } from 'electron';
 import { mainZustandBridge } from 'zutron/main';
 
 // create mainWindow
 
-const { unsubscribe } = mainZustandBridge(ipcMain, store, [mainWindow]);
+const { unsubscribe } = mainZustandBridge(store, [mainWindow]);
 
 app.on('quit', unsubscribe);
 ```
 
-Next, initialise the bridge in the preload script. Here the bridge needs the State type and the ipcRenderer. The bridge initialiser will return a set of handlers which should be exposed to the renderer process via the `contextBridge` module.
+#### Initialize Bridge in Preload
+
+Next, initialise the bridge in your preload script. Here the bridge needs the type of your app state. The bridge initialiser will return a set of handlers which should be exposed to the renderer process via the `contextBridge` module.
 
 ```ts
-import { ipcRenderer, contextBridge } from 'electron';
+import { contextBridge } from 'electron';
 import { preloadZustandBridge } from 'zutron/preload';
 
 import type { AppState } from '../features/index.js';
 
-export const { handlers } = preloadZustandBridge<AppState>(ipcRenderer);
+export const { handlers } = preloadZustandBridge<AppState>();
 
 contextBridge.exposeInMainWorld('zutron', handlers);
 ```
+
+#### Create hook in Renderer process
 
 Finally, in the renderer process you will need to create the useStore hook:
 
@@ -53,7 +62,7 @@ import { AppState } from '../../features/index.js';
 export const useStore = createUseStore<AppState>(window.zutron);
 ```
 
-### Accessing the Store in the Renderer Process
+#### Accessing the Store in the Renderer Process
 
 In the renderer process you should now be able to access the store via the `useStore` hook:
 
@@ -79,7 +88,7 @@ const dispatch = useDispatch(window.zutron);
 const onIncrement = () => dispatch(onIncrementThunk);
 ```
 
-### Accessing the Store in the Main Process
+#### Accessing the Store in the Main Process
 
 In the main process you can access the store object directly, any updates will be propagated to the renderer process.
 
