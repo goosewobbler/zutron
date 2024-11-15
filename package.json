@@ -23,6 +23,8 @@
     "state-management"
   ],
   "devDependencies": {
+    "@turbo-version/release": "^0.6.0",
+    "@turbo-version/version": "^0.6.0",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
@@ -35,5 +37,5 @@
       "prettier --write"
     ]
   },
-  "packageManager": "pnpm@9.12.0+sha256.a61b67ff6cc97af864564f4442556c22a04f2e5a7714fbee76a1011361d9b726"
+  "packageManager": "pnpm@9.13.1+sha512.5ac37545851c55ec58521b6c285db6f848f93ca70889beb4145f5b40fe234e4ea4faee4dad12ac5c139e494374c65d9c3a6ec9a25954378fa286a250e68d2f20"
 }

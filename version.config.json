@@ -1,0 +1,9 @@
+{
+  "tagPrefix": "v",
+  "preset": "angular",
+  "baseBranch": "main",
+  "synced": true,
+  "updateInternalDependencies": false,
+  "commitMessage": "release v${version} [skip-ci]",
+  "skip": ["zutron-example-reducers", "zutron-example-separate-handlers", "zutron-example-store-handlers", "zutron-e2e"]
+}
