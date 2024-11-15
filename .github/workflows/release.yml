@@ -19,6 +19,7 @@ on:
           - prerelease
 
 env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   HUSKY: '0'
 
 jobs:
@@ -52,5 +53,4 @@ jobs:
           pnpm turbo-version -b ${{inputs.releaseVersion}}
           pnpm turbo-release
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
