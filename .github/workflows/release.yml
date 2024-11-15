@@ -52,7 +52,8 @@ jobs:
         run: |
           pnpm build
           pnpm turbo-version -b ${{inputs.releaseVersion}}
-          pnpm turbo-release -t zutron -c pnpm
+          pnpm publish /home/runner/work/zutron/zutron/packages/zutron
+          # pnpm turbo-release -t zutron -c pnpm
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
