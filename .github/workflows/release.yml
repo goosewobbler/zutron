@@ -53,4 +53,5 @@ jobs:
           pnpm turbo-version -b ${{inputs.releaseVersion}}
           pnpm turbo-release -t zutron
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
