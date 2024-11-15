@@ -5,6 +5,7 @@
   "homepage": "https://github.com/goosewobbler/zutron",
   "license": "MIT",
   "scripts": {
+    "build": "turbo run build --filter=zutron",
     "ci": "turbo run test:unit test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers",
     "ci-linux": "turbo run test:unit test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers --concurrency=1",
     "ci:e2e:logs": "turbo run logs",
