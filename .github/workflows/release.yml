@@ -51,6 +51,6 @@ jobs:
         run: |
           pnpm run build
           pnpm turbo-version -b ${{inputs.releaseVersion}}
-          pnpm turbo-release
+          pnpm turbo-release -t zutron
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
