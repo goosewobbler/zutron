@@ -85,14 +85,14 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
     "@types/shelljs": "^0.8.15",
-    "@vitest/coverage-v8": "^2.1.4",
+    "@vitest/coverage-v8": "^2.1.5",
     "jsdom": "^25.0.1",
     "react": "^18.3.1",
-    "rollup": "^4.24.4",
+    "rollup": "^4.27.2",
     "shelljs": "^0.8.5",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3",
-    "vitest": "^2.1.4"
+    "vitest": "^2.1.5"
   },
   "files": [
     "dist/*",
