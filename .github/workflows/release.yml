@@ -47,12 +47,12 @@ jobs:
           git config --global user.name "Zutron Release Bot"
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
-      - name: Release
+      - name: Turbo Version
         shell: bash
-        run: |
-          pnpm build
-          pnpm turbo-version -b ${{inputs.releaseVersion}}
-          pnpm turbo-release -t zutron -c pnpm
+        run: pnpm turbo-version -b ${{inputs.releaseVersion}}
+      - name: Turbo Release
+        shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm turbo-release -t zutron -c pnpm
