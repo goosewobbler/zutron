@@ -60,5 +60,9 @@ jobs:
         shell: bash
         run: pnpm publish -r --tag ${{inputs.npmTag}}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Push Tags and Commits
+        shell: bash
+        run: git push --tags && git push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

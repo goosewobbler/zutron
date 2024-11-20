@@ -1,6 +1,7 @@
 {
   "name": "zutron-example-separate-handlers",
   "version": "0.0.1",
+  "private": true,
   "description": "An application demonstrating the use of Zutron with action handlers which are separate from the Zustand store",
   "main": "./out/main/index.js",
   "type": "module",
