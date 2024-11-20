@@ -1,5 +1,6 @@
 {
   "name": "zutron-example-reducers",
+  "version": "0.0.1",
   "private": true,
   "description": "An application demonstrating the use of Zutron with Redux-style reducers",
   "main": "./out/main/index.js",
