@@ -17,6 +17,10 @@ on:
           - preminor
           - premajor
           - prerelease
+      npmTag:
+        description: 'NPM tag. Defaults to "latest".'
+        required: true
+        default: 'latest'
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -49,12 +53,12 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Build
         run: pnpm build
-      - name: Turbo Version
+      - name: Create Release and Tags
         shell: bash
         run: pnpm turbo-version -b ${{inputs.releaseVersion}}
-      - name: Turbo Release
+      - name: Publish Release
         shell: bash
-        run: pnpm turbo-release -t zutron -c pnpm
+        run: pnpm publish -r --tag $${{inputs.npmTag}}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
