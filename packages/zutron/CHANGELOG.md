@@ -1,7 +1,3 @@
-## [0.5.1-0](https://github.com/goosewobbler/zutron/compare/v0.5.0...v0.5.1-0) (2024-11-20)
-
-
-
 # [0.5.0](https://github.com/goosewobbler/zutron/compare/v0.4.0...v0.5.0) (2024-11-06)
 
 
@@ -28,19 +24,6 @@
 
 * add subpath exports fallback ([2a3dc9b](https://github.com/goosewobbler/zutron/commit/2a3dc9be72e4fb3adb5a6a178c01f53c49bc0cd9))
 * useDispatch ([8bc1774](https://github.com/goosewobbler/zutron/commit/8bc17741e931f9d0bc4f3f11bd0b95267a097cf9))
-
-
-
-# [0.1.0-lw](https://github.com/goosewobbler/zutron/compare/v0.0.4-lw...v0.1.0-lw) (2024-10-01)
-
-
-### Features
-
-* CJS output, simplify repo ([4c4ec11](https://github.com/goosewobbler/zutron/commit/4c4ec1133ccd265b7c0feeb3872f5a031cc857f7))
-
-
-
-## 0.0.1-lw (2024-04-06)
 
 
 
