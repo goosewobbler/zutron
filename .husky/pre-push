@@ -1,1 +1,1 @@
-turbo run format test:unit
+turbo run format:check test:unit
