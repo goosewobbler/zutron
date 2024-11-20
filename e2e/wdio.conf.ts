@@ -25,7 +25,6 @@ export const config = {
       'browserName': 'electron',
       'wdio:electronServiceOptions': {
         appBinaryPath,
-        appArgs: ['--no-sandbox'],
         restoreMocks: true,
       },
     },

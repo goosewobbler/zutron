@@ -6,8 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "turbo run build --filter=zutron",
-    "ci": "turbo run test:unit test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers",
-    "ci-linux": "turbo run test:unit test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers --concurrency=1",
+    "ci": "turbo run format:check test:unit test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers",
+    "ci-linux": "turbo run format:check test:unit test:e2e:reducers test:e2e:separate-handlers test:e2e:store-handlers --concurrency=1",
     "ci:e2e:logs": "turbo run logs",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
@@ -24,14 +24,13 @@
     "state-management"
   ],
   "devDependencies": {
-    "@turbo-version/release": "^0.6.0",
-    "@turbo-version/version": "^0.6.0",
-    "husky": "^9.1.6",
+    "@turbo-version/version": "^0.6.1",
+    "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "shelljs": "^0.8.5",
     "tsx": "^4.19.2",
-    "turbo": "^2.2.3"
+    "turbo": "^2.3.0"
   },
   "lint-staged": {
     "**/*.{yml,json,md,ts,tsx,js}": [

@@ -3,7 +3,7 @@
   "ui": "tui",
   "tasks": {
     "//#format:check": {
-      "inputs": ["**/*.{yml,json,md,ts,tsx,js"]
+      "inputs": ["**/*.{yml,json,md,ts,tsx,js}"]
     },
     "//#ci": {},
     "build": {
