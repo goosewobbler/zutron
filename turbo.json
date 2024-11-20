@@ -2,6 +2,9 @@
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
   "tasks": {
+    "//#format": {
+      "inputs": ["**/*.{yml,json,md,ts,tsx,js}"]
+    },
     "//#format:check": {
       "inputs": ["**/*.{yml,json,md,ts,tsx,js}"]
     },
