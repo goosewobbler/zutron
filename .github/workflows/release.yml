@@ -24,6 +24,7 @@ on:
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  HUSKY: '0'
 
 jobs:
   release:
