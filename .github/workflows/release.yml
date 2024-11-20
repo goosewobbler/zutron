@@ -58,7 +58,7 @@ jobs:
         run: pnpm turbo-version -b ${{inputs.releaseVersion}}
       - name: Publish Release
         shell: bash
-        run: pnpm publish -r --tag $${{inputs.npmTag}}
+        run: pnpm publish -r --tag ${{inputs.npmTag}}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
