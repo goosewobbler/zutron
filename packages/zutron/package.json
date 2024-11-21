@@ -1,6 +1,6 @@
 {
   "name": "zutron",
-  "version": "0.5.1-13",
+  "version": "0.5.1-14",
   "description": "A streamlined state management library for Electron applications using Zustand.",
   "author": "Sam Maister <goosewobbler@protonmail.com>",
   "homepage": "https://github.com/goosewobbler/zutron",
