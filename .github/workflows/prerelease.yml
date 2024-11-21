@@ -1,5 +1,5 @@
 ---
-name: Manual PreRelease Publish
+name: Manual Prerelease Publish
 
 permissions:
   contents: write

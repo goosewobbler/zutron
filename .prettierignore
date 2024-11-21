@@ -2,3 +2,7 @@ out
 dist
 coverage
 pnpm-lock.yaml
+
+## These are updated by turbo-version
+packages/zutron/package.json
+packages/zutron/CHANGELOG.md
