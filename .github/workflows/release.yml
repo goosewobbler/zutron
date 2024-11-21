@@ -1,6 +1,9 @@
 ---
 name: Manual Release Publish
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
     inputs:
@@ -57,13 +60,25 @@ jobs:
       - name: Create Release and Tags
         shell: bash
         run: pnpm turbo-version -b ${{inputs.releaseVersion}}
-      - name: Publish Release
+      - name: Publish to NPM
         shell: bash
         run: pnpm publish -r --tag ${{inputs.npmTag}}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Push Tags and Commits
+        id: push-tags
         shell: bash
-        run: git push --tags && git push
+        run: |
+          git push --tags && git push
+          echo "RELEASE_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: ${{ github.workspace }}/packages/zutron/CHANGELOG.md
+          repository: goosewobbler/zutron
+          tag_name: ${{ steps.push-tags.outputs.RELEASE_TAG }}
+          draft: true
+          prerelease: ${{ inputs.releaseVersion == 'prerelease' || inputs.releaseVersion == 'prepatch' || inputs.releaseVersion == 'preminor' || inputs.releaseVersion == 'premajor' }}
+          token: ${{ secrets.GITHUB_TOKEN }}
