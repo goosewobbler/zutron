@@ -1,3 +1,7 @@
+## [0.5.1-11](https://github.com/goosewobbler/zutron/compare/v0.5.1-10...v0.5.1-11) (2024-11-21)
+
+
+
 ## [0.5.1-10](https://github.com/goosewobbler/zutron/compare/v0.5.1-9...v0.5.1-10) (2024-11-21)
 
 
