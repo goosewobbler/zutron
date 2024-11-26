@@ -5,5 +5,11 @@
   "synced": true,
   "updateInternalDependencies": false,
   "commitMessage": "release v${version} [skip-ci]",
-  "skip": ["zutron-example-reducers", "zutron-example-separate-handlers", "zutron-example-store-handlers", "zutron-e2e"]
+  "skip": [
+    "zutron-example-reducers",
+    "zutron-example-separate-handlers",
+    "zutron-example-store-handlers",
+    "zutron-e2e"
+  ],
+  "prereleaseIdentifier": "next"
 }
