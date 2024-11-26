@@ -21,6 +21,11 @@ on:
         description: 'Prerelease Identifier. Used for NPM tag and version string. Defaults to "next", e.g. "1.0.0-next.0".'
         required: true
         default: 'next'
+      dryRun:
+        description: 'Do not touch or write anything. Show the commands.'
+        required: true
+        default: false
+        type: boolean
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -54,22 +59,28 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Build
         run: pnpm build
-      - name: Update Turbo Version config
-        uses: restackio/update-json-file-action@2.1
-        with:
-          file: version.config.json
-          fields: '{"prereleaseIdentifier": "${{inputs.prereleaseIdentifier}}"}'
+      # - name: Update Turbo Version config
+      #   uses: restackio/update-json-file-action@2.1
+      #   with:
+      #     file: version.config.json
+      #     fields: '{"prereleaseIdentifier": "${{inputs.prereleaseIdentifier}}"}'
       - name: Create Release and Tags
         shell: bash
         run: pnpm turbo-version -b ${{inputs.prereleaseVersion}}
       - name: Publish to NPM
         shell: bash
-        run: pnpm publish -r --tag ${{inputs.prereleaseIdentifier}}
+        run: pnpm publish -r --tag ${{inputs.prereleaseIdentifier}} ${{inputs.dryRun && '--dry-run' || ''}}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Log git changes
+        if: ${{inputs.dryRun}}
+        run: |
+          git diff ..origin/main
+          echo "DRY RUN: No changes were made."
       - name: Push Tags and Commits
         id: push-tags
         shell: bash
+        if: ${{!inputs.dryRun}}
         run: |
           git push --tags && git push
           echo "RELEASE_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_OUTPUT
