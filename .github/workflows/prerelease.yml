@@ -17,10 +17,6 @@ on:
           - preminor
           - premajor
           - prerelease
-      prereleaseIdentifier:
-        description: 'Prerelease Identifier. Used for NPM tag and version string. Defaults to "next", e.g. "1.0.0-next.0".'
-        required: true
-        default: 'next'
       dryRun:
         description: 'Do not touch or write anything. Show the commands.'
         required: true
@@ -59,17 +55,12 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Build
         run: pnpm build
-      # - name: Update Turbo Version config
-      #   uses: restackio/update-json-file-action@2.1
-      #   with:
-      #     file: version.config.json
-      #     fields: '{"prereleaseIdentifier": "${{inputs.prereleaseIdentifier}}"}'
       - name: Create Release and Tags
         shell: bash
         run: pnpm turbo-version -b ${{inputs.prereleaseVersion}}
       - name: Publish to NPM
         shell: bash
-        run: pnpm publish -r --tag ${{inputs.prereleaseIdentifier}} ${{inputs.dryRun && '--dry-run' || ''}}
+        run: pnpm publish -r --tag next ${{inputs.dryRun && '--dry-run' || ''}}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Log git changes
