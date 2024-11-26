@@ -54,11 +54,11 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Build
         run: pnpm build
-      - name: Update Turbo Version config
-        uses: restackio/update-json-file-action@2.1
-        with:
-          file: version.config.json
-          fields: '{"prereleaseIdentifier": "${{inputs.prereleaseIdentifier}}"}'
+      # - name: Update Turbo Version config
+      #   uses: restackio/update-json-file-action@2.1
+      #   with:
+      #     file: version.config.json
+      #     fields: '{"prereleaseIdentifier": "${{inputs.prereleaseIdentifier}}"}'
       - name: Create Release and Tags
         shell: bash
         run: pnpm turbo-version -b ${{inputs.prereleaseVersion}}
