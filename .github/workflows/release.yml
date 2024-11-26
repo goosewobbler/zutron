@@ -16,10 +16,11 @@ on:
           - patch
           - minor
           - major
-      npmTag:
-        description: 'NPM tag. Defaults to "latest".'
+      dryRun:
+        description: 'Do not touch or write anything. Show the commands.'
         required: true
-        default: 'latest'
+        default: false
+        type: boolean
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -58,12 +59,18 @@ jobs:
         run: pnpm turbo-version -b ${{inputs.releaseVersion}}
       - name: Publish to NPM
         shell: bash
-        run: pnpm publish -r --tag ${{inputs.npmTag}}
+        run: pnpm publish -r --tag latest ${{inputs.dryRun && '--dry-run' || ''}}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Log git changes
+        if: ${{inputs.dryRun}}
+        run: |
+          git diff ..origin/main
+          echo "DRY RUN: No changes were made."
       - name: Push Tags and Commits
         id: push-tags
         shell: bash
+        if: ${{!inputs.dryRun}}
         run: |
           git push --tags && git push
           echo "RELEASE_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_OUTPUT
