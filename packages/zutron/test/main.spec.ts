@@ -107,7 +107,7 @@ describe('createDispatch', () => {
 describe('mainZustandBridge', () => {
   let options: { handlers?: Record<string, Mock> };
   let mockStore: Record<string, Mock>;
-  let mockWindows: Record<string, Mock | { send: Mock }>[];
+  let mockWindows: Record<string, Mock | { send: Mock; isDestroyed: Mock }>[];
 
   beforeEach(() => {
     mockStore = {
@@ -115,7 +115,7 @@ describe('mainZustandBridge', () => {
       setState: vi.fn(),
       subscribe: vi.fn(),
     };
-    mockWindows = [{ isDestroyed: vi.fn().mockReturnValue(false), webContents: { send: vi.fn() } }];
+    mockWindows = [{ webContents: { send: vi.fn(), isDestroyed: vi.fn().mockReturnValue(false) } }];
     options = {};
   });
 
@@ -174,8 +174,8 @@ describe('mainZustandBridge', () => {
 
   it('should handle multiple windows', async () => {
     mockWindows = [
-      { isDestroyed: vi.fn().mockReturnValue(false), webContents: { send: vi.fn() } },
-      { isDestroyed: vi.fn().mockReturnValue(false), webContents: { send: vi.fn() } },
+      { webContents: { send: vi.fn(), isDestroyed: vi.fn().mockReturnValue(false) } },
+      { webContents: { send: vi.fn(), isDestroyed: vi.fn().mockReturnValue(false) } },
     ];
     const browserWindows = mockWindows as unknown as Electron.BrowserWindow[];
 
@@ -191,8 +191,8 @@ describe('mainZustandBridge', () => {
 
   it('should handle destroyed windows', async () => {
     mockWindows = [
-      { isDestroyed: vi.fn().mockReturnValue(false), webContents: { send: vi.fn() } },
-      { isDestroyed: vi.fn().mockReturnValue(true), webContents: { send: vi.fn() } },
+      { webContents: { send: vi.fn(), isDestroyed: vi.fn().mockReturnValue(false) } },
+      { webContents: { send: vi.fn(), isDestroyed: vi.fn().mockReturnValue(true) } },
     ];
     const browserWindows = mockWindows as unknown as Electron.BrowserWindow[];
 
