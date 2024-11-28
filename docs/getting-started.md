@@ -22,7 +22,7 @@ store = createStore<AppState>()(() => initialState);
 
 #### Initialize Bridge in Main process
 
-In the main process, the bridge needs your store and an array of BrowserWindow or WebContentsView objects for your app, so for a single window application:
+In the main process, the bridge needs your store and an array of BrowserWindow, BrowserView, and WebContentsView objects for your app, so for a single window application:
 
 ```ts
 import { mainZustandBridge } from 'zutron/main';

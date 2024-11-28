@@ -1,11 +1,11 @@
-import { type BrowserWindow, type WebContentsView, ipcMain, type IpcMainEvent } from 'electron';
+import { type BrowserWindow, type WebContentsView, type BrowserView, ipcMain, type IpcMainEvent } from 'electron';
 import type { StoreApi } from 'zustand';
 
 import type { Action, AnyState, Handler, MainZustandBridgeOpts, Thunk } from './index.js';
 
 export type MainZustandBridge = <State extends AnyState, Store extends StoreApi<State>>(
   store: Store,
-  windows: (BrowserWindow | WebContentsView)[],
+  windows: (BrowserWindow | WebContentsView | BrowserView)[],
   options?: MainZustandBridgeOpts<State>,
 ) => { unsubscribe: () => void };
 
