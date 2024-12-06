@@ -1,9 +1,15 @@
 import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
 import type { StoreApi } from 'zustand';
-import type { AnyState } from '../src/types.js';
+import type { AnyState, Handler } from '../src/types.js';
 
 const mockIpcMain = {
-  emit: vi.fn(),
+  emit: vi.fn().mockImplementation((event: string, ...args: unknown[]) => {
+    const calls = (mockIpcMain.on.mock.calls.filter((call) => call[0] === event) || []) as [string, Handler][];
+    for (const call of calls) {
+      const handler = call[1];
+      handler(...args);
+    }
+  }),
   handle: vi.fn(),
   on: vi.fn(),
 };
@@ -136,9 +142,7 @@ describe('mainZustandBridge', () => {
       options,
     );
     expect(mockIpcMain.on).toHaveBeenCalledWith('dispatch', expect.any(Function));
-    const dispatchHandler = mockIpcMain.on.mock.calls[1][1];
-
-    dispatchHandler({}, 'test', 'payload');
+    mockIpcMain.emit('dispatch', {}, 'test', 'payload');
 
     expect(options.handlers.test).toHaveBeenCalledWith('payload');
   });
@@ -165,9 +169,7 @@ describe('mainZustandBridge', () => {
 
     mainZustandBridge(mockStore as unknown as StoreApi<AnyState>, browserWindows, options);
     expect(mockIpcMain.on).toHaveBeenCalledWith('subscribe', expect.any(Function));
-    const subscribeHandler = mockIpcMain.on.mock.calls[0][1];
-
-    await subscribeHandler({ test: 'state', testHandler: vi.fn() });
+    mockIpcMain.emit('subscribe', { test: 'state', testHandler: vi.fn() });
 
     expect(browserWindows[0].webContents.send).toHaveBeenCalledWith('subscribe', { test: 'state' });
   });
@@ -181,9 +183,7 @@ describe('mainZustandBridge', () => {
 
     mainZustandBridge(mockStore as unknown as StoreApi<AnyState>, browserWindows, options);
     expect(mockIpcMain.on).toHaveBeenCalledWith('subscribe', expect.any(Function));
-    const subscribeHandler = mockIpcMain.on.mock.calls[0][1];
-
-    await subscribeHandler({ test: 'state', testHandler: vi.fn() });
+    mockIpcMain.emit('subscribe', { test: 'state', testHandler: vi.fn() });
 
     expect(browserWindows[0].webContents.send).toHaveBeenCalledWith('subscribe', { test: 'state' });
     expect(browserWindows[1].webContents.send).toHaveBeenCalledWith('subscribe', { test: 'state' });
@@ -198,9 +198,7 @@ describe('mainZustandBridge', () => {
 
     mainZustandBridge(mockStore as unknown as StoreApi<AnyState>, browserWindows, options);
     expect(mockIpcMain.on).toHaveBeenCalledWith('subscribe', expect.any(Function));
-    const subscribeHandler = mockIpcMain.on.mock.calls[0][1];
-
-    await subscribeHandler({ test: 'state', testHandler: vi.fn() });
+    mockIpcMain.emit('subscribe', { test: 'state', testHandler: vi.fn() });
 
     expect(browserWindows[0].webContents.send).toHaveBeenCalledWith('subscribe', { test: 'state' });
     expect(browserWindows[1].webContents.send).not.toHaveBeenCalled();
@@ -217,5 +215,22 @@ describe('mainZustandBridge', () => {
     const subscription = mockStore.subscribe.mock.calls[0][0];
     subscription('testState');
     expect(mockIpcMain.emit).toHaveBeenCalledWith('subscribe', 'testState');
+  });
+
+  it('should handle subscriptions for windows created at runtime', () => {
+    const initialWindows = mockWindows as unknown as Electron.BrowserWindow[];
+    mockStore.subscribe.mockImplementation(() => vi.fn());
+
+    const bridge = mainZustandBridge(mockStore as unknown as StoreApi<AnyState>, initialWindows, options);
+
+    expect(bridge.subscribe).toStrictEqual(expect.any(Function));
+
+    const runtimeWindows = [{ webContents: { send: vi.fn(), isDestroyed: vi.fn().mockReturnValue(false) } }];
+    bridge.subscribe(runtimeWindows as unknown as Electron.BrowserWindow[]);
+
+    mockIpcMain.emit('subscribe', { test: 'state', testHandler: vi.fn() });
+
+    expect(initialWindows[0].webContents.send).toHaveBeenCalledWith('subscribe', { test: 'state' });
+    expect(runtimeWindows[0].webContents.send).toHaveBeenCalledWith('subscribe', { test: 'state' });
   });
 });
