@@ -15,7 +15,7 @@ vi.mock('electron', () => ({
   },
 }));
 
-let { mainZustandBridge, createDispatch } = await import('../src/main.js');
+const { mainZustandBridge, createDispatch } = await import('../src/main.js');
 
 describe('createDispatch', () => {
   let mockStore: Record<string, Mock>;
