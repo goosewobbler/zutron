@@ -12,7 +12,7 @@ const icon = path.join(__dirname, '..', '..', 'resources', 'images', 'icon.png')
 const windowOptions: BrowserWindowConstructorOptions = {
   show: false,
   icon,
-  title: 'zutron',
+  title: 'zutron main window',
   width: 256,
   height: 256,
   webPreferences: {
@@ -71,7 +71,7 @@ app
     // Set the badge count to the current counter value
     store.subscribe((state) => app.setBadgeCount(state.counter ?? 0));
 
-    const { unsubscribe } = mainZustandBridge(store, [mainWindow]);
+    const { unsubscribe, subscribe } = mainZustandBridge(store, [mainWindow]);
 
     app.on('quit', () => {
       tray.destroy();
@@ -80,5 +80,15 @@ app
 
     app.focus({ steal: true });
     mainWindow.focus();
+
+    setTimeout(() => {
+      const runtimeWindow = new BrowserWindow({ ...windowOptions, title: 'zutron runtime window', show: true });
+      subscribe([runtimeWindow]);
+      runtimeWindow.loadFile(path.join(__dirname, '..', 'renderer', 'index.html'));
+
+      runtimeWindow.on('close', () => {
+        runtimeWindow.destroy();
+      });
+    }, 3000);
   })
   .catch(console.error);
