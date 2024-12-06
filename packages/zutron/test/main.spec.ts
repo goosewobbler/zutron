@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
 import type { StoreApi } from 'zustand';
-import type { AnyState } from '../src/index.js';
+import type { AnyState } from '../src/types.js';
 
 const mockIpcMain = {
   emit: vi.fn(),
