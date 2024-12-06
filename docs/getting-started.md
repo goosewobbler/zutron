@@ -22,7 +22,7 @@ store = createStore<AppState>()(() => initialState);
 
 #### Initialize Bridge in Main process
 
-In the main process, the bridge needs your store and an array of window or view objects for your app.  `BrowserWindow`, `BrowserView` and `WebContentsView` objects are supported.
+In the main process, the bridge needs your store and an array of window or view objects for your app. `BrowserWindow`, `BrowserView` and `WebContentsView` objects are supported.
 
 So, for a single window application:
 

@@ -33,7 +33,7 @@
     "electron-builder": "^25.1.8",
     "electron-vite": "^2.3.0",
     "typescript": "^5.7.2",
-    "vite": "^6.0.0",
+    "vite": "^6.0.3",
     "wdio-electron-service": "^7.3.1"
   }
 }
