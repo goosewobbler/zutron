@@ -39,7 +39,7 @@ export const createDispatch =
       // reducer case - action is passed to the reducer
       const reducer = options.reducer;
       const reducerAction = { type: actionType, payload: actionPayload };
-      store.setState((state) => reducer(state, reducerAction));
+      store.setState((state: State) => reducer(state, reducerAction));
     } else {
       // default case - handlers attached to store
       const state = store.getState();
@@ -53,14 +53,17 @@ export const createDispatch =
 
 export const mainZustandBridge: MainZustandBridge = (store, windows, options) => {
   const dispatch = createDispatch(store, options);
-  ipcMain.on('subscribe', async (state: unknown) => {
-    for (const window of windows) {
-      if (window.webContents.isDestroyed()) {
-        break;
+  const subscribe = (windows: (BrowserWindow | WebContentsView | BrowserView)[]) => {
+    ipcMain.on('subscribe', async (state: unknown) => {
+      for (const window of windows) {
+        if (window.webContents.isDestroyed()) {
+          break;
+        }
+        window?.webContents?.send('subscribe', sanitizeState(state as AnyState));
       }
-      window?.webContents?.send('subscribe', sanitizeState(state as AnyState));
-    }
-  });
+    });
+  };
+
   ipcMain.on('dispatch', (_event: IpcMainEvent, action: string | Action, payload?: unknown) =>
     dispatch(action, payload),
   );
@@ -68,7 +71,9 @@ export const mainZustandBridge: MainZustandBridge = (store, windows, options) =>
     const state = store.getState();
     return sanitizeState(state);
   });
-  const unsubscribe = store.subscribe((state) => ipcMain.emit('subscribe', state));
+  const unsubscribe = store.subscribe((state: unknown) => ipcMain.emit('subscribe', state));
 
-  return { unsubscribe };
+  subscribe(windows);
+
+  return { unsubscribe, subscribe };
 };
