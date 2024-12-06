@@ -1,3 +1,12 @@
+# [0.7.0](https://github.com/goosewobbler/zutron/compare/v0.7.0-next.0...v0.7.0) (2024-12-06)
+
+
+### Bug Fixes
+
+* update mainZustandBridge to include BrowserView in type definitions and documentation ([f2e89a3](https://github.com/goosewobbler/zutron/commit/f2e89a34f2cbb1161f7c93705a5651ca5fc1598b))
+
+
+
 # [0.7.0-next.0](https://github.com/goosewobbler/zutron/compare/v0.6.0-0...v0.7.0-next.0) (2024-11-26)
 
 
