@@ -18,8 +18,8 @@ importers:
         specifier: ^15.2.10
         version: 15.2.10
       prettier:
-        specifier: ^3.4.1
-        version: 3.4.1
+        specifier: ^3.4.2
+        version: 3.4.2
       shelljs:
         specifier: ^0.8.5
         version: 0.8.5
@@ -56,7 +56,7 @@ importers:
         version: 18.3.1
       '@vitejs/plugin-react':
         specifier: ^4.3.4
-        version: 4.3.4(vite@5.4.11(@types/node@22.10.1))
+        version: 4.3.4(vite@6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1))
       electron:
         specifier: ^33.2.1
         version: 33.2.1
@@ -65,16 +65,16 @@ importers:
         version: 25.1.8(electron-builder-squirrel-windows@25.1.8)
       electron-vite:
         specifier: ^2.3.0
-        version: 2.3.0(@swc/core@1.9.1)(vite@5.4.11(@types/node@22.10.1))
+        version: 2.3.0(@swc/core@1.9.1)(vite@6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1))
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
       vite:
-        specifier: ^5.4.11
-        version: 5.4.11(@types/node@22.10.1)
+        specifier: ^6.0.3
+        version: 6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1)
       wdio-electron-service:
         specifier: ^7.3.1
-        version: 7.3.1(electron@33.2.1)(webdriverio@9.2.14)
+        version: 7.3.1(electron@33.2.1)(webdriverio@9.4.1)
 
   apps/example-separate-handlers:
     dependencies:
@@ -102,7 +102,7 @@ importers:
         version: 18.3.1
       '@vitejs/plugin-react':
         specifier: ^4.3.4
-        version: 4.3.4(vite@6.0.0(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1))
+        version: 4.3.4(vite@6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1))
       electron:
         specifier: ^33.2.1
         version: 33.2.1
@@ -111,13 +111,13 @@ importers:
         version: 25.1.8(electron-builder-squirrel-windows@25.1.8)
       electron-vite:
         specifier: ^2.3.0
-        version: 2.3.0(@swc/core@1.9.1)(vite@6.0.0(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1))
+        version: 2.3.0(@swc/core@1.9.1)(vite@6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1))
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
       vite:
-        specifier: ^6.0.0
-        version: 6.0.0(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1)
+        specifier: ^6.0.3
+        version: 6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1)
       wdio-electron-service:
         specifier: ^7.3.1
         version: 7.3.1(electron@33.2.1)(webdriverio@9.4.1)
@@ -148,7 +148,7 @@ importers:
         version: 18.3.1
       '@vitejs/plugin-react':
         specifier: ^4.3.4
-        version: 4.3.4(vite@6.0.0(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1))
+        version: 4.3.4(vite@6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1))
       electron:
         specifier: ^33.2.1
         version: 33.2.1
@@ -157,13 +157,13 @@ importers:
         version: 25.1.8(electron-builder-squirrel-windows@25.1.8)
       electron-vite:
         specifier: ^2.3.0
-        version: 2.3.0(@swc/core@1.9.1)(vite@6.0.0(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1))
+        version: 2.3.0(@swc/core@1.9.1)(vite@6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1))
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
       vite:
-        specifier: ^6.0.0
-        version: 6.0.0(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1)
+        specifier: ^6.0.3
+        version: 6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1)
       wdio-electron-service:
         specifier: ^7.3.1
         version: 7.3.1(electron@33.2.1)(webdriverio@9.4.1)
@@ -233,8 +233,8 @@ importers:
         specifier: ^6.6.3
         version: 6.6.3
       '@testing-library/react':
-        specifier: ^16.0.1
-        version: 16.0.1(@testing-library/dom@10.4.0)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^16.1.0
+        version: 16.1.0(@testing-library/dom@10.4.0)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/shelljs':
         specifier: ^0.8.15
         version: 0.8.15
@@ -1361,15 +1361,15 @@ packages:
     resolution: {integrity: sha512-IteBhl4XqYNkM54f4ejhLRJiZNqcSCoXUOG2CPK7qbD322KjQozM4kHQOfkG2oln9b9HTYqs+Sae8vBATubxxA==}
     engines: {node: '>=14', npm: '>=6', yarn: '>=1'}
 
-  '@testing-library/react@16.0.1':
-    resolution: {integrity: sha512-dSmwJVtJXmku+iocRhWOUFbrERC76TX2Mnf0ATODz8brzAZrMBbzLwQixlBSanZxR6LddK3eiwpSFZgDET1URg==}
+  '@testing-library/react@16.1.0':
+    resolution: {integrity: sha512-Q2ToPvg0KsVL0ohND9A3zLJWcOXXcO8IDu3fj11KhNt0UlCWyFyvnCIBkd12tidB2lkiVRG8VFqdhcqhqnAQtg==}
     engines: {node: '>=18'}
     peerDependencies:
       '@testing-library/dom': ^10.0.0
-      '@types/react': ^18.0.0
-      '@types/react-dom': ^18.0.0
-      react: ^18.0.0
-      react-dom: ^18.0.0
+      '@types/react': ^18.0.0 || ^19.0.0
+      '@types/react-dom': ^18.0.0 || ^19.0.0
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -4003,8 +4003,8 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
-  prettier@3.4.1:
-    resolution: {integrity: sha512-G+YdqtITVZmOJje6QkXQWzl3fSfMxFwm1tjTyo9exhkmWSqC4Yhd1+lug++IlR2mvRVAxEDDWYkQdeSztajqgg==}
+  prettier@3.4.2:
+    resolution: {integrity: sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -4869,8 +4869,8 @@ packages:
       terser:
         optional: true
 
-  vite@6.0.0:
-    resolution: {integrity: sha512-Q2+5yQV79EdnpbNxjD3/QHVMCBaQ3Kpd4/uL51UGuh38bIIM+s4o3FqyCzRvTRwFb+cWIUeZvaWwS9y2LD2qeQ==}
+  vite@6.0.3:
+    resolution: {integrity: sha512-Cmuo5P0ENTN6HxLSo6IHsjCLn/81Vgrp81oaiFFMRa8gGDj5xEjIcEpf2ZymZtZR8oU0P2JX5WuUp/rlXcHkAw==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -6210,9 +6210,9 @@ snapshots:
       lodash: 4.17.21
       redent: 3.0.0
 
-  '@testing-library/react@16.0.1(@testing-library/dom@10.4.0)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@testing-library/react@16.1.0(@testing-library/dom@10.4.0)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@babel/runtime': 7.25.7
+      '@babel/runtime': 7.26.0
       '@testing-library/dom': 10.4.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -6405,25 +6405,14 @@ snapshots:
       '@types/node': 22.10.1
     optional: true
 
-  '@vitejs/plugin-react@4.3.4(vite@5.4.11(@types/node@22.10.1))':
+  '@vitejs/plugin-react@4.3.4(vite@6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1))':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.0)
       '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.0)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 5.4.11(@types/node@22.10.1)
-    transitivePeerDependencies:
-      - supports-color
-
-  '@vitejs/plugin-react@4.3.4(vite@6.0.0(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1))':
-    dependencies:
-      '@babel/core': 7.26.0
-      '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.0)
-      '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.0)
-      '@types/babel__core': 7.20.5
-      react-refresh: 0.14.2
-      vite: 6.0.0(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1)
+      vite: 6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -7678,7 +7667,7 @@ snapshots:
 
   electron-to-chromium@1.5.65: {}
 
-  electron-vite@2.3.0(@swc/core@1.9.1)(vite@5.4.11(@types/node@22.10.1)):
+  electron-vite@2.3.0(@swc/core@1.9.1)(vite@6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1)):
     dependencies:
       '@babel/core': 7.25.2
       '@babel/plugin-transform-arrow-functions': 7.24.7(@babel/core@7.25.2)
@@ -7686,21 +7675,7 @@ snapshots:
       esbuild: 0.21.5
       magic-string: 0.30.11
       picocolors: 1.1.0
-      vite: 5.4.11(@types/node@22.10.1)
-    optionalDependencies:
-      '@swc/core': 1.9.1
-    transitivePeerDependencies:
-      - supports-color
-
-  electron-vite@2.3.0(@swc/core@1.9.1)(vite@6.0.0(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1)):
-    dependencies:
-      '@babel/core': 7.25.2
-      '@babel/plugin-transform-arrow-functions': 7.24.7(@babel/core@7.25.2)
-      cac: 6.7.14
-      esbuild: 0.21.5
-      magic-string: 0.30.11
-      picocolors: 1.1.0
-      vite: 6.0.0(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1)
+      vite: 6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1)
     optionalDependencies:
       '@swc/core': 1.9.1
     transitivePeerDependencies:
@@ -9421,7 +9396,7 @@ snapshots:
     dependencies:
       commander: 9.5.0
 
-  prettier@3.4.1: {}
+  prettier@3.4.2: {}
 
   pretty-format@27.5.1:
     dependencies:
@@ -10313,11 +10288,11 @@ snapshots:
       '@types/node': 22.10.1
       fsevents: 2.3.3
 
-  vite@6.0.0(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1):
+  vite@6.0.3(@types/node@22.10.1)(tsx@4.19.2)(yaml@2.6.1):
     dependencies:
       esbuild: 0.24.0
       postcss: 8.4.49
-      rollup: 4.27.4
+      rollup: 4.28.0
     optionalDependencies:
       '@types/node': 22.10.1
       fsevents: 2.3.3
@@ -10376,28 +10351,6 @@ snapshots:
     dependencies:
       defaults: 1.0.4
 
-  wdio-electron-service@7.3.1(electron@33.2.1)(webdriverio@9.2.14):
-    dependencies:
-      '@vitest/spy': 2.1.5
-      '@wdio/electron-types': 7.3.1
-      '@wdio/electron-utils': 7.3.1
-      '@wdio/globals': 9.2.14(@wdio/logger@9.1.3)
-      '@wdio/logger': 9.1.3
-      compare-versions: 6.1.1
-      debug: 4.3.7(supports-color@8.1.1)
-      electron-to-chromium: 1.5.63
-      fast-copy: 3.0.2
-      read-package-up: 11.0.0
-      tinyspy: 3.0.2
-      webdriverio: 9.2.14
-    optionalDependencies:
-      electron: 33.2.1
-    transitivePeerDependencies:
-      - bufferutil
-      - puppeteer-core
-      - supports-color
-      - utf-8-validate
-
   wdio-electron-service@7.3.1(electron@33.2.1)(webdriverio@9.4.1):
     dependencies:
       '@vitest/spy': 2.1.5
@@ -10437,6 +10390,7 @@ snapshots:
       - bufferutil
       - supports-color
       - utf-8-validate
+    optional: true
 
   webdriver@9.4.1:
     dependencies:
@@ -10488,6 +10442,7 @@ snapshots:
       - bufferutil
       - supports-color
       - utf-8-validate
+    optional: true
 
   webdriverio@9.4.1:
     dependencies:
