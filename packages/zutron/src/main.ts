@@ -1,11 +1,11 @@
-import { type BrowserWindow, type WebContentsView, type BrowserView, ipcMain, type IpcMainEvent } from 'electron';
+import { ipcMain, type IpcMainEvent } from 'electron';
 import type { StoreApi } from 'zustand';
 
-import type { Action, AnyState, Handler, MainZustandBridgeOpts, Thunk } from './index.js';
+import type { Action, AnyState, Handler, MainZustandBridgeOpts, Thunk, WebContentsWrapper } from './types.js';
 
 export type MainZustandBridge = <State extends AnyState, Store extends StoreApi<State>>(
   store: Store,
-  windows: (BrowserWindow | WebContentsView | BrowserView)[],
+  windows: WebContentsWrapper[],
   options?: MainZustandBridgeOpts<State>,
 ) => { unsubscribe: () => void };
 
@@ -51,19 +51,22 @@ export const createDispatch =
     }
   };
 
-export const mainZustandBridge: MainZustandBridge = (store, windows, options) => {
-  const dispatch = createDispatch(store, options);
-  const subscribe = (windows: (BrowserWindow | WebContentsView | BrowserView)[]) => {
-    ipcMain.on('subscribe', async (state: unknown) => {
-      for (const window of windows) {
-        if (window.webContents.isDestroyed()) {
-          break;
-        }
-        window?.webContents?.send('subscribe', sanitizeState(state as AnyState));
+const subscribe = (wrappers: WebContentsWrapper[]) => {
+  ipcMain.on('subscribe', async (state: unknown) => {
+    for (const wrapper of wrappers) {
+      const webContents = wrapper?.webContents;
+      if (webContents?.isDestroyed()) {
+        break;
       }
-    });
-  };
+      webContents?.send('subscribe', sanitizeState(state as AnyState));
+    }
+  });
+};
 
+export const mainZustandBridge: MainZustandBridge = (store, webContentsWrappers, options) => {
+  const dispatch = createDispatch(store, options);
+
+  subscribe(webContentsWrappers);
   ipcMain.on('dispatch', (_event: IpcMainEvent, action: string | Action, payload?: unknown) =>
     dispatch(action, payload),
   );
@@ -72,8 +75,6 @@ export const mainZustandBridge: MainZustandBridge = (store, windows, options) =>
     return sanitizeState(state);
   });
   const unsubscribe = store.subscribe((state: unknown) => ipcMain.emit('subscribe', state));
-
-  subscribe(windows);
 
   return { unsubscribe, subscribe };
 };

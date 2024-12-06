@@ -1,3 +1,4 @@
+import type { BrowserView, BrowserWindow, WebContentsView } from 'electron';
 import type { StoreApi } from 'zustand';
 
 export type Thunk<S> = (getState: StoreApi<S>['getState'], dispatch: Dispatch<S>) => void;
@@ -14,6 +15,8 @@ export type MainZustandBridgeOpts<S extends AnyState> = {
   handlers?: Record<string, Handler>;
   reducer?: RootReducer<S>;
 };
+
+export type WebContentsWrapper = BrowserWindow | WebContentsView | BrowserView;
 
 export type Dispatch<S> = {
   (action: string, payload?: unknown): void;
