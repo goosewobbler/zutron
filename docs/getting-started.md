@@ -22,12 +22,15 @@ store = createStore<AppState>()(() => initialState);
 
 #### Initialize Bridge in Main process
 
-In the main process, the bridge needs your store and an array of BrowserWindow, BrowserView, and WebContentsView objects for your app, so for a single window application:
+In the main process, the bridge needs your store and an array of window or view objects for your app.  `BrowserWindow`, `BrowserView` and `WebContentsView` objects are supported.
+
+So, for a single window application:
 
 ```ts
 import { mainZustandBridge } from 'zutron/main';
 
 // create mainWindow
+const mainWindow = new BrowserWindow(windowConfig);
 
 const { unsubscribe } = mainZustandBridge(store, [mainWindow]);
 
@@ -51,7 +54,7 @@ contextBridge.exposeInMainWorld('zutron', handlers);
 
 #### Create hook in Renderer process
 
-Finally, in the renderer process you will need to create the useStore hook:
+Finally, in the renderer process you will need to create the `useStore` hook:
 
 `/renderer/hooks/useStore.ts`
 
