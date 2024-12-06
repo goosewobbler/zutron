@@ -7,7 +7,7 @@ export type MainZustandBridge = <State extends AnyState, Store extends StoreApi<
   store: Store,
   windows: WebContentsWrapper[],
   options?: MainZustandBridgeOpts<State>,
-) => { unsubscribe: () => void };
+) => { unsubscribe: () => void; subscribe: (wrappers: WebContentsWrapper[]) => void };
 
 function sanitizeState(state: AnyState) {
   // strip handlers from the state object
@@ -52,7 +52,7 @@ export const createDispatch =
   };
 
 const subscribe = (wrappers: WebContentsWrapper[]) => {
-  ipcMain.on('subscribe', async (state: unknown) => {
+  ipcMain.on('subscribe', (state: unknown) => {
     for (const wrapper of wrappers) {
       const webContents = wrapper?.webContents;
       if (webContents?.isDestroyed()) {
