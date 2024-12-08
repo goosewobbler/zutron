@@ -170,5 +170,5 @@ export const useStore = createUseStore<AppState>(window.zutron);
 
 You should now be ready to start using Zutron. See the below pages for how to access the store and dispatch actions in the different Electron processes:
 
-[Usage - main process](./usage-main-process.md)
-[Usage - renderer process](./usage-renderer-process.md)
+[Usage - Main process](./usage-main-process.md) \
+[Usage - Renderer process](./usage-renderer-process.md)
