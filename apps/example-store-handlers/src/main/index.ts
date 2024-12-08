@@ -82,13 +82,14 @@ app
     mainWindow.focus();
 
     setTimeout(() => {
-      const runtimeWindow = new BrowserWindow({ ...windowOptions, title: 'zutron runtime window', show: true });
+      const runtimeWindow = new BrowserWindow({ ...windowOptions, show: true });
+
+      runtimeWindow.loadFile(path.join(__dirname, '..', 'renderer', 'runtimeWindow.html'));
       subscribe([runtimeWindow]);
-      runtimeWindow.loadFile(path.join(__dirname, '..', 'renderer', 'index.html'));
 
       runtimeWindow.on('close', () => {
         runtimeWindow.destroy();
       });
-    }, 3000);
+    }, 1000);
   })
   .catch(console.error);

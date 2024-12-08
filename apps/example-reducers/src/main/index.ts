@@ -13,7 +13,6 @@ const icon = path.join(__dirname, '..', '..', 'resources', 'images', 'icon.png')
 const windowOptions: BrowserWindowConstructorOptions = {
   show: false,
   icon,
-  title: 'zutron main window',
   width: 256,
   height: 256,
   webPreferences: {
@@ -85,10 +84,10 @@ app
     mainWindow.focus();
 
     setTimeout(() => {
-      const runtimeWindow = new BrowserWindow({ ...windowOptions, title: 'zutron runtime window', show: true });
-      subscribe([runtimeWindow]);
+      const runtimeWindow = new BrowserWindow({ ...windowOptions, show: true });
 
-      runtimeWindow.loadFile(path.join(__dirname, '..', 'renderer', 'index.html'));
+      runtimeWindow.loadFile(path.join(__dirname, '..', 'renderer', 'runtimeWindow.html'));
+      subscribe([runtimeWindow]);
 
       runtimeWindow.on('close', () => {
         runtimeWindow.destroy();
