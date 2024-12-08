@@ -1,10 +1,10 @@
 import { useDispatch } from 'zutron';
 
 import { useStore } from './hooks/useStore.js';
-import type { State } from '../features/index.js';
+import type { AppState } from '../features/index.js';
 
 export const App = () => {
-  const counter = useStore((x: State) => x.counter);
+  const counter = useStore((x: AppState) => x.counter);
   const dispatch = useDispatch(window.zutron);
 
   return (
