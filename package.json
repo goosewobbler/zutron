@@ -24,7 +24,7 @@
     "state-management"
   ],
   "devDependencies": {
-    "@turbo-version/version": "^0.7.0",
+    "@turbo-version/version": "^0.8.1",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "prettier": "^3.4.2",
