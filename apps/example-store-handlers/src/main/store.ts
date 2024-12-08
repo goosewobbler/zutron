@@ -1,23 +1,21 @@
 import { createStore } from 'zustand/vanilla';
 
-import { actionHandlers } from '../features/index.js';
+import { actionHandlers, type AppState } from '../features/index.js';
 
-export type State = { counter: number };
-
-const initialState = {
+const initialState: AppState = {
   counter: 0,
 };
 
-export const store = createStore<State>()((setState) => ({
+export const store = createStore<AppState>()((setState) => ({
   ...initialState,
   ...actionHandlers(setState, initialState),
 }));
 
-type Subscribe = (listener: (state: State, prevState: State) => void) => () => void;
+type Subscribe = (listener: (state: AppState, prevState: AppState) => void) => () => void;
 
 export type Store = {
-  getState: () => State;
-  getInitialState: () => State;
-  setState: (stateSetter: (state: State) => State) => void;
+  getState: () => AppState;
+  getInitialState: () => AppState;
+  setState: (stateSetter: (state: AppState) => AppState) => void;
   subscribe: Subscribe;
 };
