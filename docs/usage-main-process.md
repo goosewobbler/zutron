@@ -1,48 +1,65 @@
-## Accessing the Store in the Main Process
+## Usage in the Main Process
 
-In the main process you can access the store object directly, any updates will be propagated to the renderer process.
+In the main process you can access the store object directly, any updates you make will be propagated to the renderer process of any subscribed window / view.
 
-The main process dispatch helper can be used to dispatch actions and thunks, in a similar way to the `useDispatch` hook in the renderer process:
+```ts annotate
+// `src/main/counter/index.ts`
+import { store } from '../store.js';
 
-```ts
+// increment counter
+const { counter } = store.getState();
+store.setState({ counter: counter + 1 });
+```
+
+There is a dispatch helper which mirrors the functionality of the [renderer process `useDispatch` hook](./usage-renderer-process.md):
+
+```ts annotate
+// `src/main/dispatch.ts`
 import { createDispatch } from 'zutron/main';
+import { store } from './store.js';
 
-dispatch = createDispatch(store);
+export const dispatch = createDispatch(store);
+```
 
+```ts annotate
+// `src/main/counter/index.ts`
+import { dispatch } from '../dispatch.js';
+
+// dispatch action
 dispatch('COUNTER:INCREMENT');
+
+const onIncrementThunk = (getState, dispatch) => {
+  // do something based on the store
+  ...
+
+  // dispatch action
+  dispatch('COUNTER:INCREMENT');
+};
+
+// dispatch thunk
+dispatch(onIncrementThunk);
 ```
 
 By default the main process dispatch helper assumes your store handler functions are located on the store object.
 
 If you keep your store handler functions separate from the store then you will need to pass them in as an option:
 
-```ts
-import { handlers as counterHandlers } from '../../features/counter/index.js';
-import { handlers as uiHandlers } from '../../features/ui/index.js';
+```ts annotate
+// `src/main/dispatch.ts`
+import { createDispatch } from 'zutron/main';
+import { store } from './store.js';
+import { actionHandlers } from '../features/index.js';
 
-const actionHandlers = (store: AppStore, initialState: AppState) => ({
-  ...counterHandlers(store),
-  ...uiHandlers(store),
-  'STORE:RESET': () => store.setState(initialState, true),
-});
-
-dispatch = createDispatch(store, { handlers: actionHandlers(store, initialState) });
+export const dispatch = createDispatch(store, { handlers: actionHandlers(store, initialState) });
 ```
 
-Alternatively if you are using Redux-style reducers you will need to pass the root reducer in as an option:
+Alternatively, if you are using Redux-style reducers, you should pass in the root reducer:
 
-```ts
-import { reducer as counterReducer } from '../../features/counter/index.js';
-import { reducer as uiReducer } from '../../features/ui/index.js';
+```ts annotate
+// `src/main/dispatch.ts`
+import { createDispatch } from 'zutron/main';
+import { store } from './store.js';
+import { rootReducer } from '../features/index.js';
 
-const rootReducer = (state, action) => {
-  switch (action.type) {
-    case types.counter:
-      return counterReducer(state.counter, action);
-    case types.ui:
-      return uiReducer(state.ui, action);
-  }
-};
-
-dispatch = createDispatch(store, { reducer: rootReducer });
+export const dispatch = createDispatch(store, { reducer: rootReducer });
 ```
