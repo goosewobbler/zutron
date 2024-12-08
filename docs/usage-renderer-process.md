@@ -1,6 +1,6 @@
 ## Usage in the Renderer Process
 
-In the renderer process you should be able to access the store via the `useStore` hook:
+In the renderer process you can access the store via the `useStore` hook:
 
 ```ts annotate
 // `src/renderer/counter/index.ts`
