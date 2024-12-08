@@ -3,7 +3,8 @@ import { beforeEach, describe, expect, it, type Mock, vi } from 'vitest';
 import { screen, render, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
 
-import { createStore, createUseStore, type Handlers, useDispatch } from '../src/index.js';
+import { createStore, createUseStore, useDispatch } from '../src/index.js';
+import type { Handlers } from '../src/types.js';
 
 describe('createUseStore', () => {
   type TestState = { testCounter: number };

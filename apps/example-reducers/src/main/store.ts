@@ -1,7 +1,18 @@
 import { createStore } from 'zustand/vanilla';
 
-import type { State } from '../features/index.js';
+import type { AppState } from '../features/index.js';
 
-export const store = createStore<State>()(() => ({
+type Subscribe = (listener: (state: AppState, prevState: AppState) => void) => () => void;
+
+export type Store = {
+  getState: () => AppState;
+  getInitialState: () => AppState;
+  setState: (stateSetter: (state: AppState) => AppState) => void;
+  subscribe: Subscribe;
+};
+
+const initialState: AppState = {
   counter: 0,
-}));
+};
+
+export const store = createStore<AppState>()(() => initialState);

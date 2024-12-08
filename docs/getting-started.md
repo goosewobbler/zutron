@@ -8,134 +8,167 @@ npm i zutron zustand
 
 Or use your dependency manager of choice, e.g. `pnpm`, `yarn`.
 
-The following instructions assume you are using TypeScript.
+The code fragments in this documentation are based on the minimal working (TypeScript) examples found in the [apps directory](../apps).
 
 #### Create Store
 
-First, create your Zustand store using `zustand/vanilla` in the main process:
+First, create the Zustand store for your application using `zustand/vanilla` in the main process. If you are using TS, provide your application state type:
 
-```ts
+```ts annotate
+// `src/main/store.ts`
 import { createStore } from 'zustand/vanilla';
+import type { AppState } from '../features/index.js';
 
-store = createStore<AppState>()(() => initialState);
+const initialState: AppState = {
+  counter: 0,
+  ui: { ... }
+};
+
+// create app store
+export const store = createStore<AppState>()(() => initialState);
 ```
 
-#### Initialize Bridge in Main process
+#### Instantiate Bridge in Main process
 
-In the main process, the bridge needs your store and an array of window or view objects for your app. `BrowserWindow`, `BrowserView` and `WebContentsView` objects are supported.
+In the main process, the bridge needs to be instantiated with your store and an array of window or view objects for your app. `BrowserWindow`, `BrowserView` and `WebContentsView` objects are supported.
+
+The bridge returns an `unsubscribe` function which can be used to deactivate the bridge, and a `subscribe` function which can be used to enable any additional windows or views created after the bridge was initialised.
 
 So, for a single window application:
 
-```ts
+```ts annotate
+// `src/main/index.ts`
+import { app, BrowserWindow } from 'electron';
 import { mainZustandBridge } from 'zutron/main';
 
-// create mainWindow
-const mainWindow = new BrowserWindow(windowConfig);
+// create main window
+const mainWindow = new BrowserWindow({ ... });
 
+// instantiate bridge
 const { unsubscribe } = mainZustandBridge(store, [mainWindow]);
 
+// unsubscribe on quit
 app.on('quit', unsubscribe);
 ```
 
-#### Initialize Bridge in Preload
+For a multi-window application:
 
-Next, initialise the bridge in your preload script. Here the bridge needs the type of your app state. The bridge initialiser will return a set of handlers which should be exposed to the renderer process via the `contextBridge` module.
+```ts annotate
+// `src/main/index.ts`
+import { app, BrowserWindow, WebContentsView } from 'electron';
+import { mainZustandBridge } from 'zutron/main';
 
-```ts
+// create main window
+const mainWindow = new BrowserWindow({ ... });
+
+// create secondary window
+const secondaryWindow = new BrowserWindow({ ... });
+
+// instantiate bridge
+const { unsubscribe, subscribe } = mainZustandBridge(store, [mainWindow, secondaryWindow]);
+
+// unsubscribe on quit
+app.on('quit', unsubscribe);
+
+// create a view some time after the bridge has been instantiated
+const runtimeView = new WebContentsView({ ... });
+
+// subscribe the view to store updates
+subscribe([runtimeView]);
+```
+
+By default the main process bridge assumes your store handler functions are located on the store object.
+
+If you keep your store handler functions separate from the store then you will need to pass them in as an option:
+
+```ts annotate
+// `src/main/index.ts`
+import { mainZustandBridge } from 'zutron/main';
+import { actionHandlers } from '../features/index.js';
+
+// create handlers for store
+const handlers = actionHandlers(store, initialState);
+
+// instantiate bridge
+const { unsubscribe } = mainZustandBridge(store, [mainWindow], { handlers });
+```
+
+Alternatively, if you are using Redux-style reducers, you should pass in the root reducer:
+
+```ts annotate
+// `src/features/index.ts`
+import type { Reducer } from 'zutron';
+import { counterReducer } from '../features/counter/index.js';
+import { uiReducer } from '../features/ui/index.js';
+
+export type AppState = {
+  counter: number
+  ui: { ... }
+};
+
+// create root reducer
+export const rootReducer: Reducer<AppState> = (state, action) => ({
+  counter: counterReducer(state.counter, action),
+  ui: uiReducer(state.ui, action)
+});
+```
+
+```ts annotate
+// `src/main/index.ts`
+import { app, BrowserWindow } from 'electron';
+import { mainZustandBridge } from 'zutron/main';
+import { rootReducer } from '../features/index.js'
+
+// create main window
+const mainWindow = new BrowserWindow({ ... });
+
+// instantiate bridge
+const { unsubscribe } = mainZustandBridge(store, [mainWindow], { reducer: rootReducer });
+
+// unsubscribe on quit
+app.on('quit', unsubscribe);
+```
+
+#### Instantiate Bridge in Preload
+
+Next, instantiate the bridge in your preload script. If you are using TS, the bridge needs the type of your app state.
+
+The preload bridge function will return a set of handlers which you need to expose to the renderer process via the Electron `contextBridge` module.
+
+```ts annotate
+// `src/preload/index.ts`
 import { contextBridge } from 'electron';
 import { preloadZustandBridge } from 'zutron/preload';
-
+import type { Handlers } from 'zutron';
 import type { AppState } from '../features/index.js';
 
+// instantiate bridge
 export const { handlers } = preloadZustandBridge<AppState>();
 
+// expose handlers to renderer process
 contextBridge.exposeInMainWorld('zutron', handlers);
+
+// declare handlers type
+declare global {
+  interface Window {
+    zutron: Handlers<AppState>;
+  }
+}
 ```
 
 #### Create hook in Renderer process
 
-Finally, in the renderer process you will need to create the `useStore` hook:
+Finally, in the renderer process you will need to create the `useStore` hook. This requires the `window.zutron` object exposed by the preload bridge:
 
-`/renderer/hooks/useStore.ts`
-
-```ts
+```ts annotate
+// `src/renderer/hooks/useStore.ts`
 import { createUseStore } from 'zutron';
-import { AppState } from '../../features/index.js';
+import type { AppState } from '../../features/index.js';
 
 export const useStore = createUseStore<AppState>(window.zutron);
 ```
 
-#### Accessing the Store in the Renderer Process
+You should now be ready to start using Zutron. See the below pages for how to access the store and dispatch actions in the different Electron processes:
 
-In the renderer process you should now be able to access the store via the `useStore` hook:
-
-```ts
-const counter = useStore((x) => x.counter);
-```
-
-You can use the `useDispatch` hook to dispatch actions and thunks to the store:
-
-```ts
-const dispatch = useDispatch(window.zutron);
-const onIncrement = () => dispatch('COUNTER:INCREMENT');
-```
-
-If you are using a thunk, the dispatch function and the store are passed in:
-
-```ts
-const onIncrementThunk = (getState, dispatch) => {
-  // do something based on the store
-  dispatch('COUNTER:INCREMENT');
-};
-const dispatch = useDispatch(window.zutron);
-const onIncrement = () => dispatch(onIncrementThunk);
-```
-
-#### Accessing the Store in the Main Process
-
-In the main process you can access the store object directly, any updates will be propagated to the renderer process.
-
-The main process dispatch helper can be used to dispatch actions and thunks, in a similar way to the `useDispatch` hook in the renderer process:
-
-```ts
-import { createDispatch } from 'zutron/main';
-
-dispatch = createDispatch(store);
-
-dispatch('COUNTER:INCREMENT');
-```
-
-By default the main process dispatch helper assumes your store handler functions are located on the store object.
-
-If you keep your store handler functions separate from the store then you will need to pass them in as an option:
-
-```ts
-import { handlers as counterHandlers } from '../../features/counter/index.js';
-import { handlers as uiHandlers } from '../../features/ui/index.js';
-
-const actionHandlers = (store: AppStore, initialState: AppState) => ({
-  ...counterHandlers(store),
-  ...uiHandlers(store),
-  'STORE:RESET': () => store.setState(initialState, true),
-});
-
-dispatch = createDispatch(store, { handlers: actionHandlers(store, initialState) });
-```
-
-Alternatively if you are using Redux-style reducers you will need to pass the root reducer in as an option:
-
-```ts
-import { reducer as counterReducer } from '../../features/counter/index.js';
-import { reducer as uiReducer } from '../../features/ui/index.js';
-
-const rootReducer = (state, action) => {
-  switch (action.type) {
-    case types.counter:
-      return counterReducer(state.counter, action);
-    case types.ui:
-      return uiReducer(state.ui, action);
-  }
-};
-
-dispatch = createDispatch(store, { reducer: rootReducer });
-```
+[Usage - main process](./usage-main-process.md)
+[Usage - renderer process](./usage-renderer-process.md)

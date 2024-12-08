@@ -1,13 +1,13 @@
-import { type BrowserWindow, type WebContentsView, type BrowserView, ipcMain, type IpcMainEvent } from 'electron';
+import { ipcMain, type IpcMainEvent } from 'electron';
 import type { StoreApi } from 'zustand';
 
-import type { Action, AnyState, Handler, MainZustandBridgeOpts, Thunk } from './index.js';
+import type { Action, AnyState, Handler, MainZustandBridgeOpts, Thunk, WebContentsWrapper } from './types.js';
 
 export type MainZustandBridge = <State extends AnyState, Store extends StoreApi<State>>(
   store: Store,
-  windows: (BrowserWindow | WebContentsView | BrowserView)[],
+  windows: WebContentsWrapper[],
   options?: MainZustandBridgeOpts<State>,
-) => { unsubscribe: () => void };
+) => { unsubscribe: () => void; subscribe: (wrappers: WebContentsWrapper[]) => void };
 
 function sanitizeState(state: AnyState) {
   // strip handlers from the state object
@@ -39,7 +39,7 @@ export const createDispatch =
       // reducer case - action is passed to the reducer
       const reducer = options.reducer;
       const reducerAction = { type: actionType, payload: actionPayload };
-      store.setState((state) => reducer(state, reducerAction));
+      store.setState((state: State) => reducer(state, reducerAction));
     } else {
       // default case - handlers attached to store
       const state = store.getState();
@@ -51,16 +51,22 @@ export const createDispatch =
     }
   };
 
-export const mainZustandBridge: MainZustandBridge = (store, windows, options) => {
-  const dispatch = createDispatch(store, options);
-  ipcMain.on('subscribe', async (state: unknown) => {
-    for (const window of windows) {
-      if (window.webContents.isDestroyed()) {
+const subscribe = (wrappers: WebContentsWrapper[]) => {
+  ipcMain.on('subscribe', (state: unknown) => {
+    for (const wrapper of wrappers) {
+      const webContents = wrapper?.webContents;
+      if (webContents?.isDestroyed()) {
         break;
       }
-      window?.webContents?.send('subscribe', sanitizeState(state as AnyState));
+      webContents?.send('subscribe', sanitizeState(state as AnyState));
     }
   });
+};
+
+export const mainZustandBridge: MainZustandBridge = (store, webContentsWrappers, options) => {
+  const dispatch = createDispatch(store, options);
+
+  subscribe(webContentsWrappers);
   ipcMain.on('dispatch', (_event: IpcMainEvent, action: string | Action, payload?: unknown) =>
     dispatch(action, payload),
   );
@@ -68,7 +74,7 @@ export const mainZustandBridge: MainZustandBridge = (store, windows, options) =>
     const state = store.getState();
     return sanitizeState(state);
   });
-  const unsubscribe = store.subscribe((state) => ipcMain.emit('subscribe', state));
+  const unsubscribe = store.subscribe((state: unknown) => ipcMain.emit('subscribe', state));
 
-  return { unsubscribe };
+  return { unsubscribe, subscribe };
 };

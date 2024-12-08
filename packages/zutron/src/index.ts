@@ -1,8 +1,7 @@
 import { useStore, type StoreApi } from 'zustand';
 import { createStore as createZustandStore } from 'zustand/vanilla';
 
-import type { AnyState, Handlers } from './index.js';
-import type { Action, Thunk } from './types.js';
+import type { Action, Thunk, AnyState, Handlers } from './types.js';
 
 type ExtractState<S> = S extends {
   getState: () => infer T;

@@ -10,7 +10,7 @@ vi.mock('electron', () => ({
   },
 }));
 
-let { preloadZustandBridge } = await import('../src/preload.js');
+const { preloadZustandBridge } = await import('../src/preload.js');
 
 describe('preloadZustandBridge', () => {
   it('should return the expected handlers', () => {

@@ -1,8 +1,10 @@
 import { type BrowserWindow, Menu, Tray, app, nativeImage } from 'electron';
 import { createDispatch } from 'zutron/main';
+
 import trayIconFile from '../../../../../resources/trayIcon.png';
 
-import type { Handlers, State, Store } from '../../features/index.js';
+import type { Store } from '../store.js';
+import type { Handlers, AppState } from '../../features/index.js';
 
 const trayIcon = nativeImage.createFromDataURL(trayIconFile).resize({
   width: 18,
@@ -14,7 +16,7 @@ class SystemTray {
   private electronTray?: Tray;
   private window?: BrowserWindow;
 
-  private update = (state: State) => {
+  private update = (state: AppState) => {
     if (!this.dispatch) {
       return;
     }
@@ -57,7 +59,7 @@ class SystemTray {
 
   public init = (store: Store, window: BrowserWindow, actionHandlers: Handlers) => {
     this.window = window;
-    this.dispatch = createDispatch<State, Store>(store, { handlers: actionHandlers });
+    this.dispatch = createDispatch<AppState, Store>(store, { handlers: actionHandlers });
     this.update(store.getState());
     store.subscribe(() => this.update(store.getState()));
   };
