@@ -1,3 +1,17 @@
+# [0.8.0](https://github.com/goosewobbler/zutron/compare/v0.7.0...v0.8.0) (2024-12-11)
+
+
+### Bug Fixes
+
+* **types:** add subscribe to bridge type ([4d329cd](https://github.com/goosewobbler/zutron/commit/4d329cdd6d8754cd2b253689515a67f6bb1092d0))
+
+
+### Features
+
+* support windows created at runtime ([3ad36f0](https://github.com/goosewobbler/zutron/commit/3ad36f0fac3f94449252742034aca4c1f05284c6))
+
+
+
 # [0.7.0](https://github.com/goosewobbler/zutron/compare/v0.7.0-next.0...v0.7.0) (2024-12-06)
 
 
