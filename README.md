@@ -41,16 +41,18 @@ Behind the scenes, Zutron creates an additional Zustand store in each renderer p
   <img alt="reduxtron hero image" src="./resources/zutron-app-architecture-light.png"/>
 </picture>
 
-Actions from the renderer process are dispatched across IPC to the main process store, which handles them and updates state accordingly. Renderer process stores then receive these state updates over IPC and update themselves accordingly.
+Actions from the renderer process(es) are dispatched across IPC to the main process store, which handles them and updates the application state accordingly. Internally, the Zutron renderer process store(s) receive these state updates over IPC and update themselves accordingly.
 
-#### Accessing and Interacting with State
+#### Accessing Your Application Store
 
 - Renderer process
-  - Application state can be accessed via the `useStore` hook
-  - Actions & thunks can be dispatched via the `useDispatch` hook
+  - Application state can be accessed via the Zutron `useStore` hook
+  - Actions & thunks can be dispatched via the Zutron `useDispatch` hook
 - Main process
-  - Application state can be accessed directly in the same way you normally use Zustand
-  - Actions & thunks can be dispatched via the `dispatch` helper
+  - Application state can be accessed directly in the [same way you normally use a vanilla Zustand store](https://github.com/pmndrs/zustand/blob/5d92ad2767e6a13d94331b5b62a44c069df2dfc6/readme.md#using-zustand-without-react):
+    - Either using the Zustand vanilla API utilities: `getState`, `setState`, `subscribe`, `getInitialState`
+    - Or via the Zustand `useStore` hook
+  - Actions & thunks can be dispatched via the Zutron `dispatch` helper
 
 ### Getting Started
 
