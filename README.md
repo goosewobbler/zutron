@@ -24,14 +24,16 @@ Zutron enables a single store workflow with Zustand in Electron apps, effectivel
 ### Features
 
 - Use Zustand everywhere in your Electron app
-- Single store workflow across IPC boundary
+- Single store workflow across the IPC boundary
 - Works with the latest [Electron security recommendations](https://www.electronjs.org/docs/latest/tutorial/security#checklist-security-recommendations)
-- Supports different Zustand usage patterns
+- Supports `BrowserWindow`, `BrowserView` and `WebContentsView`
+- Integrates with windows and views created at runtime
+- Compatible with the main Zustand usage patterns
 - Handles thunks, inline actions or Redux-style action objects
 
 ### How It Works
 
-Zutron uses an additional Zustand store in the renderer process, this store is synchronized in one direction with your application store in the main process.
+Behind the scenes, Zutron creates an additional Zustand store in each renderer process.  These stores are synchronized in one direction with your application store in the main process.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./resources/zutron-app-architecture-dark.png"/>
@@ -39,15 +41,15 @@ Zutron uses an additional Zustand store in the renderer process, this store is s
   <img alt="reduxtron hero image" src="./resources/zutron-app-architecture-light.png"/>
 </picture>
 
-Actions from the renderer process are dispatched across IPC to the main process store, which handles them and updates state accordingly. The renderer store then receives these state updates over IPC and updates itself accordingly.
+Actions from the renderer process are dispatched across IPC to the main process store, which handles them and updates state accordingly. Renderer process stores then receive these state updates over IPC and update themselves accordingly.
 
-#### Accessing The Store
+#### Accessing and Interacting with State
 
 - Renderer process
-  - Store state can be accessed via the `useStore` hook
+  - Application state can be accessed via the `useStore` hook
   - Actions & thunks can be dispatched via the `useDispatch` hook
 - Main process
-  - Store state can be accessed directly in the same way you normally use Zustand
+  - Application state can be accessed directly in the same way you normally use Zustand
   - Actions & thunks can be dispatched via the `dispatch` helper
 
 ### Getting Started
