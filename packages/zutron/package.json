@@ -88,7 +88,7 @@
     "@vitest/coverage-v8": "^2.1.8",
     "jsdom": "^25.0.1",
     "react": "^19.0.0",
-    "rollup": "^4.28.1",
+    "rollup": "^4.29.1",
     "shelljs": "^0.8.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
