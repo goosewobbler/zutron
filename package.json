@@ -26,11 +26,11 @@
   "devDependencies": {
     "@turbo-version/version": "^0.8.1",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.11",
+    "lint-staged": "^15.4.3",
     "prettier": "^3.4.2",
     "shelljs": "^0.8.5",
     "tsx": "^4.19.2",
-    "turbo": "^2.3.3"
+    "turbo": "^2.3.4"
   },
   "lint-staged": {
     "**/*.{yml,json,md,ts,tsx,js}": [

@@ -26,9 +26,9 @@
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
-    "@types/node": "^22.10.2",
-    "electron": "^33.2.1",
+    "@types/node": "^22.10.10",
+    "electron": "^33.3.2",
     "read-package-up": "^11.0.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   }
 }
