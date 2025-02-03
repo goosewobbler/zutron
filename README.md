@@ -33,7 +33,7 @@ Zutron enables a single store workflow with Zustand in Electron apps, effectivel
 
 ### How It Works
 
-Behind the scenes, Zutron creates an additional Zustand store in each renderer process.  These stores are synchronized in one direction with your application store in the main process.
+Behind the scenes, Zutron creates an additional Zustand store in each renderer process. These stores are synchronized in one direction with your application store in the main process.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./resources/zutron-app-architecture-dark.png"/>
