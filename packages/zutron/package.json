@@ -83,16 +83,16 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.1.0",
+    "@testing-library/react": "^16.2.0",
     "@types/shelljs": "^0.8.15",
-    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/coverage-v8": "^2.1.9",
     "jsdom": "^25.0.1",
     "react": "^19.0.0",
-    "rollup": "^4.28.1",
+    "rollup": "^4.34.1",
     "shelljs": "^0.8.5",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2",
-    "vitest": "^2.1.8",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.9",
     "zustand": "^5.0.2"
   },
   "files": [
