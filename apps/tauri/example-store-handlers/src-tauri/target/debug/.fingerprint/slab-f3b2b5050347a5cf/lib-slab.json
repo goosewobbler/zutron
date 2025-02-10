@@ -1,0 +1,16 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"std\"]",
+  "declared_features": "[\"default\", \"serde\", \"std\"]",
+  "target": 4763227264727363656,
+  "profile": 4374887572363265115,
+  "path": 8042545919428478972,
+  "deps": [[17040352472033410869, "build_script_build", false, 13863096559584955567]],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/slab-f3b2b5050347a5cf/dep-lib-slab", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 7465571350985088609,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

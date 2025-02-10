@@ -1,0 +1,32 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"file-drop\", \"objc-exception\", \"protocol\", \"tray\"]",
+  "declared_features": "[\"default\", \"devtools\", \"dox\", \"file-drop\", \"fullscreen\", \"linux-headers\", \"objc-exception\", \"protocol\", \"tracing\", \"transparent\", \"tray\"]",
+  "target": 17065063412427829035,
+  "profile": 4374887572363265115,
+  "path": 1624558436350522126,
+  "deps": [
+    [504931904268503175, "http", false, 7437198097702087596],
+    [2027353860749527009, "build_script_build", false, 2340472227662115958],
+    [2383421297768164905, "block", false, 9365503400604437434],
+    [3834224701805404048, "objc", false, 1449258401950857906],
+    [4356746102827284261, "serde_json", false, 1024234828262079356],
+    [7780729136333935213, "libc", false, 4169237419762760578],
+    [9915385027610625454, "core_graphics", false, 2154205167567195754],
+    [10024398279966880699, "tao", false, 4360160597484743603],
+    [10959760558252810716, "once_cell", false, 14069276760421188826],
+    [11266840602298992523, "thiserror", false, 5850937665165498620],
+    [11892580040701647366, "serde", false, 16389111261202310942],
+    [16503879327010368856, "objc_id", false, 5891695985782406674],
+    [16878995859543218866, "cocoa", false, 15290423054257054144],
+    [17660065409131078231, "log", false, 9201879481511482171],
+    [18130989770956114225, "url", false, 15467223941481681004]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/wry-e294fc1fdcb59011/dep-lib-wry", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 932433607260245640,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

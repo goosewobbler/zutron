@@ -1,0 +1,28 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"compression\", \"shell-scope\"]",
+  "declared_features": "[\"compression\", \"config-json5\", \"config-toml\", \"custom-protocol\", \"isolation\", \"shell-scope\", \"tracing\"]",
+  "target": 7890680933942864499,
+  "profile": 1200860260873630964,
+  "path": 950546853246171652,
+  "deps": [
+    [1609477334247513267, "tauri_codegen", false, 11691407875557999796],
+    [13033644984628948268, "proc_macro2", false, 12500349437219622902],
+    [16133888191189175860, "quote", false, 3999132175729978984],
+    [16608321404083966915, "tauri_utils", false, 12651474155620549734],
+    [17143850428905299221, "syn", false, 2387678998072731116],
+    [17175234422038868540, "heck", false, 15225838493270901884]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/tauri-macros-c7bbfede248fe5e0/dep-lib-tauri_macros",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 17407044165407323602,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

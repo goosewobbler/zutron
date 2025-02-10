@@ -1,0 +1,29 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"compiled_data\", \"default\"]",
+  "declared_features": "[\"bidi\", \"compiled_data\", \"datagen\", \"default\", \"serde\", \"std\"]",
+  "target": 8900613446186117357,
+  "profile": 4374887572363265115,
+  "path": 17186292051394255788,
+  "deps": [
+    [3480061153148231224, "zerovec", false, 14536356032757950262],
+    [7930411610553063660, "icu_locid_transform", false, 3615807891552363083],
+    [8504072792153679702, "displaydoc", false, 4519525551425557220],
+    [10012601415778819991, "icu_properties_data", false, 11340961678322610942],
+    [12803065501970725628, "icu_collections", false, 7956798005914396645],
+    [14522427251117899957, "icu_provider", false, 4000603037863057703],
+    [16292488701080683564, "tinystr", false, 2546438065244921414]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/icu_properties-e819ed9dbe791999/dep-lib-icu_properties",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 16030968302936901460,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

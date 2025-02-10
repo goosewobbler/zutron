@@ -1,0 +1,24 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"link\"]",
+  "declared_features": "[\"chrono\", \"default\", \"link\", \"mac_os_10_7_support\", \"mac_os_10_8_features\", \"uuid\", \"with-chrono\", \"with-uuid\"]",
+  "target": 4980102765920638203,
+  "profile": 4374887572363265115,
+  "path": 17709172269910717039,
+  "deps": [
+    [3312287871863835638, "core_foundation_sys", false, 15760927336899647648],
+    [7780729136333935213, "libc", false, 4169237419762760578]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/core-foundation-cc9b7edd0ada1552/dep-lib-core_foundation",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 7246173313922784557,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

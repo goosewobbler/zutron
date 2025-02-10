@@ -1,0 +1,31 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"macros\"]",
+  "declared_features": "[\"bench\", \"datagen\", \"deserialize_bincode_1\", \"deserialize_json\", \"deserialize_postcard_1\", \"experimental\", \"log_error_context\", \"logging\", \"macros\", \"serde\", \"std\", \"sync\"]",
+  "target": 3723226840662558498,
+  "profile": 4374887572363265115,
+  "path": 8617447800042359828,
+  "deps": [
+    [3480061153148231224, "zerovec", false, 14536356032757950262],
+    [3761938371373725504, "yoke", false, 10936747025030659207],
+    [5966876017900078200, "writeable", false, 11203098480464119854],
+    [6541247187761110899, "icu_locid", false, 7027640483730285433],
+    [7242305376146116936, "stable_deref_trait", false, 9777515192651125418],
+    [8504072792153679702, "displaydoc", false, 4519525551425557220],
+    [12957551540695691469, "zerofrom", false, 10977665596297068294],
+    [13360534606132939343, "icu_provider_macros", false, 8317654080392538814],
+    [16292488701080683564, "tinystr", false, 2546438065244921414]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/icu_provider-fc48b1407738f095/dep-lib-icu_provider",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 8032015905158365512,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

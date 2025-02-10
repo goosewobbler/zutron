@@ -1,0 +1,24 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"async\", \"default\", \"serde\", \"z\", \"zbus\"]",
+  "declared_features": "[\"async\", \"chrono\", \"d\", \"d_vendored\", \"dbus\", \"debug_namespace\", \"default\", \"env_logger\", \"image\", \"images\", \"lazy_static\", \"serde\", \"z\", \"zbus\"]",
+  "target": 12710826488369323768,
+  "profile": 4374887572363265115,
+  "path": 16238314987910867468,
+  "deps": [
+    [509169029968948458, "futures_lite", false, 16406091380581136575],
+    [6027211976777761124, "mac_notification_sys", false, 13938237197417826949]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/notify-rust-a202756a76e6a83a/dep-lib-notify_rust",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 12631321221075435003,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

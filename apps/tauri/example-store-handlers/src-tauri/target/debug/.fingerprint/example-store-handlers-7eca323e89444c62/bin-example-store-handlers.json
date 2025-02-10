@@ -1,0 +1,27 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"custom-protocol\"]",
+  "target": 264452637764884671,
+  "profile": 14453530908159220714,
+  "path": 10602529704205407992,
+  "deps": [
+    [4356746102827284261, "serde_json", false, 1024234828262079356],
+    [6963306149152733639, "zuri", false, 3575857995939476961],
+    [11892580040701647366, "serde", false, 16389111261202310942],
+    [14330186606587283956, "tauri", false, 4361364882276091533],
+    [17667517688279393187, "build_script_build", false, 8662613554322250889]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/example-store-handlers-7eca323e89444c62/dep-bin-example-store-handlers",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 10605904394600822863,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

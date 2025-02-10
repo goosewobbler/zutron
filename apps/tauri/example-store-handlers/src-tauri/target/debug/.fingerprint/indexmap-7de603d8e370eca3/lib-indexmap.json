@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"arbitrary\", \"quickcheck\", \"rayon\", \"rustc-rayon\", \"serde\", \"serde-1\", \"std\", \"test_debug\", \"test_low_transition_point\"]",
+  "target": 11591081615636158202,
+  "profile": 1200860260873630964,
+  "path": 2539760992368834664,
+  "deps": [
+    [9413012258834587937, "build_script_build", false, 2344767380325048752],
+    [17892255621367727343, "hashbrown", false, 280545469559274874]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": { "dep_info": "debug/.fingerprint/indexmap-7de603d8e370eca3/dep-lib-indexmap", "checksum": false }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 17706083020874861743,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

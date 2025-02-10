@@ -1,0 +1,18 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"std\"]",
+  "declared_features": "[\"default\", \"std\"]",
+  "target": 11140668626823251096,
+  "profile": 13491384476653609468,
+  "path": 12185692212167418825,
+  "deps": [[4187969932272186417, "build_script_build", false, 17429050688111159165]],
+  "local": [
+    {
+      "CheckDepInfo": { "dep_info": "debug/.fingerprint/httparse-606488601ed340a5/dep-lib-httparse", "checksum": false }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 2528502927445155352,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

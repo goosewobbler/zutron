@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"std\"]",
+  "declared_features": "[\"default\", \"std\", \"uncased\", \"unicase\"]",
+  "target": 13560813680439532046,
+  "profile": 4374887572363265115,
+  "path": 16865523789210678775,
+  "deps": [[11545919876783759613, "siphasher", false, 7098621815137582663]],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/phf_shared-b8c390ef3684015f/dep-lib-phf_shared",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 15643108052323870285,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

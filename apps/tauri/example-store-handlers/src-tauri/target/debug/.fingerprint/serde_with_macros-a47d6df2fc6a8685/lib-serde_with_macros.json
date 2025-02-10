@@ -1,0 +1,26 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"schemars_0_8\"]",
+  "target": 10885252417319112924,
+  "profile": 6732063927791438766,
+  "path": 9839681352430743576,
+  "deps": [
+    [2730833547707790158, "syn", false, 6552621311178443427],
+    [10291645741601590373, "darling", false, 17287038571757361223],
+    [13033644984628948268, "proc_macro2", false, 12500349437219622902],
+    [16133888191189175860, "quote", false, 3999132175729978984]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/serde_with_macros-a47d6df2fc6a8685/dep-lib-serde_with_macros",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 3301193373245956946,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

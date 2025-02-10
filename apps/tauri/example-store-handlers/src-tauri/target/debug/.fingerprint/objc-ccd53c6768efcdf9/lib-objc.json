@@ -1,0 +1,19 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"exception\", \"objc_exception\"]",
+  "declared_features": "[\"exception\", \"objc_exception\", \"verify_message\"]",
+  "target": 1763997782155862564,
+  "profile": 4374887572363265115,
+  "path": 7812057784299276149,
+  "deps": [
+    [189005765564586821, "malloc_buf", false, 14593020508790295393],
+    [380766477925208981, "objc_exception", false, 11603102187934261931]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/objc-ccd53c6768efcdf9/dep-lib-objc", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 1960156697801316382,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

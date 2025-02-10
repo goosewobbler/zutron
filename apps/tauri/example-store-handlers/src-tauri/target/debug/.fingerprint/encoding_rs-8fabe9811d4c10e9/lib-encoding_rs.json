@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc\", \"default\"]",
+  "declared_features": "[\"alloc\", \"any_all_workaround\", \"default\", \"fast-big5-hanzi-encode\", \"fast-gb-hanzi-encode\", \"fast-hangul-encode\", \"fast-hanja-encode\", \"fast-kanji-encode\", \"fast-legacy-encode\", \"less-slow-big5-hanzi-encode\", \"less-slow-gb-hanzi-encode\", \"less-slow-kanji-encode\", \"serde\", \"simd-accel\"]",
+  "target": 5079274106931611199,
+  "profile": 4374887572363265115,
+  "path": 17630161881816714734,
+  "deps": [[2452538001284770427, "cfg_if", false, 14409390901350339353]],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/encoding_rs-8fabe9811d4c10e9/dep-lib-encoding_rs",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 10075669053249481654,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

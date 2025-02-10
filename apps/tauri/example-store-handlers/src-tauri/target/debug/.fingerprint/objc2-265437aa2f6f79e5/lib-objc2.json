@@ -1,0 +1,19 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc\", \"default\", \"relax-void-encoding\", \"std\"]",
+  "declared_features": "[\"alloc\", \"apple\", \"catch-all\", \"default\", \"exception\", \"gnustep-1-7\", \"gnustep-1-8\", \"gnustep-1-9\", \"gnustep-2-0\", \"gnustep-2-1\", \"malloc\", \"malloc_buf\", \"objc2-proc-macros\", \"relax-sign-encoding\", \"relax-void-encoding\", \"std\", \"unstable-apple-new\", \"unstable-autoreleasesafe\", \"unstable-c-unwind\", \"unstable-compiler-rt\", \"unstable-msg-send-always-comma\", \"unstable-static-class\", \"unstable-static-class-inlined\", \"unstable-static-sel\", \"unstable-static-sel-inlined\", \"verify\"]",
+  "target": 6324922758930335396,
+  "profile": 2961856336783005890,
+  "path": 4123721918427025121,
+  "deps": [
+    [864227345702697037, "objc_sys", false, 7175646801636404544],
+    [12714526219795886977, "objc2_encode", false, 3516407826634346541]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/objc2-265437aa2f6f79e5/dep-lib-objc2", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 8137929238543678771,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

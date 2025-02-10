@@ -1,0 +1,22 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc\", \"default\", \"getrandom\", \"getrandom_package\", \"libc\", \"rand_pcg\", \"small_rng\", \"std\"]",
+  "declared_features": "[\"alloc\", \"default\", \"getrandom\", \"getrandom_package\", \"libc\", \"log\", \"nightly\", \"packed_simd\", \"rand_pcg\", \"serde1\", \"simd_support\", \"small_rng\", \"std\", \"stdweb\", \"wasm-bindgen\"]",
+  "target": 721237385257707553,
+  "profile": 1200860260873630964,
+  "path": 8017309075546019207,
+  "deps": [
+    [3045318065146905707, "rand_pcg", false, 6345450333442122911],
+    [6453573393678185459, "getrandom_package", false, 15760554571747821267],
+    [7780729136333935213, "libc", false, 7256915870424238557],
+    [11761531122794857361, "rand_core", false, 1984349243054948065],
+    [15629295216311830669, "rand_chacha", false, 1504953838108007122]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/rand-4d160ac521c3de46/dep-lib-rand", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 7119169968661360791,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

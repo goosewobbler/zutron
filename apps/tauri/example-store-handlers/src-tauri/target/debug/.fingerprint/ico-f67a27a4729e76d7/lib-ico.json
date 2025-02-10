@@ -1,0 +1,19 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"serde\"]",
+  "target": 16654636710797251674,
+  "profile": 1200860260873630964,
+  "path": 7991009000649729644,
+  "deps": [
+    [8926101378076943148, "byteorder", false, 3045918816420987187],
+    [9089814594820591935, "png", false, 17238675364896527069]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/ico-f67a27a4729e76d7/dep-lib-ico", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 12761612835520651345,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

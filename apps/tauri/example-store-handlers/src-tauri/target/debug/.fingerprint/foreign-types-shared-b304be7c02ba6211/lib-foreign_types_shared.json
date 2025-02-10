@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 17145936342662618331,
+  "profile": 4374887572363265115,
+  "path": 15874021500560124852,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/foreign-types-shared-b304be7c02ba6211/dep-lib-foreign_types_shared",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 9487440287552878973,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

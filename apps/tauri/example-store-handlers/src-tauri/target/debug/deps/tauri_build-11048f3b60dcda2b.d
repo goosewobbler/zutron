@@ -1,0 +1,10 @@
+/Users/sam/Workspace/zutron/apps/tauri/example-store-handlers/src-tauri/target/debug/deps/libtauri_build-11048f3b60dcda2b.rmeta: /Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/lib.rs /Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/allowlist.rs /Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/static_vcruntime.rs /Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/window-app-manifest.xml
+
+/Users/sam/Workspace/zutron/apps/tauri/example-store-handlers/src-tauri/target/debug/deps/libtauri_build-11048f3b60dcda2b.rlib: /Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/lib.rs /Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/allowlist.rs /Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/static_vcruntime.rs /Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/window-app-manifest.xml
+
+/Users/sam/Workspace/zutron/apps/tauri/example-store-handlers/src-tauri/target/debug/deps/tauri_build-11048f3b60dcda2b.d: /Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/lib.rs /Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/allowlist.rs /Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/static_vcruntime.rs /Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/window-app-manifest.xml
+
+/Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/lib.rs:
+/Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/allowlist.rs:
+/Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/static_vcruntime.rs:
+/Users/sam/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-build-1.5.6/src/window-app-manifest.xml:

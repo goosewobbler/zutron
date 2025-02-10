@@ -1,0 +1,24 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 14893500851544839004,
+  "profile": 1200860260873630964,
+  "path": 2560015147262207845,
+  "deps": [
+    [8905407422723568355, "toml", false, 9229608391360777153],
+    [11892580040701647366, "serde", false, 16389111261202310942]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/cargo_toml-97626e7506048b39/dep-lib-cargo_toml",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 3476936854388853825,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

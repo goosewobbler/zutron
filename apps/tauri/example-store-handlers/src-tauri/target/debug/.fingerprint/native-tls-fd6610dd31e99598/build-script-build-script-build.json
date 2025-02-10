@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"alpn\", \"vendored\"]",
+  "target": 6423576478976419116,
+  "profile": 1200860260873630964,
+  "path": 3664342738199054168,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/native-tls-fd6610dd31e99598/dep-build-script-build-script-build",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 12368333809736011898,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

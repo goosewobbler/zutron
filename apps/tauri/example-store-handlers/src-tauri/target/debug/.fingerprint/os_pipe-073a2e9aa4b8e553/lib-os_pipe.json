@@ -1,0 +1,16 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"io_safety\"]",
+  "target": 10650420276109618988,
+  "profile": 4374887572363265115,
+  "path": 8179582297650938201,
+  "deps": [[7780729136333935213, "libc", false, 4169237419762760578]],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/os_pipe-073a2e9aa4b8e553/dep-lib-os_pipe", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 15054902757183822948,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

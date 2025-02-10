@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 13708040221295731214,
+  "profile": 1200860260873630964,
+  "path": 4825058224360074390,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/proc-macro-hack-8e4db9afea0ecaa1/dep-build-script-build-script-build",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 10438225366633365275,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

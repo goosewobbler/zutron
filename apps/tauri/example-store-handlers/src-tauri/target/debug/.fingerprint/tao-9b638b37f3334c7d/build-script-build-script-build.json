@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"dirs-next\", \"libappindicator\", \"serde\", \"tray\"]",
+  "declared_features": "[\"default\", \"dirs-next\", \"dox\", \"libappindicator\", \"serde\", \"tray\"]",
+  "target": 9652763411108993936,
+  "profile": 1200860260873630964,
+  "path": 9379705418549351682,
+  "deps": [[5646261382688832455, "cc", false, 16703584801096028720]],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/tao-9b638b37f3334c7d/dep-build-script-build-script-build",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 293509135375012715,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

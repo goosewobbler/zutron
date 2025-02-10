@@ -1,0 +1,22 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"core-graphics\", \"default\", \"image\", \"image-data\", \"wayland-data-control\", \"windows-sys\", \"wl-clipboard-rs\"]",
+  "declared_features": "[\"core-graphics\", \"default\", \"image\", \"image-data\", \"wayland-data-control\", \"windows-sys\", \"wl-clipboard-rs\"]",
+  "target": 7324339788004122060,
+  "profile": 4374887572363265115,
+  "path": 5507329102023276736,
+  "deps": [
+    [2243263343627118607, "objc2_foundation", false, 9481775322771729246],
+    [5290010148881047406, "core_graphics", false, 8086879945252048072],
+    [7206650147502319415, "image", false, 7655871983600806239],
+    [15790541644371929531, "objc2_app_kit", false, 18106088540970548313],
+    [16833886924443886794, "objc2", false, 2074328592173759336]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/arboard-c070f642472abccf/dep-lib-arboard", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 17520388171383811844,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

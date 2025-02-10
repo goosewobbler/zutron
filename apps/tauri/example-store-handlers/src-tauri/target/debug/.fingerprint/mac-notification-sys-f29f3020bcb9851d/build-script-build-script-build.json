@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 13708040221295731214,
+  "profile": 1200860260873630964,
+  "path": 14067950410086613470,
+  "deps": [[5646261382688832455, "cc", false, 16703584801096028720]],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/mac-notification-sys-f29f3020bcb9851d/dep-build-script-build-script-build",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 12069592240133773016,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

@@ -1,0 +1,25 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 4213776409009851355,
+  "profile": 5099103134558915944,
+  "path": 11047639585737465265,
+  "deps": [
+    [2730833547707790158, "syn", false, 6552621311178443427],
+    [13033644984628948268, "proc_macro2", false, 12500349437219622902],
+    [16133888191189175860, "quote", false, 3999132175729978984]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/futures-macro-7df11cf4e264908e/dep-lib-futures_macro",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 12515890344935771724,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

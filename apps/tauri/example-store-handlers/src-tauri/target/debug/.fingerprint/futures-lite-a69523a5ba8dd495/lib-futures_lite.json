@@ -1,0 +1,27 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc\", \"default\", \"fastrand\", \"futures-io\", \"parking\", \"race\", \"std\"]",
+  "declared_features": "[\"alloc\", \"default\", \"fastrand\", \"futures-io\", \"memchr\", \"parking\", \"race\", \"std\"]",
+  "target": 12411388383312265630,
+  "profile": 4374887572363265115,
+  "path": 4247006263477250026,
+  "deps": [
+    [461436706529125561, "futures_io", false, 14209612202426079472],
+    [2636640775433746574, "fastrand", false, 14131106842074833619],
+    [7586717487850134021, "parking", false, 4123224650106994687],
+    [9396302785578940539, "futures_core", false, 6592794481725520617],
+    [11809678037142197677, "pin_project_lite", false, 16199754266490564238]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/futures-lite-a69523a5ba8dd495/dep-lib-futures_lite",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 13569866424893301200,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

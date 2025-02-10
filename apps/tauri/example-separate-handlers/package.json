@@ -1,0 +1,38 @@
+{
+  "name": "zutron-example-separate-handlers",
+  "version": "0.0.1",
+  "description": "An application demonstrating the use of Zutron with action handlers which are separate from the Zustand store",
+  "main": "./out/main/index.js",
+  "type": "module",
+  "author": "goosewobbler",
+  "homepage": "https://github.com/goosewobbler/zutron",
+  "scripts": {
+    "clean": "pnpm clean:dist && pnpx shx rm -rf ./node_modules pnpm-lock.yaml",
+    "clean:dist": "pnpm dlx shx rm -rf ./dist && pnpm dlx shx mkdir -p ./dist",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
+    "typecheck": "pnpm run typecheck:node && pnpm run typecheck:web",
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev",
+    "build": "pnpm run typecheck && electron-vite build && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.0",
+    "zutron": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.2",
+    "electron": "^32.1.2",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^2.3.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9",
+    "wdio-electron-service": "^7.1.0"
+  }
+}

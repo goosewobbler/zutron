@@ -1,0 +1,28 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"strsim\", \"suggestions\"]",
+  "declared_features": "[\"diagnostics\", \"strsim\", \"suggestions\"]",
+  "target": 13444210439248059332,
+  "profile": 1200860260873630964,
+  "path": 11188110610833943322,
+  "deps": [
+    [478738622736329307, "ident_case", false, 3532385640204011420],
+    [967775003968733193, "strsim", false, 18024622524663507838],
+    [2730833547707790158, "syn", false, 6552621311178443427],
+    [13033644984628948268, "proc_macro2", false, 12500349437219622902],
+    [13777895877762110459, "fnv", false, 13523441212066602857],
+    [16133888191189175860, "quote", false, 3999132175729978984]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/darling_core-9c495b2cf1a273b1/dep-lib-darling_core",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 7945475012298733481,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

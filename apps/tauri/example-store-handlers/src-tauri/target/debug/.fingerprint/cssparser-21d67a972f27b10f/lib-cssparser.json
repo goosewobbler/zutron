@@ -1,0 +1,29 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"bench\", \"dummy_match_byte\", \"serde\"]",
+  "target": 18000408829319245263,
+  "profile": 4374887572363265115,
+  "path": 11629354441845204944,
+  "deps": [
+    [2553288825122955103, "dtoa_short", false, 5943922104771213628],
+    [5432171722376929610, "phf", false, 6238285056943953129],
+    [5755676749961639416, "build_script_build", false, 704893510360731824],
+    [7148353794119508666, "itoa", false, 15502760618357801833],
+    [12160221301385064308, "smallvec", false, 11071539034891418054],
+    [14303878626292486307, "matches", false, 8417242595298049815],
+    [14466666240049065297, "cssparser_macros", false, 7049560091086284473]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/cssparser-21d67a972f27b10f/dep-lib-cssparser",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 3840102035251444121,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"default\", \"nightly_aarch64_neon\", \"platform_independent\", \"rayon\"]",
+  "target": 2996113555745636131,
+  "profile": 4374887572363265115,
+  "path": 6614967892695891744,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/jpeg-decoder-b7103702e0a16bc3/dep-lib-jpeg_decoder",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 2088412237121787053,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

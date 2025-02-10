@@ -1,0 +1,18 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"serde\", \"serde1\"]",
+  "target": 4575274549632096231,
+  "profile": 1200860260873630964,
+  "path": 16952713478330372621,
+  "deps": [[11761531122794857361, "rand_core", false, 1984349243054948065]],
+  "local": [
+    {
+      "CheckDepInfo": { "dep_info": "debug/.fingerprint/rand_pcg-d433c840e7735623/dep-lib-rand_pcg", "checksum": false }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 7717619030739936105,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

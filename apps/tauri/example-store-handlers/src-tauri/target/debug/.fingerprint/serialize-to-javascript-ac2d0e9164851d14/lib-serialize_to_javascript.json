@@ -1,0 +1,25 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 9189165122740155052,
+  "profile": 4374887572363265115,
+  "path": 8022199675036494232,
+  "deps": [
+    [4356746102827284261, "serde_json", false, 1024234828262079356],
+    [10462483522967984771, "serialize_to_javascript_impl", false, 8397793912317759146],
+    [11892580040701647366, "serde", false, 16389111261202310942]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/serialize-to-javascript-ac2d0e9164851d14/dep-lib-serialize_to_javascript",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 12886833519336540432,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

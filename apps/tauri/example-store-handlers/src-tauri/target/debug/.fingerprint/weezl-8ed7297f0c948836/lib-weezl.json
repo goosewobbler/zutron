@@ -1,0 +1,16 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc\", \"default\", \"std\"]",
+  "declared_features": "[\"alloc\", \"async\", \"default\", \"futures\", \"std\"]",
+  "target": 15978229891286911175,
+  "profile": 4374887572363265115,
+  "path": 1280298970142676101,
+  "deps": [],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/weezl-8ed7297f0c948836/dep-lib-weezl", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 15803036434400541539,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"common-controls-v6\", \"default\", \"glib-sys\", \"gobject-sys\", \"gtk-sys\", \"gtk3\", \"lazy_static\"]",
+  "declared_features": "[\"ashpd\", \"common-controls-v6\", \"default\", \"file-handle-inner\", \"glib-sys\", \"gobject-sys\", \"gtk-sys\", \"gtk3\", \"lazy_static\", \"pollster\", \"urlencoding\", \"xdg-portal\"]",
+  "target": 9652763411108993936,
+  "profile": 1200860260873630964,
+  "path": 1105077523745025681,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/rfd-a6f2ba6358782ebf/dep-build-script-build-script-build",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 10153440524770444488,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

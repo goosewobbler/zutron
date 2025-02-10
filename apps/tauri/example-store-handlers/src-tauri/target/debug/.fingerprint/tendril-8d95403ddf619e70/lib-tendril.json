@@ -1,0 +1,20 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"bench\", \"encoding\", \"encoding_rs\"]",
+  "target": 15510626792098537699,
+  "profile": 4374887572363265115,
+  "path": 14042756482026377257,
+  "deps": [
+    [6388073677788589347, "utf8", false, 12997611038179852062],
+    [6624211657993732531, "mac", false, 11453610087040815492],
+    [15644146433849905922, "futf", false, 9403090353556642833]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/tendril-8d95403ddf619e70/dep-lib-tendril", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 7564229138436638565,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

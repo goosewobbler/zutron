@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"clone-impls\", \"default\", \"derive\", \"extra-traits\", \"fold\", \"full\", \"parsing\", \"printing\", \"proc-macro\", \"quote\"]",
+  "declared_features": "[\"clone-impls\", \"default\", \"derive\", \"extra-traits\", \"fold\", \"full\", \"parsing\", \"printing\", \"proc-macro\", \"quote\", \"test\", \"visit\", \"visit-mut\"]",
+  "target": 13708040221295731214,
+  "profile": 1200860260873630964,
+  "path": 10356397435121881710,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/syn-6ed67000a1b9d97d/dep-build-script-build-script-build",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 6886477143387768027,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

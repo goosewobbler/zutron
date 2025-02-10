@@ -1,0 +1,19 @@
+{
+  "appId": "com.zutron-example-reducers.app",
+  "asar": true,
+  "copyright": "goosewobbler",
+  "productName": "zutron-example-reducers",
+  "directories": {
+    "buildResources": "../../resources/build"
+  },
+  "files": ["./out/**/*"],
+  "linux": {
+    "executableName": "zutron-example-reducers",
+    "category": "Utility",
+    "target": ["AppImage"]
+  },
+  "mac": {
+    "entitlementsInherit": "build/entitlements.mac.plist",
+    "notarize": false
+  }
+}

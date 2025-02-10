@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"alloc\", \"allocator-api2\", \"compiler_builtins\", \"core\", \"default\", \"default-hasher\", \"equivalent\", \"inline-more\", \"nightly\", \"raw-entry\", \"rayon\", \"rustc-dep-of-std\", \"rustc-internal-api\", \"serde\"]",
+  "target": 16815627201824848041,
+  "profile": 4374887572363265115,
+  "path": 16032496920887230653,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/hashbrown-a522533d0388d016/dep-lib-hashbrown",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 6228333144549390726,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

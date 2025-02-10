@@ -1,0 +1,18 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 6854143673375727432,
+  "profile": 14367555354757764691,
+  "path": 15850862975870496467,
+  "deps": [[17229916178368048289, "simd_adler32", false, 9820132189683206889]],
+  "local": [
+    {
+      "CheckDepInfo": { "dep_info": "debug/.fingerprint/fdeflate-bbadb2a881f0cf29/dep-lib-fdeflate", "checksum": false }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 13663330102438508758,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

@@ -1,0 +1,18 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\"]",
+  "declared_features": "[\"compiler_builtins\", \"core\", \"default\", \"example_generated\", \"rustc-dep-of-std\"]",
+  "target": 202096439108023897,
+  "profile": 4374887572363265115,
+  "path": 7678499281278559139,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": { "dep_info": "debug/.fingerprint/bitflags-0994fd35f1fb9a65/dep-lib-bitflags", "checksum": false }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 14564035643000669268,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

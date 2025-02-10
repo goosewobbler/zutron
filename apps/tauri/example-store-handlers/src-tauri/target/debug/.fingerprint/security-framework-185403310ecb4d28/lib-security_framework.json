@@ -1,0 +1,27 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"OSX_10_10\", \"OSX_10_11\", \"OSX_10_12\", \"OSX_10_9\", \"default\"]",
+  "declared_features": "[\"OSX_10_10\", \"OSX_10_11\", \"OSX_10_12\", \"OSX_10_13\", \"OSX_10_14\", \"OSX_10_15\", \"OSX_10_9\", \"alpn\", \"default\", \"job-bless\", \"log\", \"nightly\", \"serial-number-bigint\", \"session-tickets\"]",
+  "target": 9889540735413641812,
+  "profile": 8032057800352270232,
+  "path": 5371573262862108208,
+  "deps": [
+    [832974393059384791, "security_framework_sys", false, 10208085062259823499],
+    [1005392112832666260, "bitflags", false, 16093467728229803553],
+    [3312287871863835638, "core_foundation_sys", false, 15760927336899647648],
+    [7780729136333935213, "libc", false, 4169237419762760578],
+    [18167985810105122727, "core_foundation", false, 9152455212788259467]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/security-framework-185403310ecb4d28/dep-lib-security_framework",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 3646170868712526398,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

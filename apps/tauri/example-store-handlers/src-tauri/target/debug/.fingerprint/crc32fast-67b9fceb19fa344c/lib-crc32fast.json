@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"std\"]",
+  "declared_features": "[\"default\", \"nightly\", \"std\"]",
+  "target": 3607692025207639115,
+  "profile": 4374887572363265115,
+  "path": 6068887257156289060,
+  "deps": [[2452538001284770427, "cfg_if", false, 14409390901350339353]],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/crc32fast-67b9fceb19fa344c/dep-lib-crc32fast",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 1784606463606881981,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

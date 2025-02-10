@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc\", \"default\", \"race\", \"std\"]",
+  "declared_features": "[\"alloc\", \"atomic-polyfill\", \"critical-section\", \"default\", \"parking_lot\", \"portable-atomic\", \"race\", \"std\", \"unstable\"]",
+  "target": 14133485732331724292,
+  "profile": 4374887572363265115,
+  "path": 17015517741459218265,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/once_cell-22f0a2c894e4c2c0/dep-lib-once_cell",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 14177539708254521827,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

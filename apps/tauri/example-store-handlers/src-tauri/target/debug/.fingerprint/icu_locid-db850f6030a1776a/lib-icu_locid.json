@@ -1,0 +1,27 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"zerovec\"]",
+  "declared_features": "[\"bench\", \"databake\", \"serde\", \"std\", \"zerovec\"]",
+  "target": 15149812595518269351,
+  "profile": 4374887572363265115,
+  "path": 11039316695646176789,
+  "deps": [
+    [3480061153148231224, "zerovec", false, 14536356032757950262],
+    [5705686842844732412, "litemap", false, 279336343807114164],
+    [5966876017900078200, "writeable", false, 11203098480464119854],
+    [8504072792153679702, "displaydoc", false, 4519525551425557220],
+    [16292488701080683564, "tinystr", false, 2546438065244921414]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/icu_locid-db850f6030a1776a/dep-lib-icu_locid",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 8953479248391852238,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

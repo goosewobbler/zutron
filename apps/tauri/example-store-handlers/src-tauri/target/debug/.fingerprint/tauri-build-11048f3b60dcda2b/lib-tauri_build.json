@@ -1,0 +1,33 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"codegen\", \"config-json5\", \"config-toml\", \"isolation\", \"quote\", \"tauri-codegen\"]",
+  "target": 16041980555811317082,
+  "profile": 12235710846308971355,
+  "path": 8294630165883500918,
+  "deps": [
+    [496936660758387454, "walkdir", false, 13727035361730395939],
+    [827998419318140869, "json_patch", false, 642985769649972967],
+    [1932594424988206444, "tauri_winres", false, 10709658809258828995],
+    [2110100703595099306, "anyhow", false, 9069359535295519467],
+    [4356746102827284261, "serde_json", false, 6165451831022600315],
+    [6436025211718140440, "dirs_next", false, 16746956790201542460],
+    [7549897560390875486, "cargo_toml", false, 12888991801438818886],
+    [11407970328477338819, "semver", false, 2683482213573961059],
+    [11892580040701647366, "serde", false, 16389111261202310942],
+    [16608321404083966915, "tauri_utils", false, 12651474155620549734],
+    [17175234422038868540, "heck", false, 15225838493270901884]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/tauri-build-11048f3b60dcda2b/dep-lib-tauri_build",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 5517792345451828408,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

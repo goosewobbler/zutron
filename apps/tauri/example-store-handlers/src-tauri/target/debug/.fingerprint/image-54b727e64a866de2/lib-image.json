@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"tiff\"]",
+  "declared_features": "[\"avif\", \"avif-native\", \"benchmarks\", \"bmp\", \"color_quant\", \"dds\", \"default\", \"default-formats\", \"exr\", \"ff\", \"gif\", \"hdr\", \"ico\", \"jpeg\", \"nasm\", \"png\", \"pnm\", \"qoi\", \"rayon\", \"serde\", \"tga\", \"tiff\", \"webp\"]",
+  "target": 1725941397022043246,
+  "profile": 4374887572363265115,
+  "path": 17650887570858177942,
+  "deps": [
+    [723670314588358917, "tiff", false, 8551168819393488511],
+    [2852093472810422519, "byteorder_lite", false, 12903298064137878627],
+    [8737826545137560686, "bytemuck", false, 11425850020093191277],
+    [10448766010662481490, "num_traits", false, 7375160238416835489]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/image-54b727e64a866de2/dep-lib-image", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 12979001150926246571,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

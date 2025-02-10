@@ -1,0 +1,16 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"std\"]",
+  "declared_features": "[\"default\", \"std\"]",
+  "target": 15666577102735067122,
+  "profile": 4374887572363265115,
+  "path": 14700003519313868569,
+  "deps": [[7780729136333935213, "libc", false, 4169237419762760578]],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/errno-0fd8af0268510021/dep-lib-errno", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 10194485576052114626,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

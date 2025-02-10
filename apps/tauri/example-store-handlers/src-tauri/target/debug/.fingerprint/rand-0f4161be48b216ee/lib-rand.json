@@ -1,0 +1,20 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc\", \"default\", \"getrandom\", \"libc\", \"rand_chacha\", \"small_rng\", \"std\", \"std_rng\"]",
+  "declared_features": "[\"alloc\", \"default\", \"getrandom\", \"libc\", \"log\", \"min_const_gen\", \"nightly\", \"packed_simd\", \"rand_chacha\", \"serde\", \"serde1\", \"simd_support\", \"small_rng\", \"std\", \"std_rng\"]",
+  "target": 721237385257707553,
+  "profile": 1200860260873630964,
+  "path": 13414903817921913949,
+  "deps": [
+    [1565494060434293766, "rand_core", false, 12846982325577093517],
+    [7780729136333935213, "libc", false, 7256915870424238557],
+    [12017018019769837221, "rand_chacha", false, 137821091071686824]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/rand-0f4161be48b216ee/dep-lib-rand", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 16964019146302480911,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"clipboard\", \"global-shortcut\", \"system-tray\"]",
+  "declared_features": "[\"clipboard\", \"devtools\", \"global-shortcut\", \"macos-private-api\", \"system-tray\"]",
+  "target": 9652763411108993936,
+  "profile": 12235710846308971355,
+  "path": 10742084313938539975,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/tauri-runtime-1be1762ef15056ac/dep-build-script-build-script-build",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 9218288260891532604,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

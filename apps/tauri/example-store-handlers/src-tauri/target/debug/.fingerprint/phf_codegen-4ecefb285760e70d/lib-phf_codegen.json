@@ -1,0 +1,24 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 9105503748088534346,
+  "profile": 1200860260873630964,
+  "path": 2565206201258831857,
+  "deps": [
+    [3399708453466928691, "phf_shared", false, 9914631770006087746],
+    [11333815820712361524, "phf_generator", false, 4812127362379916632]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/phf_codegen-4ecefb285760e70d/dep-lib-phf_codegen",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 8002325530990422632,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

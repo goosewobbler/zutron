@@ -1,0 +1,24 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc-stdlib\", \"std\"]",
+  "declared_features": "[\"alloc-stdlib\", \"benchmark\", \"default\", \"disable-timer\", \"ffi-api\", \"pass-through-ffi-panics\", \"seccomp\", \"std\", \"unsafe\"]",
+  "target": 16405743199981073702,
+  "profile": 4374887572363265115,
+  "path": 17728804801359721515,
+  "deps": [
+    [3322804357051836355, "alloc_stdlib", false, 18399320237240419873],
+    [10972449868527073996, "alloc_no_stdlib", false, 11170095539887904817]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/brotli-decompressor-a3092ac16b02b173/dep-lib-brotli_decompressor",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 1306757984523811581,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

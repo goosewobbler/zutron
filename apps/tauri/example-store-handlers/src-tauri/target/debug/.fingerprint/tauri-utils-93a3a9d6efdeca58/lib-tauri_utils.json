@@ -1,0 +1,42 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"brotli\", \"build\", \"compression\", \"glob\", \"proc-macro2\", \"quote\", \"resources\", \"walkdir\"]",
+  "declared_features": "[\"aes-gcm\", \"brotli\", \"build\", \"compression\", \"config-json5\", \"config-toml\", \"getrandom\", \"glob\", \"isolation\", \"json5\", \"proc-macro2\", \"process-relaunch-dangerous-allow-symlink-macos\", \"quote\", \"resources\", \"schema\", \"schemars\", \"serialize-to-javascript\", \"toml\", \"walkdir\"]",
+  "target": 1741205612033448911,
+  "profile": 1200860260873630964,
+  "path": 14749975899970287156,
+  "deps": [
+    [496936660758387454, "walkdir", false, 13727035361730395939],
+    [554324495028472449, "memchr", false, 2969033121931172909],
+    [827998419318140869, "json_patch", false, 642985769649972967],
+    [2253645963862362999, "glob", false, 9117887678190770942],
+    [2486677718701085347, "phf", false, 16739143948468809903],
+    [4129041329390087719, "serde_with", false, 14163279792698337493],
+    [4356746102827284261, "serde_json", false, 6165451831022600315],
+    [5170612859023111934, "brotli", false, 6252337095823824292],
+    [7082373690783963477, "infer", false, 11572182518178203630],
+    [8678281613339888692, "dunce", false, 3647526343913583586],
+    [11266840602298992523, "thiserror", false, 5850937665165498620],
+    [11407970328477338819, "semver", false, 2683482213573961059],
+    [11892580040701647366, "serde", false, 16389111261202310942],
+    [13033644984628948268, "proc_macro2", false, 12500349437219622902],
+    [13265110353977718284, "ctor", false, 15311017043258043715],
+    [16133888191189175860, "quote", false, 3999132175729978984],
+    [17660065409131078231, "log", false, 9201879481511482171],
+    [17789887711675821174, "kuchiki", false, 12222834040058389499],
+    [17861602327718378409, "html5ever", false, 8389323699766829207],
+    [18130989770956114225, "url", false, 1491797782225891901]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/tauri-utils-93a3a9d6efdeca58/dep-lib-tauri_utils",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 17165878829782298164,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

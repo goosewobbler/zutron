@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"perf-literal\", \"std\"]",
+  "declared_features": "[\"default\", \"logging\", \"perf-literal\", \"std\"]",
+  "target": 9771195463141993919,
+  "profile": 4374887572363265115,
+  "path": 18217357721327967972,
+  "deps": [[554324495028472449, "memchr", false, 2969033121931172909]],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/aho-corasick-48ff49ab88fe3b2d/dep-lib-aho_corasick",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 13904389431191498124,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

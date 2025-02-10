@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"futures\", \"futures-core\"]",
+  "target": 3177519819036990219,
+  "profile": 4374887572363265115,
+  "path": 203674751551033634,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/sync_wrapper-fe1e6cfb435216e3/dep-lib-sync_wrapper",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 1356185930358091214,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

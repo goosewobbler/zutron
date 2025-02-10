@@ -1,0 +1,31 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"arboard\", \"clipboard\", \"global-shortcut\", \"objc-exception\", \"system-tray\"]",
+  "declared_features": "[\"arboard\", \"clipboard\", \"devtools\", \"dox\", \"global-shortcut\", \"linux-headers\", \"macos-private-api\", \"objc-exception\", \"system-tray\", \"tracing\"]",
+  "target": 1729391596725106306,
+  "profile": 4374887572363265115,
+  "path": 17034221153451273421,
+  "deps": [
+    [756405906714565089, "build_script_build", false, 5904932528005226607],
+    [969011807301096781, "raw_window_handle", false, 6012872526758577862],
+    [2027353860749527009, "wry", false, 12549412754555703794],
+    [5910892534286594076, "rand", false, 13391790789747230338],
+    [7021474950552207042, "tauri_runtime", false, 2987847491414656668],
+    [8681442477025526480, "arboard", false, 1050521948518366059],
+    [15330551083328820613, "uuid", false, 3342472480357601172],
+    [16608321404083966915, "tauri_utils", false, 3087600103168120671],
+    [16878995859543218866, "cocoa", false, 15290423054257054144]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/tauri-runtime-wry-32f400cc698e5dca/dep-lib-tauri_runtime_wry",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 11248529051320623944,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

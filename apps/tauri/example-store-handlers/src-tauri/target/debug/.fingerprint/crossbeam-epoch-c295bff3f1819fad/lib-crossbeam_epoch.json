@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc\", \"std\"]",
+  "declared_features": "[\"alloc\", \"default\", \"loom\", \"loom-crate\", \"nightly\", \"std\"]",
+  "target": 3011025219128477647,
+  "profile": 4374887572363265115,
+  "path": 5218120382314078228,
+  "deps": [[13100939403401765317, "crossbeam_utils", false, 11897028747801046754]],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/crossbeam-epoch-c295bff3f1819fad/dep-lib-crossbeam_epoch",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 8562320424510714295,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

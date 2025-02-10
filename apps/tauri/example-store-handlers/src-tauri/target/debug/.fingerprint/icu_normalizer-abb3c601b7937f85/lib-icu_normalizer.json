@@ -1,0 +1,32 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"compiled_data\", \"default\"]",
+  "declared_features": "[\"compiled_data\", \"datagen\", \"default\", \"experimental\", \"serde\", \"std\"]",
+  "target": 17928119791568162871,
+  "profile": 4374887572363265115,
+  "path": 1246126179723799462,
+  "deps": [
+    [1469744338480991000, "icu_properties", false, 7000573280380684931],
+    [3480061153148231224, "zerovec", false, 14536356032757950262],
+    [4778193117888741322, "utf16_iter", false, 11579901147019511772],
+    [8504072792153679702, "displaydoc", false, 4519525551425557220],
+    [9386007856071881236, "utf8_iter", false, 7147955635310356626],
+    [10157704675239722179, "write16", false, 12979679730807496826],
+    [12160221301385064308, "smallvec", false, 11071539034891418054],
+    [12803065501970725628, "icu_collections", false, 7956798005914396645],
+    [13259829447615101790, "icu_normalizer_data", false, 1848791285124527823],
+    [14522427251117899957, "icu_provider", false, 4000603037863057703]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/icu_normalizer-abb3c601b7937f85/dep-lib-icu_normalizer",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 5145179487696498757,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

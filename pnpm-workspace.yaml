@@ -4,3 +4,4 @@ packages:
   - 'apps/example-store-handlers'
   - 'e2e'
   - 'packages/zutron'
+  - 'packages/zuri'

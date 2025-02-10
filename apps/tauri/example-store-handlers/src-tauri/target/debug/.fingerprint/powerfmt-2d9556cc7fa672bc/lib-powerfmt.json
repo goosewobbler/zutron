@@ -1,0 +1,18 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"alloc\", \"default\", \"macros\", \"std\"]",
+  "target": 13463102880133296276,
+  "profile": 4374887572363265115,
+  "path": 4677042906452890984,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": { "dep_info": "debug/.fingerprint/powerfmt-2d9556cc7fa672bc/dep-lib-powerfmt", "checksum": false }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 385302600784911618,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

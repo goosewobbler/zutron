@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 6490638581677020333,
+  "profile": 4374887572363265115,
+  "path": 16615992795680371581,
+  "deps": [[1011640204279865735, "base64", false, 14797209047067897924]],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/rustls-pemfile-43a342bfd9d62740/dep-lib-rustls_pemfile",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 11546406991650438674,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

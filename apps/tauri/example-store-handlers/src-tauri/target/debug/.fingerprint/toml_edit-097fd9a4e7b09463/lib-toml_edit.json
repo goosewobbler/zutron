@@ -1,0 +1,27 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"serde\"]",
+  "declared_features": "[\"default\", \"perf\", \"serde\", \"unbounded\"]",
+  "target": 10062231346716512314,
+  "profile": 1200860260873630964,
+  "path": 3613267395265484156,
+  "deps": [
+    [8812168443749698079, "winnow", false, 2352120043589133526],
+    [11892580040701647366, "serde", false, 16389111261202310942],
+    [12188691817798108206, "toml_datetime", false, 1523826280283301700],
+    [14809082363379217029, "serde_spanned", false, 7453505829261153807],
+    [16094419002278567160, "indexmap", false, 1622165160132896108]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/toml_edit-097fd9a4e7b09463/dep-lib-toml_edit",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 17436163843096124214,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

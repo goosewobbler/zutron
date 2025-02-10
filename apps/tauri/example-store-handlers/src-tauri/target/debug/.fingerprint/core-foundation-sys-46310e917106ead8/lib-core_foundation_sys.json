@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"link\"]",
+  "declared_features": "[\"default\", \"link\", \"mac_os_10_7_support\", \"mac_os_10_8_features\"]",
+  "target": 10442440810943024584,
+  "profile": 4374887572363265115,
+  "path": 13933343477564415361,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/core-foundation-sys-46310e917106ead8/dep-lib-core_foundation_sys",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 7246173313922784557,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

@@ -1,0 +1,22 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc\", \"default\", \"formatting\", \"parsing\", \"std\"]",
+  "declared_features": "[\"alloc\", \"default\", \"formatting\", \"large-dates\", \"local-offset\", \"macros\", \"parsing\", \"quickcheck\", \"rand\", \"serde\", \"serde-human-readable\", \"serde-well-known\", \"std\", \"wasm-bindgen\"]",
+  "target": 10852307404441741244,
+  "profile": 4741432343312405365,
+  "path": 2277856431673721192,
+  "deps": [
+    [6507801280989198808, "deranged", false, 2140376227235836964],
+    [10067829124648983663, "time_core", false, 11028316855512302597],
+    [11949335968185532509, "itoa", false, 1380140111346171725],
+    [13619580657554495515, "num_conv", false, 15504211891577583603],
+    [14356560995250965263, "powerfmt", false, 12187925273281703073]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/time-4918cdb4220ce33a/dep-lib-time", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 3679670478084437657,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

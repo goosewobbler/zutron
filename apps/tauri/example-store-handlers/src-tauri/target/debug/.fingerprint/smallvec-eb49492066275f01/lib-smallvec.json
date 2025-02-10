@@ -1,0 +1,18 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"const_generics\"]",
+  "declared_features": "[\"arbitrary\", \"const_generics\", \"const_new\", \"debugger_visualizer\", \"drain_filter\", \"drain_keep_rest\", \"may_dangle\", \"serde\", \"specialization\", \"union\", \"write\"]",
+  "target": 14663377341894926548,
+  "profile": 4374887572363265115,
+  "path": 16862457921198807952,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": { "dep_info": "debug/.fingerprint/smallvec-eb49492066275f01/dep-lib-smallvec", "checksum": false }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 15767570753543272391,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

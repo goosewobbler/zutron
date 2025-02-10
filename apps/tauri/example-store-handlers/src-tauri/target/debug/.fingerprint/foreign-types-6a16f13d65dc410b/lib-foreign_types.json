@@ -1,0 +1,24 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"std\"]",
+  "declared_features": "[\"default\", \"std\"]",
+  "target": 3461274477584772464,
+  "profile": 4374887572363265115,
+  "path": 9574902442014422781,
+  "deps": [
+    [4072573146185075779, "foreign_types_macros", false, 15329587689717295487],
+    [7679179805713847555, "foreign_types_shared", false, 3110128839757291653]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/foreign-types-6a16f13d65dc410b/dep-lib-foreign_types",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 6845798330871618955,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

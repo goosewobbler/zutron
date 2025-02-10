@@ -1,0 +1,16 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"no-panic\"]",
+  "target": 6961750886148468888,
+  "profile": 4374887572363265115,
+  "path": 17771272564337756847,
+  "deps": [],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/dtoa-d5108ac638d518dc/dep-lib-dtoa", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 5318397437840504481,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

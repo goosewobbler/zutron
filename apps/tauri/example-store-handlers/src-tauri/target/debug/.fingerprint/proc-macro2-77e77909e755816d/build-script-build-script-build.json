@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"proc-macro\", \"span-locations\"]",
+  "declared_features": "[\"default\", \"nightly\", \"proc-macro\", \"span-locations\"]",
+  "target": 9652763411108993936,
+  "profile": 1200860260873630964,
+  "path": 4682975547941008329,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/proc-macro2-77e77909e755816d/dep-build-script-build-script-build",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 7635439851376710101,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

@@ -1,0 +1,27 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 3843168044380132615,
+  "profile": 4374887572363265115,
+  "path": 2175679911281973569,
+  "deps": [
+    [4055493213148813903, "time", false, 2464054200118569274],
+    [6027211976777761124, "build_script_build", false, 11689501398875592384],
+    [6436025211718140440, "dirs_next", false, 8593029592780622643],
+    [11928033556374754179, "objc_foundation", false, 12229415407553467559],
+    [16503879327010368856, "objc_id", false, 5891695985782406674]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/mac-notification-sys-08ad0b4ce126e5d2/dep-lib-mac_notification_sys",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 12069592240133773016,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

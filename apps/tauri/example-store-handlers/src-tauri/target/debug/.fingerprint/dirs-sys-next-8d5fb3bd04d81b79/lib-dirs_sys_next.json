@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 9350849959722373691,
+  "profile": 4374887572363265115,
+  "path": 15170844649981661408,
+  "deps": [[7780729136333935213, "libc", false, 4169237419762760578]],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/dirs-sys-next-8d5fb3bd04d81b79/dep-lib-dirs_sys_next",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 2869096498717929019,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

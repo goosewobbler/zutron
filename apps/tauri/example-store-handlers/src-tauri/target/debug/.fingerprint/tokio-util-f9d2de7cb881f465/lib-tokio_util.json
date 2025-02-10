@@ -1,0 +1,27 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"codec\", \"default\", \"io\"]",
+  "declared_features": "[\"__docs_rs\", \"codec\", \"compat\", \"default\", \"full\", \"futures-io\", \"futures-util\", \"hashbrown\", \"io\", \"io-util\", \"net\", \"rt\", \"slab\", \"time\", \"tracing\"]",
+  "target": 3090568825783505888,
+  "profile": 4374887572363265115,
+  "path": 10170735371559255807,
+  "deps": [
+    [5610835587450752656, "tokio", false, 1591475598163880060],
+    [9396302785578940539, "futures_core", false, 6592794481725520617],
+    [11289432439818403777, "futures_sink", false, 12347285787146336752],
+    [11809678037142197677, "pin_project_lite", false, 16199754266490564238],
+    [12440384873867622747, "bytes", false, 10824565283856811403]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/tokio-util-f9d2de7cb881f465/dep-lib-tokio_util",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 5856372730329936516,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

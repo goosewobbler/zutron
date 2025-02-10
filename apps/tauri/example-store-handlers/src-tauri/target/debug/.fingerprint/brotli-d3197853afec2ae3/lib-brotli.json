@@ -1,0 +1,20 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc-stdlib\", \"default\", \"std\"]",
+  "declared_features": "[\"alloc-stdlib\", \"benchmark\", \"billing\", \"default\", \"disable-timer\", \"disallow_large_window_size\", \"external-literal-probability\", \"ffi-api\", \"float64\", \"floating_point_context_mixing\", \"no-stdlib-ffi-binding\", \"pass-through-ffi-panics\", \"seccomp\", \"sha2\", \"simd\", \"std\", \"validation\", \"vector_scratch_space\"]",
+  "target": 4417366540092514780,
+  "profile": 4374887572363265115,
+  "path": 6680961004387045805,
+  "deps": [
+    [3322804357051836355, "alloc_stdlib", false, 18399320237240419873],
+    [10972449868527073996, "alloc_no_stdlib", false, 11170095539887904817],
+    [13238585811101642774, "brotli_decompressor", false, 910579618788974553]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/brotli-d3197853afec2ae3/dep-lib-brotli", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 10803065501731744079,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

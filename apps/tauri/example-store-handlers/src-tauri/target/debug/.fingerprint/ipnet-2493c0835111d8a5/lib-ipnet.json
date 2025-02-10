@@ -1,0 +1,16 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"std\"]",
+  "declared_features": "[\"default\", \"heapless\", \"json\", \"schemars\", \"ser_as_str\", \"serde\", \"std\"]",
+  "target": 7381549047036065778,
+  "profile": 4374887572363265115,
+  "path": 13234637008766773296,
+  "deps": [],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/ipnet-2493c0835111d8a5/dep-lib-ipnet", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 18359272829728453201,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

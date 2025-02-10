@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 12309367071495734022,
+  "profile": 4374887572363265115,
+  "path": 10332397054453527186,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/icu_normalizer_data-f9396c69c65f5213/dep-lib-icu_normalizer_data",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 1776067146455692737,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"const-generics\", \"force_unix_path_separator\", \"i128\", \"no_std\", \"scale-info\", \"scale_info\", \"strict\"]",
+  "target": 13805792297155351753,
+  "profile": 1200860260873630964,
+  "path": 10168389017673114393,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/typenum-ff8f8f87c5602340/dep-build-script-build-script-main",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 5976975242777358168,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

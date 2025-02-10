@@ -1,0 +1,20 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"xattr\"]",
+  "declared_features": "[\"default\", \"xattr\"]",
+  "target": 11202578126254661863,
+  "profile": 4374887572363265115,
+  "path": 9450690343517812641,
+  "deps": [
+    [6499587645855750771, "filetime", false, 7284825928063917259],
+    [7780729136333935213, "libc", false, 4169237419762760578],
+    [12418424633404289543, "xattr", false, 7501302699176888067]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/tar-702cea902e32a622/dep-lib-tar", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 6963150678944171705,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

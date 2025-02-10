@@ -1,0 +1,16 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"default\", \"unsupported\"]",
+  "declared_features": "[\"default\", \"unsupported\"]",
+  "target": 12762895367138093742,
+  "profile": 4374887572363265115,
+  "path": 13733476474710475775,
+  "deps": [[14467156401149784211, "rustix", false, 17095364616284346455]],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/xattr-13f6432bb1de59f8/dep-lib-xattr", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 18374553019294390035,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

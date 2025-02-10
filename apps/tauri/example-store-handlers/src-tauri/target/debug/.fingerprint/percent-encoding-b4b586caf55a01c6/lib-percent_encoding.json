@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc\", \"std\"]",
+  "declared_features": "[\"alloc\", \"default\", \"std\"]",
+  "target": 7653302949460124299,
+  "profile": 1200860260873630964,
+  "path": 13378186125586853375,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/percent-encoding-b4b586caf55a01c6/dep-lib-percent_encoding",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 7296236146002047887,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

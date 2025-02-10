@@ -1,0 +1,21 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"arboard\", \"clipboard\", \"global-shortcut\", \"objc-exception\", \"system-tray\"]",
+  "declared_features": "[\"arboard\", \"clipboard\", \"devtools\", \"dox\", \"global-shortcut\", \"linux-headers\", \"macos-private-api\", \"objc-exception\", \"system-tray\", \"tracing\"]",
+  "target": 9652763411108993936,
+  "profile": 1200860260873630964,
+  "path": 17277485942595477715,
+  "deps": [],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/tauri-runtime-wry-bf8edcdfc379c154/dep-build-script-build-script-build",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 11248529051320623944,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

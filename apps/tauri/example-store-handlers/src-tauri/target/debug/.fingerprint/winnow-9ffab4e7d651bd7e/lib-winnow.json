@@ -1,0 +1,16 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"alloc\", \"default\", \"std\"]",
+  "declared_features": "[\"alloc\", \"debug\", \"default\", \"simd\", \"std\", \"unstable-doc\", \"unstable-recover\"]",
+  "target": 5499813885258112825,
+  "profile": 13028502340002980966,
+  "path": 16230705822508352664,
+  "deps": [],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/winnow-9ffab4e7d651bd7e/dep-lib-winnow", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 7482876514514569712,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

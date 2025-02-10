@@ -1,0 +1,16 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"loom\"]",
+  "target": 10511634364278949780,
+  "profile": 4374887572363265115,
+  "path": 17799842485067498827,
+  "deps": [],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/parking-03a062d6beceaf05/dep-lib-parking", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 16521874468706744495,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

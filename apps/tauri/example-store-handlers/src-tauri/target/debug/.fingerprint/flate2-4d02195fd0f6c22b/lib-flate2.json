@@ -1,0 +1,19 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"any_impl\", \"default\", \"miniz_oxide\", \"rust_backend\"]",
+  "declared_features": "[\"any_impl\", \"any_zlib\", \"cloudflare-zlib-sys\", \"cloudflare_zlib\", \"default\", \"libz-ng-sys\", \"libz-rs-sys\", \"libz-sys\", \"miniz-sys\", \"miniz_oxide\", \"rust_backend\", \"zlib\", \"zlib-default\", \"zlib-ng\", \"zlib-ng-compat\", \"zlib-rs\"]",
+  "target": 10676753825826352750,
+  "profile": 4374887572363265115,
+  "path": 10327092583315629482,
+  "deps": [
+    [416921746892697426, "crc32fast", false, 3725922524097133932],
+    [7093860655328780164, "miniz_oxide", false, 812950198934429779]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/flate2-4d02195fd0f6c22b/dep-lib-flate2", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 1284714256429684901,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

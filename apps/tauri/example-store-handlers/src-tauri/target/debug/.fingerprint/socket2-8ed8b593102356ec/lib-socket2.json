@@ -1,0 +1,16 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[\"all\"]",
+  "declared_features": "[\"all\"]",
+  "target": 14676692776066692100,
+  "profile": 4374887572363265115,
+  "path": 17554175502236787507,
+  "deps": [[7780729136333935213, "libc", false, 4169237419762760578]],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/socket2-8ed8b593102356ec/dep-lib-socket2", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 17781447963924989270,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

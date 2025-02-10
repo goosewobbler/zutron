@@ -1,0 +1,27 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"unicase\", \"unicase_\"]",
+  "target": 4632287941847197997,
+  "profile": 1200860260873630964,
+  "path": 13709468526667165319,
+  "deps": [
+    [2730833547707790158, "syn", false, 6552621311178443427],
+    [3357600415266065800, "phf_shared", false, 9167796075262242644],
+    [13033644984628948268, "proc_macro2", false, 12500349437219622902],
+    [15706114815171440516, "phf_generator", false, 16829382830315029193],
+    [16133888191189175860, "quote", false, 3999132175729978984]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/phf_macros-009ca06d2f262de7/dep-lib-phf_macros",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 8917434783513822098,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

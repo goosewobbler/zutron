@@ -1,0 +1,19 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 12545252805102583030,
+  "profile": 4374887572363265115,
+  "path": 11427092922867424283,
+  "deps": [
+    [5951167948609045362, "debug_unreachable", false, 12938083055351272037],
+    [6624211657993732531, "mac", false, 11453610087040815492]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/futf-96550c36251f083a/dep-lib-futf", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 5811593468326326758,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

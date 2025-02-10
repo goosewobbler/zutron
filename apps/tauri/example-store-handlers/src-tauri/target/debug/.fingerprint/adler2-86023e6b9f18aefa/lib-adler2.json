@@ -1,0 +1,16 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[\"compiler_builtins\", \"core\", \"default\", \"rustc-dep-of-std\", \"std\"]",
+  "target": 4668500152293724077,
+  "profile": 4374887572363265115,
+  "path": 5689051524893764676,
+  "deps": [],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/adler2-86023e6b9f18aefa/dep-lib-adler2", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 367041603583530658,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

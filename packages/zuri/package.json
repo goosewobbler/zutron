@@ -1,0 +1,99 @@
+{
+  "name": "zuri",
+  "version": "0.4.0",
+  "description": "A streamlined state management library for Electron applications using Zustand.",
+  "author": "Sam Maister <goosewobbler@protonmail.com>",
+  "homepage": "https://github.com/goosewobbler/zutron",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "clean": "pnpm clean:dist && pnpx shx rm -rf ./node_modules pnpm-lock.yaml",
+    "clean:dist": "pnpm dlx shx rm -rf ./dist ./docs && pnpm dlx shx mkdir -p ./dist",
+    "prebuild": "pnpm clean:dist",
+    "build": "tsx ./scripts/build.ts",
+    "release": "pnpm pack && pnpm publish",
+    "test:unit": "vitest --coverage --watch=false",
+    "test:dev": "vitest --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goosewobbler/zutron.git"
+  },
+  "keywords": [
+    "zustand",
+    "electron",
+    "state-management"
+  ],
+  "exports": {
+    ".": [
+      {
+        "import": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.js"
+        },
+        "require": {
+          "types": "./dist/index.d.cts",
+          "default": "./dist/index.cjs"
+        }
+      },
+      "./dist/index.cjs"
+    ],
+    "./main": [
+      {
+        "import": {
+          "types": "./dist/main.d.ts",
+          "default": "./dist/main.js"
+        },
+        "require": {
+          "types": "./dist/main.d.cts",
+          "default": "./dist/main.cjs"
+        }
+      },
+      "./dist/main.cjs"
+    ],
+    "./preload": [
+      {
+        "import": {
+          "types": "./dist/preload.d.ts",
+          "default": "./dist/preload.js"
+        },
+        "require": {
+          "types": "./dist/preload.d.cts",
+          "default": "./dist/preload.cjs"
+        }
+      },
+      "./dist/preload.cjs"
+    ]
+  },
+  "peerDependencies": {
+    "electron": ">=12",
+    "zustand": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "electron": {
+      "optional": false
+    },
+    "zustand": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.5.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist/*",
+    "docs/*",
+    "main/*",
+    "preload/*",
+    "README.md"
+  ],
+  "dependencies": {
+    "@tauri-apps/api": "^1.6.0",
+    "zustand": "^4.0.0"
+  }
+}

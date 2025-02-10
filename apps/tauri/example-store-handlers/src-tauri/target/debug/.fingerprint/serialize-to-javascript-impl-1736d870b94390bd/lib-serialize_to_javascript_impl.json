@@ -1,0 +1,25 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 5404491666900813338,
+  "profile": 1200860260873630964,
+  "path": 14323509748479693495,
+  "deps": [
+    [2730833547707790158, "syn", false, 6552621311178443427],
+    [13033644984628948268, "proc_macro2", false, 12500349437219622902],
+    [16133888191189175860, "quote", false, 3999132175729978984]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/serialize-to-javascript-impl-1736d870b94390bd/dep-lib-serialize_to_javascript_impl",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 4405140474213604552,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

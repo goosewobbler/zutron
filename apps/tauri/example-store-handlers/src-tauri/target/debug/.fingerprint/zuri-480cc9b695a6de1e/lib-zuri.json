@@ -1,0 +1,20 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 14600838582568625698,
+  "profile": 14453530908159220714,
+  "path": 658366391281628094,
+  "deps": [
+    [4356746102827284261, "serde_json", false, 1024234828262079356],
+    [11892580040701647366, "serde", false, 16389111261202310942],
+    [14330186606587283956, "tauri", false, 4361364882276091533]
+  ],
+  "local": [
+    { "CheckDepInfo": { "dep_info": "debug/.fingerprint/zuri-480cc9b695a6de1e/dep-lib-zuri", "checksum": false } }
+  ],
+  "rustflags": [],
+  "metadata": 7797948686568424061,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}

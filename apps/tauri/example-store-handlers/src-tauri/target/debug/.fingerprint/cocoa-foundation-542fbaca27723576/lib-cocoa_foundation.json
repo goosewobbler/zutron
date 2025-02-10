@@ -1,0 +1,28 @@
+{
+  "rustc": 14069531646165011145,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 17155027186813865470,
+  "profile": 4374887572363265115,
+  "path": 1710850471106117913,
+  "deps": [
+    [1821688881936445911, "core_graphics_types", false, 16850326487678989520],
+    [2383421297768164905, "block", false, 9365503400604437434],
+    [3834224701805404048, "objc", false, 1449258401950857906],
+    [7780729136333935213, "libc", false, 4169237419762760578],
+    [14051957667571541382, "bitflags", false, 17762284129408917866],
+    [18167985810105122727, "core_foundation", false, 9152455212788259467]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "debug/.fingerprint/cocoa-foundation-542fbaca27723576/dep-lib-cocoa_foundation",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "metadata": 15065448156882580842,
+  "config": 2202906307356721367,
+  "compile_kind": 0
+}
