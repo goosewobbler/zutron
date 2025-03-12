@@ -1,3 +1,20 @@
+# ⚠️ DEPRECATED
+
+This project is no longer maintained. Please use [@zubridge/electron](https://github.com/goosewobbler/zubridge) instead, which is the direct successor to Zutron.
+
+## Migration
+
+Migrating to `@zubridge/electron` is straightforward as the API has not changed:
+
+```bash
+pnpm uninstall zutron
+pnpm install @zubridge/electron
+```
+
+Then update your imports from `zutron` to `@zubridge/electron`.
+
+---
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./resources/zutron-readme-hero-dark.png"/>
   <source media="(prefers-color-scheme: light)" srcset="./resources/zutron-readme-hero-light.png"/>
